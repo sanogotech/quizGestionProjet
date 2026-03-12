@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMP® Simulation · Examen complet 1 (extrait)</title>
+    <!-- Bootstrap 5 (version claire) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f2f5f9;
+            color: #1e293b;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quiz-panel {
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 60px -15px rgba(0,20,40,0.25);
+            overflow: hidden;
+        }
+        .header-pmp {
+            background: linear-gradient(135deg, #0B3B5C, #1B6B8F);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        .header-pmp h1 {
+            font-weight: 800;
+            font-size: 2.6rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #f0f9ff, #c7e9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subhead {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+        }
+        .badge-exam {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 60px;
+            padding: 0.4rem 1.4rem;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .progress-container {
+            background: white;
+            padding: 1.5rem 2rem 0.8rem 2rem;
+            border-bottom: 1px solid #e9edf2;
+        }
+        .progress {
+            height: 10px;
+            background-color: #e9ecef;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #0B3B5C, #2B9BC3);
+        }
+        #question-card {
+            background: white;
+            border: none;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 0 2rem 1.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 0 0 1px #e9edf2 inset;
+        }
+        .thematic-badge {
+            display: inline-block;
+            background: #e9f0f9;
+            color: #0B3B5C;
+            font-weight: 600;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #b9d7f0;
+        }
+        #question-text {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            background: #f9fcff;
+            border: 2px solid #dee7ef;
+            color: #1e293b;
+            padding: 1rem 1.8rem;
+            margin-bottom: 0.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        .option-btn:hover:not(:disabled) {
+            border-color: #1B6B8F;
+            background: #e1f0fa;
+            transform: translateY(-2px);
+        }
+        .option-btn.correct {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+            font-weight: 600;
+        }
+        .option-btn.incorrect {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+        #explanation-box {
+            background: #f1f6fc;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border-left: 8px solid;
+            transition: 0.2s;
+        }
+        .explanation-correct { border-left-color: #10b981; background: #ecfdf5; }
+        .explanation-incorrect { border-left-color: #f97316; background: #fff7ed; }
+        .tip-box {
+            background: #fff9e6;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            border: 1px dashed #fbbf24;
+        }
+        .nav-btn {
+            border-radius: 40px;
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            background: white;
+            border: 2px solid #cbd5e1;
+            color: #1e293b;
+        }
+        .nav-btn:hover {
+            background: #f1f5f9;
+        }
+        .btn-finish {
+            background: #0B3B5C;
+            border: 2px solid #0B3B5C;
+            color: white;
+        }
+        .btn-finish:hover {
+            background: #1B6B8F;
+        }
+        .modal-content {
+            border-radius: 2rem;
+            border: none;
+        }
+        .final-score {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #0B3B5C;
+        }
+        .skill-meter {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-note {
+            text-align: center;
+            color: #5f6c80;
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid #e9edf2;
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-panel">
+    <div class="header-pmp">
+        <h1><i class="fa-regular fa-clipboard"></i> PMP® Simulation · Examen 1</h1>
+        <div class="subhead">180 questions · extrait (10 premières questions)</div>
+        <div class="badge-exam"><i class="fa-regular fa-circle-check"></i> Questions p.105‑156 · réponses p.157‑202</div>
+    </div>
+
+    <!-- Configuration / démarrage (simplifié) -->
+    <div id="settings-panel" class="p-4" style="background:#f8fafc;">
+        <div class="text-center">
+            <p class="mb-3 fw-semibold">Lancez l’extrait de l’examen complet n°1 (10 questions représentatives).</p>
+            <button id="start-btn" class="btn btn-primary-custom" style="background:#0B3B5C; color:white; border:none; padding:0.8rem 2.8rem; border-radius:40px;"><i class="fa-regular fa-play"></i> Démarrer le quiz</button>
+        </div>
+    </div>
+
+    <!-- Contenu quiz (caché au départ) -->
+    <div id="quiz-content" style="display: none;">
+        <div class="progress-container">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+                <span id="question-counter" class="fw-semibold">Question 1 / 10</span>
+                <span id="score-display" class="fw-semibold">Score: 0/10</span>
+            </div>
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" style="width: 10%"></div>
+            </div>
+        </div>
+
+        <div id="question-card">
+            <div class="thematic-badge" id="thematic-badge">Simulation PMP</div>
+            <h2 id="question-text">Chargement...</h2>
+            <div id="options-container"></div>
+
+            <div id="explanation-box" class="d-none">
+                <h5 id="explanation-title"></h5>
+                <p id="explanation-text" class="mb-2"></p>
+                <div id="tip-box" class="tip-box d-none">
+                    <i class="fa-regular fa-lightbulb" style="color:#d97706;"></i> <strong>Conseil :</strong>
+                    <span id="tip-text"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center px-4 pb-4">
+            <button id="prev-btn" class="btn nav-btn" disabled><i class="fa-regular fa-arrow-left"></i> Précédent</button>
+            <button id="next-btn" class="btn nav-btn">Suivant <i class="fa-regular fa-arrow-right"></i></button>
+            <button id="finish-btn" class="btn btn-finish nav-btn d-none"><i class="fa-regular fa-flag"></i> Terminer</button>
+        </div>
+    </div>
+    <div class="footer-note">
+        <i class="fa-regular fa-circle-info"></i> Basé sur les pages 104‑202 du PDF — explications et conseils intégrés
+    </div>
+</div>
+
+<!-- Modal résultats -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa-regular fa-chart-pie me-2"></i>Résultats de l’extrait</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center mb-4">
+                    <span class="final-score" id="modal-percentage">0%</span>
+                    <p class="text-secondary"><span id="modal-correct">0</span> / <span id="modal-total">10</span> bonnes réponses</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="skill-meter">
+                            <h6><i class="fa-regular fa-brain"></i> Connaissances techniques</h6>
+                            <div class="progress"><div id="skill-tech" class="progress-bar" style="width:0%"></div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-meter">
+                            <h6><i class="fa-regular fa-compass"></i> Jugement situationnel</h6>
+                            <div class="progress"><div id="skill-sit" class="progress-bar" style="width:0%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="result-message" class="mt-4 p-3 rounded" style="background:#f1f5f9;"></div>
+                <div class="mt-3">
+                    <h6><i class="fa-regular fa-road"></i> Piste de révision</h6>
+                    <p id="roadmap-short" class="small text-secondary"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn" style="background:#0B3B5C; color:white;" id="restart-btn">Recommencer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // -------------------------------------------------------------
+    // Questions extraites de l'examen de simulation complet n°1 (pages 105-156)
+    // Seules les 10 premières sont incluses pour cet exemple.
+    // -------------------------------------------------------------
+	const questions = [
+    {
+        id: 1,
+        thematic: "Gestion d'équipe",
+        question: "Dans un projet de construction presque terminé, le chef de projet remarque des niveaux de performance variables parmi les membres de l'équipe. Afin d'assurer une amélioration continue et d'aborder les problèmes de performance de manière constructive, le chef de projet décide de fournir un retour d'information à chaque membre de l'équipe. Que doit-il faire ?",
+        options: [
+            "A) Discuter avec chaque membre de l'équipe de ce qui a bien marché et de ce qui n'a pas marché lors de l'exécution d'une tâche spécifique qu'il a récemment réalisée.",
+            "B) Rencontrer tous les membres de l'équipe et leur fournir un retour d'information général sur leur exécution globale du travail.",
+            "C) Aborder le problème de l'écart des performances avec chaque membre de l'équipe au cours de leur session régulière d'évaluation des performances.",
+            "D) Éviter de fournir un retour d'information immédiat et attendre la fin du projet pour organiser une séance sur les retours d'expérience."
+        ],
+        correct: 0,
+        explanation: "Discuter de ce qui a bien marché et de ce qui n'a pas marché lors de la réalisation d'une tâche spécifique permet d'obtenir un retour d'information clair et concret. Cette approche encourage le membre de l'équipe à examiner ses performances et l'aide à déterminer comment améliorer son travail à l'avenir.",
+        tip: "Le feedback doit être spécifique, opportun et orienté vers les comportements, pas vers la personne."
+    },
+    {
+        id: 2,
+        thematic: "Dynamique d'équipe",
+        question: "Peu après l'acquisition des ressources, le chef de projet découvre que les membres de l'équipe sont très engagés politiquement; presque toutes leurs réunions se terminent par une dispute politique. Le chef de projet décide de mettre fin à cette situation avant qu'elle ne détériore les relations entre les membres de l'équipe, en interdisant toute discussion politique. Où doit-il noter cette règle ?",
+        options: [
+            "A) Charte d'équipe",
+            "B) Charte de projet",
+            "C) Charte des ressources",
+            "D) Plan de gestion des ressources"
+        ],
+        correct: 0,
+        explanation: "La charte d'équipe est le document approprié pour inclure les règles et directives sur la manière dont les membres de l'équipe doivent interagir entre eux. Elle définit les valeurs, les règles de base et les accords de fonctionnement.",
+        tip: "La charte d'équipe est co-créée par l'équipe ; elle favorise l'appropriation des règles."
+    },
+    {
+        id: 3,
+        thematic: "Agile / Scrum",
+        question: "Un coach agile a été chargé d'aider une organisation à implémenter le cadre de travail Scrum. L'un des membres de l'équipe souhaite savoir qui doit prioriser les éléments du Backlog de sprint. Que doit être la réponse du coach agile ?",
+        options: [
+            "A) Le Scrum Master",
+            "B) Le responsable de produit",
+            "C) Les membres de l'équipe pluridisciplinaire",
+            "D) Tous ceux mentionnés ci-dessus"
+        ],
+        correct: 2,
+        explanation: "À part l'équipe de développement, personne ne doit déterminer l'ordre des stories dans le backlog de sprint. Les membres de l'équipe définissent leur propre travail au niveau des tâches et s'auto-organisent pour atteindre l'objectif du sprint.",
+        tip: "Le Product Owner gère le backlog produit, mais l'équipe décide de l'ordre dans le sprint (capacité)."
+    },
+    {
+        id: 4,
+        thematic: "Leadership / MBTI",
+        question: "Dans un projet Agile, un membre de l'équipe, très expérimenté, encadre les nouveaux mais lors des rétrospectives il défend ses opinions sans considérer d'autres points de vue. Quels traits de personnalité (MBTI) décrit-il ? (Sélectionnez deux réponses)",
+        options: [
+            "A) Introverti",
+            "B) Extraverti",
+            "C) Jugeant",
+            "D) Percevant"
+        ],
+        correct: [1, 2], // B et C
+        explanation: "Son aisance à encadrer et partager indique de l'extraversion. Son assurance et sa fermeté à défendre des solutions sans considérer d'autres perspectives reflètent un trait 'Jugeant' (décidé, structuré).",
+        tip: "Le MBTI aide à comprendre les préférences ; un leader serviteur s'adapte à chaque style.",
+        multiple: true
+    },
+    {
+        id: 5,
+        thematic: "Leadership serviteur",
+        question: "Un Scrum Master travaillant dans une agence web gère une équipe de sept membres co-localisés. Le Scrum Master a récemment remarqué qu'un développeur web senior de l'équipe semble n'est plus aussi motivé. Après discussion, le développeur explique que son partenaire a déménagé dans une autre ville pour 6 mois et qu'il souhaite le rejoindre, mais ne veut pas perdre son travail. Que doit faire le Scrum Master ?",
+        options: [
+            "A) Donner au développeur un congé sans solde de 6 mois.",
+            "B) Utiliser ses compétences en intelligence émotionnelle pour le motiver.",
+            "C) Recruter un autre développeur pour faire face au risque de départ.",
+            "D) Si la politique de l'entreprise le permet, autoriser le travail à distance pour qu'il rejoigne son partenaire."
+        ],
+        correct: 3,
+        explanation: "La meilleure solution est de permettre le travail à distance si possible. Le leadership serviteur consiste à comprendre les besoins et à trouver des solutions pour maintenir la motivation et la rétention des talents.",
+        tip: "L'intelligence émotionnelle inclut la motivation ; comprendre ce qui motive une personne aide à prendre la bonne décision."
+    },
+    {
+        id: 6,
+        thematic: "Vélocité",
+        question: "Lors d'une session rétrospective, l'équipe pluridisciplinaire a demandé une formation spécifique pour suivre les dernières tendances technologiques. Comment cette formation affecte-t-elle la vélocité de l'équipe ?",
+        options: [
+            "A) Elle aura un impact positif sur la vélocité, sans baisse de productivité à court terme.",
+            "B) Elle aura un impact positif sur la vélocité avec un déclin à court terme dû au temps consacré à la formation.",
+            "C) Elle aura un impact positif sur la vélocité avec un déclin à long terme dû à la formation continue.",
+            "D) Elle aura un impact négatif sur la vélocité avec augmentation à court terme grâce à la formation."
+        ],
+        correct: 1,
+        explanation: "La formation améliore la performance à long terme mais peut provoquer une baisse temporaire de vélocité pendant l'apprentissage. C'est un investissement.",
+        tip: "La vélocité n'est pas un objectif ; elle reflète la capacité. Une baisse temporaire pour monter en compétence est saine."
+    },
+    {
+        id: 7,
+        thematic: "Concepts clés",
+        question: "Associez : 1) Agile, 2) Scrum, 3) Remaniement (refactoring), 4) Backlog de produit. Lequel est un artefact ?",
+        options: [
+            "A) Agile",
+            "B) Scrum",
+            "C) Le remaniement",
+            "D) Le backlog de produit"
+        ],
+        correct: 3,
+        explanation: "Agile est une approche, Scrum un cadre de travail, le remaniement une technique, et le backlog de produit est un artefact Scrum.",
+        tip: "Les artefacts Scrum sont : Product Backlog, Sprint Backlog, Incrément."
+    },
+    {
+        id: 8,
+        thematic: "Analyse financière",
+        question: "Un chef de projet a commencé à travailler pour une nouvelle organisation lorsqu'il a été informé que les revenus incrémentaux attendus de tous les projets doivent dépasser leurs coûts d'au moins 30%. Son projet actuel est censé avoir un BCR (rapport coûts-bénéfices) de 0,7. Laquelle des affirmations suivantes est vraie ?",
+        options: [
+            "A) Le projet n'est pas rentable et le BCR n'atteint pas le seuil minimal établi par l'organisation.",
+            "B) Le projet n'est pas rentable mais le BCR atteint le seuil minimal fixé par l'organisation.",
+            "C) Le projet est rentable mais le BCR n'atteint pas le seuil minimal.",
+            "D) Le projet est rentable et le BCR atteint le seuil minimal."
+        ],
+        correct: 0,
+        explanation: "Un BCR < 1 signifie que les coûts dépassent les bénéfices. Ici BCR = 0,7 (<1) donc non rentable, et le seuil de rentabilité exigé est 1,3 (bénéfices > coûts de 30%), donc il ne l'atteint pas.",
+        tip: "BCR = bénéfices / coûts. >1 = rentable."
+    },
+    {
+        id: 9,
+        thematic: "Développement d'équipe",
+        question: "Un chef de projet dirige une équipe de spécialistes en marketing pour lancer une nouvelle campagne. L'équipe est composée de professionnels expérimentés ayant déjà travaillé ensemble sur des projets similaires. À quel stade de l'échelle de Tuckman la charte d'équipe doit-elle être créée ?",
+        options: [
+            "A) Au stade de la formation (forming)",
+            "B) Au stade de la tension (storming)",
+            "C) Au stade de la normalisation (norming)",
+            "D) Au stade de l'exécution (performing)"
+        ],
+        correct: 0,
+        explanation: "La charte d'équipe doit être créée dès la phase de formation pour établir les bases du travail collaboratif, les valeurs, les règles de fonctionnement, et prévenir les conflits.",
+        tip: "Une charte d'équipe précoce clarifie les attentes et réduit les malentendus."
+    },
+    {
+        id: 10,
+        thematic: "Engagement des parties prenantes",
+        question: "Un chef de projet dirige un projet de construction d'une usine électrique dans une zone forestière. Un groupe d'environnementalistes proteste contre le projet, ce qui entraîne son interruption. Qu'aurait dû faire le chef de projet pour éviter ce problème ?",
+        options: [
+            "A) Travailler avec l'équipe pour identifier des mesures d'atténuation et des solutions alternatives priorisant la conservation.",
+            "B) Signer un contrat d'assurance pour protéger le projet contre les risques majeurs.",
+            "C) Entamer un dialogue ouvert avec les environnementalistes pour comprendre leurs préoccupations.",
+            "D) Collaborer avec le sponsor pour offrir des compensations financières aux environnementalistes."
+        ],
+        correct: 2,
+        explanation: "Un dialogue précoce avec les parties prenantes opposantes permet de comprendre leurs préoccupations, de les impliquer et de trouver des solutions acceptables. L'assurance ou les compensations viennent après, mais le dialogue est la première étape proactive.",
+        tip: "La gestion des parties prenantes commence par l'écoute et l'engagement, pas par l'ignorance ou l'achat."
+    }
+];
+
+// Pour les questions suivantes (11 à 90), le même format est à appliquer.
+// En raison de la longueur, seules les 10 premières sont affichées ici.
+// Le reste du tableau peut être généré en suivant la même structure à partir des pages 105 à 156 du PDF.
+
+    // -------------------------------------------------------------
+    // État du quiz
+    let currentQuestions = questions; // on garde toutes
+    let userAnswers = new Array(currentQuestions.length).fill(null);
+    let currentIdx = 0;
+    let score = 0;
+
+    // DOM elements
+    const settingsPanel = document.getElementById('settings-panel');
+    const quizContent = document.getElementById('quiz-content');
+    const startBtn = document.getElementById('start-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const finishBtn = document.getElementById('finish-btn');
+    const restartBtn = document.getElementById('restart-btn');
+    const qCounter = document.getElementById('question-counter');
+    const scoreDisplay = document.getElementById('score-display');
+    const progressBar = document.getElementById('progress-bar');
+    const thematicBadge = document.getElementById('thematic-badge');
+    const questionText = document.getElementById('question-text');
+    const optionsDiv = document.getElementById('options-container');
+    const explanationBox = document.getElementById('explanation-box');
+    const explanationTitle = document.getElementById('explanation-title');
+    const explanationText = document.getElementById('explanation-text');
+    const tipBox = document.getElementById('tip-box');
+    const tipText = document.getElementById('tip-text');
+
+    // Modal
+    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+    const modalPercentage = document.getElementById('modal-percentage');
+    const modalCorrect = document.getElementById('modal-correct');
+    const modalTotal = document.getElementById('modal-total');
+    const skillTech = document.getElementById('skill-tech');
+    const skillSit = document.getElementById('skill-sit');
+    const resultMessage = document.getElementById('result-message');
+    const roadmapShort = document.getElementById('roadmap-short');
+
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function startQuiz() {
+        // On mélange les questions pour varier
+        currentQuestions = shuffle([...questions]);
+        userAnswers = new Array(currentQuestions.length).fill(null);
+        currentIdx = 0;
+        score = 0;
+        updateScoreDisplay();
+        settingsPanel.style.display = 'none';
+        quizContent.style.display = 'block';
+        displayQuestion(currentIdx);
+    }
+
+    function displayQuestion(idx) {
+        const q = currentQuestions[idx];
+        thematicBadge.textContent = q.thematic || "PMP";
+        questionText.textContent = q.question;
+
+        optionsDiv.innerHTML = '';
+        if (q.multiple) {
+            // pour choix multiples (question 4)
+            q.options.forEach((opt, i) => {
+                const div = document.createElement('div');
+                div.className = 'form-check mb-2';
+                div.innerHTML = `
+                    <input class="form-check-input" type="checkbox" id="opt${i}" value="${i}">
+                    <label class="form-check-label" for="opt${i}">${opt}</label>
+                `;
+                optionsDiv.appendChild(div);
+            });
+            // ajouter un bouton "Valider"
+            const validateBtn = document.createElement('button');
+            validateBtn.className = 'btn btn-sm btn-primary mt-2';
+            validateBtn.textContent = 'Valider ma sélection';
+            validateBtn.onclick = () => handleMultipleAnswer(idx);
+            optionsDiv.appendChild(validateBtn);
+        } else {
+            q.options.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn option-btn';
+                btn.textContent = opt;
+                btn.onclick = () => selectAnswer(btn, i, idx);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        // restaure si déjà répondu
+        if (userAnswers[idx] !== null) {
+            showAnswerFeedback(idx);
+        } else {
+            explanationBox.classList.add('d-none');
+            tipBox.classList.add('d-none');
+        }
+
+        updateNavButtons();
+        updateProgress();
+    }
+
+    function handleMultipleAnswer(idx) {
+        if (userAnswers[idx] !== null) return;
+        const q = currentQuestions[idx];
+        const checkboxes = optionsDiv.querySelectorAll('input[type=checkbox]');
+        const selected = [];
+        checkboxes.forEach((cb, i) => {
+            if (cb.checked) selected.push(i);
+        });
+        // comparer avec q.correct (array)
+        const correct = q.correct; // ex: [1,2]
+        const isCorrect = selected.length === correct.length && selected.every(val => correct.includes(val));
+        userAnswers[idx] = { selected, correct, isCorrect };
+        if (isCorrect) score++;
+        updateScoreDisplay();
+        showAnswerFeedback(idx);
+    }
+
+    function selectAnswer(btn, optIdx, idx) {
+        if (userAnswers[idx] !== null) return;
+        const q = currentQuestions[idx];
+        const isCorrect = (optIdx === q.correct);
+        userAnswers[idx] = { selected: optIdx, correct: q.correct, isCorrect };
+        if (isCorrect) score++;
+        updateScoreDisplay();
+        showAnswerFeedback(idx);
+    }
+
+    function showAnswerFeedback(idx) {
+        const q = currentQuestions[idx];
+        const ans = userAnswers[idx];
+        if (!ans) return;
+
+        // désactiver les boutons
+        if (!q.multiple) {
+            const btns = optionsDiv.querySelectorAll('.option-btn');
+            btns.forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === ans.correct) btn.classList.add('correct');
+                else if (i === ans.selected) btn.classList.add('incorrect');
+            });
+        } else {
+            // désactiver les checkboxes et le bouton
+            optionsDiv.querySelectorAll('input').forEach(cb => cb.disabled = true);
+            optionsDiv.querySelector('button')?.setAttribute('disabled', 'true');
+            // on peut surligner les bonnes réponses?
+        }
+
+        explanationTitle.textContent = ans.isCorrect ? '✅ Bonne réponse' : '❌ Réponse incorrecte';
+        explanationText.textContent = q.explanation;
+        explanationBox.className = ans.isCorrect ? 'explanation-correct' : 'explanation-incorrect';
+        explanationBox.classList.remove('d-none');
+
+        if (q.tip) {
+            tipText.textContent = q.tip;
+            tipBox.classList.remove('d-none');
+        } else {
+            tipBox.classList.add('d-none');
+        }
+    }
+
+    function updateNavButtons() {
+        prevBtn.disabled = currentIdx === 0;
+        nextBtn.classList.toggle('d-none', currentIdx === currentQuestions.length - 1);
+        finishBtn.classList.toggle('d-none', currentIdx !== currentQuestions.length - 1);
+    }
+
+    function updateProgress() {
+        const pct = ((currentIdx + 1) / currentQuestions.length) * 100;
+        progressBar.style.width = pct + '%';
+        qCounter.textContent = `Question ${currentIdx+1} / ${currentQuestions.length}`;
+    }
+
+    function updateScoreDisplay() {
+        scoreDisplay.textContent = `Score: ${score}/${currentQuestions.length}`;
+    }
+
+    function next() {
+        if (currentIdx < currentQuestions.length - 1) {
+            currentIdx++;
+            displayQuestion(currentIdx);
+        }
+    }
+    function prev() {
+        if (currentIdx > 0) {
+            currentIdx--;
+            displayQuestion(currentIdx);
+        }
+    }
+
+    function finishQuiz() {
+        const total = currentQuestions.length;
+        const percent = (score / total) * 100;
+        modalCorrect.textContent = score;
+        modalTotal.textContent = total;
+        modalPercentage.textContent = percent.toFixed(1) + '%';
+
+        // simuler skills
+        skillTech.style.width = Math.min(100, percent + 5) + '%';
+        skillSit.style.width = Math.max(0, percent - 5) + '%';
+
+        let msg = '';
+        if (percent >= 80) {
+            msg = '<span class="text-success fw-bold">✅ Excellent niveau sur cet extrait ! Vous êtes sur la bonne voie.</span>';
+            roadmapShort.textContent = 'Revoyez les explications des questions manquées et approfondissez les domaines faibles.';
+        } else if (percent >= 60) {
+            msg = '<span class="text-warning fw-bold">⚠️ Score correct mais des lacunes subsistent. Étudiez les justifications.</span>';
+            roadmapShort.textContent = 'Concentrez-vous sur les questions où vous avez hésité et utilisez les conseils.';
+        } else {
+            msg = '<span class="text-danger fw-bold">🔁 Score insuffisant. Relisez le guide PMBOK et refaites le quiz.</span>';
+            roadmapShort.textContent = 'Reprenez les bases : rôles, processus, documents.';
+        }
+        resultMessage.innerHTML = msg;
+        resultModal.show();
+    }
+
+    function restartApp() {
+        settingsPanel.style.display = 'block';
+        quizContent.style.display = 'none';
+        resultModal.hide();
+    }
+
+    startBtn.addEventListener('click', startQuiz);
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    finishBtn.addEventListener('click', finishQuiz);
+    restartBtn.addEventListener('click', restartApp);
+</script>
+</body>
+</html>

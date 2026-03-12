@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Scrum · Préparation examen (tips & explications)</title>
+    <!-- Bootstrap 5 (version claire) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (plus lisible) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f5fa;
+            color: #1e293b;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quiz-card {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, #0B3B5C, #1B6B8F);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .header-gradient h1 {
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #f0f9ff, #bae8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subhead {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+        }
+        .success-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 60px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .settings-panel {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 2rem;
+        }
+        .filter-title {
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.2rem;
+        }
+        .form-check-input:checked {
+            background-color: #1B6B8F;
+            border-color: #1B6B8F;
+        }
+        .btn-primary-custom {
+            background: #0B3B5C;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 2.5rem;
+            border-radius: 40px;
+            box-shadow: 0 8px 14px rgba(11,59,92,0.25);
+            transition: all 0.2s;
+        }
+        .btn-primary-custom:hover {
+            background: #1B6B8F;
+            transform: scale(1.02);
+            color: white;
+        }
+        .progress-container {
+            background: white;
+            padding: 1.5rem 2rem 0.5rem 2rem;
+        }
+        .progress {
+            height: 12px;
+            background-color: #e9ecef;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #0B3B5C, #2B9BC3);
+        }
+        #question-card {
+            background: white;
+            border: none;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 0 2rem 1.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 0 0 1px #e9edf2 inset;
+        }
+        .thematic-badge {
+            display: inline-block;
+            background: #e9f0f9;
+            color: #0B3B5C;
+            font-weight: 600;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #b9d7f0;
+        }
+        #question-text {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        .option-btn {
+            width: 100%;
+            text-align: left;
+            background: #f9fcff;
+            border: 2px solid #dee7ef;
+            color: #1e293b;
+            padding: 1rem 1.8rem;
+            margin-bottom: 0.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+        .option-btn:hover:not(:disabled) {
+            border-color: #1B6B8F;
+            background: #e1f0fa;
+            transform: translateY(-2px);
+        }
+        .option-btn.correct {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+            font-weight: 600;
+        }
+        .option-btn.incorrect {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+        #explanation-box {
+            background: #f1f6fc;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border-left: 8px solid;
+            transition: 0.2s;
+        }
+        .explanation-correct { border-left-color: #10b981; background: #ecfdf5; }
+        .explanation-incorrect { border-left-color: #f97316; background: #fff7ed; }
+        .tip-box {
+            background: #fff9e6;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            border: 1px dashed #fbbf24;
+        }
+        .nav-btn {
+            border-radius: 40px;
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            background: white;
+            border: 2px solid #cbd5e1;
+            color: #1e293b;
+        }
+        .nav-btn:hover {
+            background: #f1f5f9;
+        }
+        .btn-finish {
+            background: #0B3B5C;
+            border: 2px solid #0B3B5C;
+            color: white;
+        }
+        .btn-finish:hover {
+            background: #1B6B8F;
+        }
+        .modal-content {
+            border-radius: 2rem;
+            border: none;
+        }
+        .modal-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .final-score {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #0B3B5C;
+        }
+        .skill-meter {
+            background: #f1f5f9;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-note {
+            text-align: center;
+            color: #5f6c80;
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: white;
+        }
+        .badge-roles { background: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
+        .badge-events { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+        .badge-artefacts { background: #e0e7ff; color: #3730a3; border-color: #a5b4fc; }
+        .badge-practices { background: #dcfce7; color: #166534; border-color: #86efac; }
+        .badge-values { background: #f1d7fa; color: #6b21a8; border-color: #d8b4fe; }
+    </style>
+</head>
+<body>
+<div class="quiz-card">
+    <div class="header-gradient">
+        <h1><i class="fa-regular fa-clipboard"></i> Agile Scrum Foundation</h1>
+        <div class="subhead">Examen blanc officiel • 40 questions • seuil 85% (34/40)</div>
+        <div class="success-badge"><i class="fa-regular fa-circle-check"></i> Tips & explications intégrés</div>
+    </div>
+
+    <!-- Configuration / filtres -->
+    <div id="settings-panel" class="settings-panel">
+        <h5 class="filter-title"><i class="fa-regular fa-sliders"></i> Filtrez par thème :</h5>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="roles" checked>
+                    <label class="form-check-label" for="roles">👥 Rôles Scrum</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="events" checked>
+                    <label class="form-check-label" for="events">📅 Événements & timebox</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="artefacts" checked>
+                    <label class="form-check-label" for="artefacts">📦 Artefacts & DoD</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="practices" checked>
+                    <label class="form-check-label" for="practices">⚙️ Pratiques / estimations</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="values" checked>
+                    <label class="form-check-label" for="values">💡 Manifeste & valeurs</label>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button id="start-btn" class="btn btn-primary-custom btn-lg"><i class="fa-regular fa-play"></i> Démarrer le quiz</button>
+        </div>
+    </div>
+
+    <!-- Contenu quiz (caché au départ) -->
+    <div id="quiz-content" style="display: none;">
+        <!-- progression -->
+        <div class="progress-container">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+                <span id="question-counter" class="fw-semibold">Question 1 / 40</span>
+                <span id="score-display" class="fw-semibold">Score: 0/40</span>
+            </div>
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" style="width: 2.5%"></div>
+            </div>
+        </div>
+
+        <!-- question card -->
+        <div id="question-card">
+            <div class="thematic-badge" id="thematic-badge">Rôles</div>
+            <h2 id="question-text">Chargement...</h2>
+            <div id="options-container"></div>
+
+            <!-- zone explication + tip -->
+            <div id="explanation-box" class="d-none">
+                <h5 id="explanation-title"></h5>
+                <p id="explanation-text" class="mb-2"></p>
+                <div id="tip-box" class="tip-box d-none">
+                    <i class="fa-regular fa-lightbulb" style="color:#d97706;"></i> <strong>Conseil de pro :</strong>
+                    <span id="tip-text"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- navigation -->
+        <div class="d-flex justify-content-between align-items-center px-4 pb-4">
+            <button id="prev-btn" class="btn nav-btn" disabled><i class="fa-regular fa-arrow-left"></i> Précédent</button>
+            <button id="next-btn" class="btn nav-btn">Suivant <i class="fa-regular fa-arrow-right"></i></button>
+            <button id="finish-btn" class="btn btn-finish nav-btn d-none"><i class="fa-regular fa-flag"></i> Terminer</button>
+        </div>
+    </div>
+    <div class="footer-note">
+        <i class="fa-regular fa-circle-info"></i> Chaque réponse est expliquée • Objectif : 85% de bonnes réponses
+    </div>
+</div>
+
+<!-- Modal résultats -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa-regular fa-chart-pie me-2"></i>Résultats détaillés</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center mb-4">
+                    <span class="final-score" id="modal-percentage">0%</span>
+                    <p class="text-secondary"><span id="modal-correct">0</span> / <span id="modal-total">40</span> réponses correctes</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="skill-meter">
+                            <h6><i class="fa-regular fa-brain"></i> Connaissances fondamentales</h6>
+                            <div class="progress"><div id="skill-basic" class="progress-bar" style="width:0%"></div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-meter">
+                            <h6><i class="fa-regular fa-compass"></i> Maîtrise avancée</h6>
+                            <div class="progress"><div id="skill-adv" class="progress-bar" style="width:0%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="result-message" class="mt-4 p-3 rounded" style="background:#f1f5f9;"></div>
+                <div class="mt-3">
+                    <h6><i class="fa-regular fa-road"></i> Votre parcours de révision</h6>
+                    <p id="roadmap-short" class="small text-secondary"></p>
+                    <p id="roadmap-long" class="small text-secondary"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary-custom" id="restart-btn">Recommencer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // ------------------------------------------------------------
+    // Base de données des 40 questions issues du PDF EXIN ASF.FR
+    // ------------------------------------------------------------
+    const questionsDB = [
+        // 1
+        { thematic: "Rôles", q: "Quelle est la principale responsabilité d'un Scrum Master pour maintenir une équipe au sommet de sa productivité ?",
+          opts: ["Aider les parties prenantes à comprendre le cadre Scrum", "Faire en sorte que les fonctionnalités hautement prioritaires restent en haut du product backlog", "Éviter toute modification au sprint backlog dès que le sprint commence"],
+          correct: "Aider les parties prenantes à comprendre le cadre Scrum",
+          explanation: "Le Scrum Master aide tout le monde à comprendre Scrum. Le Product Owner gère le backlog ; éviter les modifications est une responsabilité collective.",
+          tip: "Le Scrum Master est un servant-leader : il agit sur l'environnement, pas sur le contenu." },
+        // 2
+        { thematic: "Rôles", q: "Pendant un sprint, un Développeur travaille sur une tâche. Qui est garant de cette tâche ?",
+          opts: ["Les Développeurs", "Le Product Owner", "Le Scrum Master", "Le Développeur en question"],
+          correct: "Les Développeurs",
+          explanation: "Même si un seul Développeur réalise la tâche, l'équipe de développement est collectivement responsable.",
+          tip: "L'auto-organisation signifie responsabilité partagée." },
+        // 3
+        { thematic: "Rôles", q: "Une équipe transitionne vers Scrum. Elle avait un coordinateur de projet. Qui garantit l'environnement favorable après transition ?",
+          opts: ["Les Développeurs", "Le Product Owner", "Le chef de projet", "Le Scrum Master"],
+          correct: "Le Scrum Master",
+          explanation: "Le Scrum Master remplit cette fonction de facilitation et de protection de l'équipe.",
+          tip: "Le coordinateur projet devient souvent Scrum Master ou Product Owner." },
+        // 4
+        { thematic: "Rôles", q: "Un Product Owner veut qu'un item soit terminé en 2j, les Devs estiment 5j, le SM 3j, un expert 1j. Quelle estimation utiliser ?",
+          opts: ["Celle des Développeurs", "Celle du Product Owner", "Celle du Scrum Master", "Celle de l'expert"],
+          correct: "Celle des Développeurs",
+          explanation: "Seuls les développeurs réalisent le travail, donc eux seuls estiment.",
+          tip: "Personne ne peut imposer une estimation – c'est un pilier de l'auto-organisation." },
+        // 5
+        { thematic: "Rôles", q: "Est-il permis de passer outre les décisions du Product Owner sur le contenu du product backlog ?",
+          opts: ["Oui, le PDG peut", "Oui, le client peut", "Non, car le PO est propriétaire", "Non, car cela modifierait trop le planning"],
+          correct: "Non, car le PO est propriétaire",
+          explanation: "Le Product Owner est l'unique responsable du product backlog (Scrum Guide).",
+          tip: "Même la direction doit respecter les décisions du PO, mais peut dialoguer." },
+        // 6
+        { thematic: "Rôles", q: "Qui garantit que le produit fournit la meilleure valeur possible au client ?",
+          opts: ["Les Développeurs", "Le Product Owner", "Le Scrum Master"],
+          correct: "Le Product Owner",
+          explanation: "Le PO optimise la valeur en ordonnant le backlog.",
+          tip: "Les Devs contribuent à la valeur mais le PO est responsable." },
+        // 7
+        { thematic: "Rôles", q: "Un client demande un rapport sur les techniques de développement. Qui le prépare ?",
+          opts: ["Les Développeurs", "Le Product Owner", "Le Scrum Master"],
+          correct: "Le Scrum Master",
+          explanation: "Le Scrum Master se concentre sur le contexte et les pratiques agiles, pas sur le contenu métier.",
+          tip: "Le PO s'occupe du 'quoi', le SM du 'comment'." },
+        // 8
+        { thematic: "Rôles", q: "La haute direction veut auditer le respect des pratiques Scrum. Qui mène cet audit ?",
+          opts: ["La haute direction", "Les Développeurs", "Le Product Owner", "Le Scrum Master"],
+          correct: "Le Scrum Master",
+          explanation: "Le SM coach l'équipe et s'assure de la bonne application de Scrum.",
+          tip: "C'est un gardien du processus." },
+        // 9
+        { thematic: "Rôles", q: "Plusieurs équipes, désaccord sur la DoD. Qui a raison ? (PO: chaque équipe sa DoD ; SM: une seule DoD intégrée)",
+          opts: ["Le PO (aide à atteindre les objectifs)", "Le PO (la DoD relève du PO)", "Le SM (processus Scrum)", "Le SM (cohérence et intégration)"],
+          correct: "Le SM (cohérence et intégration)",
+          explanation: "Une DoD commune garantit la cohésion du produit final.",
+          tip: "L'intégration est cruciale quand plusieurs équipes produisent un même produit." },
+        // 10 Événements
+        { thematic: "Événements", q: "Tous les événements Scrum sont timeboxés. Avantage du timeboxing ?",
+          opts: ["Garantir l'engagement", "Favoriser la communication osmotique", "Réduire les pertes de temps"],
+          correct: "Réduire les pertes de temps",
+          explanation: "Le timeboxing évite les réunions interminables et fixe un cadre.",
+          tip: "Cela crée aussi une cadence prévisible." },
+        // 11
+        { thematic: "Événements", q: "Au milieu d'un sprint, l'équipe a fini tous les items. Meilleure action ?",
+          opts: ["Annuler le sprint", "Prolonger le sprint", "Prendre l'item suivant du product backlog", "Raccourcir le sprint"],
+          correct: "Prendre l'item suivant du product backlog",
+          explanation: "On peut ajouter un item tant que l'objectif du sprint n'est pas compromis. La durée reste fixe.",
+          tip: "Le sprint backlog peut évoluer si l'équipe a de la capacité." },
+        // 12
+        { thematic: "Événements", q: "À quel moment a lieu le raffinement du product backlog ?",
+          opts: ["Début du sprint", "Pendant la rétrospective", "Pendant la revue", "Tout au long du sprint"],
+          correct: "Tout au long du sprint",
+          explanation: "Le backlog refinement est continu, généralement jusqu'à 10% du temps du sprint.",
+          tip: "C'est une activité continue, pas une réunion figée." },
+        // 13
+        { thematic: "Événements", q: "Rôle du daily scrum dans le suivi ?",
+          opts: ["Aperçu de progression et problèmes pour les Devs", "Mise à jour du burn-down par le SM", "Suivi de progression par le PO"],
+          correct: "Aperçu de progression et problèmes pour les Devs",
+          explanation: "Le daily est pour les développeurs afin de s'organiser et lever les obstacles.",
+          tip: "Le PO peut écouter mais pas diriger." },
+        // 14
+        { thematic: "Événements", q: "Faut-il augmenter la durée du 16e sprint car les 12 derniers n'ont pas fourni d'incrément livrable en 2 semaines ?",
+          opts: ["Oui, performance passée justifie", "Oui, SM peut modifier", "Non, seuls les Devs peuvent", "Non, durée fixe"],
+          correct: "Oui, performance passée justifie",
+          explanation: "On peut adapter la durée entre sprints si elle n'est pas adaptée.",
+          tip: "La durée n'est pas immuable, on l'ajuste par empirisme." },
+        // 15
+        { thematic: "Événements", q: "Temps pour un sprint planning de 3 semaines avec 5 personnes ?",
+          opts: ["6 heures", "8 heures", "Aussi longtemps qu'il faut"],
+          correct: "6 heures",
+          explanation: "Pour un sprint < 1 mois, le planning est plus court (max 8h, ici ~6h).",
+          tip: "Timebox : 8h pour un mois, proportionnel moins." },
+        // 16
+        { thematic: "Événements", q: "Pourquoi daily scrum même heure / même lieu ?",
+          opts: ["Réserver en avance", "Management veut un point", "Réduit la complexité"],
+          correct: "Réduit la complexité",
+          explanation: "La régularité minimise l'effort d'organisation.",
+          tip: "C'est une routine qui simplifie." },
+        // 17
+        { thematic: "Événements", q: "Meilleur événement pour obtenir du feedback d'une partie prenante sur l'incrément ?",
+          opts: ["Daily", "Sprint planning", "Sprint retrospective", "Sprint review"],
+          correct: "Sprint review",
+          explanation: "La revue est faite pour recueillir du feedback et adapter le backlog.",
+          tip: "Les parties prenantes sont invitées à la review." },
+        // 18 Artefacts
+        { thematic: "Artefacts", q: "Quand un item de sprint backlog est-il terminé ?",
+          opts: ["Quand les Devs ont fait tout ce qu'ils peuvent", "Quand il est analysé, conçu, programmé, testé, documenté", "Quand la DoD est atteinte"],
+          correct: "Quand la DoD est atteinte",
+          explanation: "La Définition of Done est l'engagement commun.",
+          tip: "La DoD garantit la transparence." },
+        // 19
+        { thematic: "Artefacts", q: "Que représente la barre dans un burn-down chart en barres ?",
+          opts: ["Travail effectué", "Travail restant", "Vélocité"],
+          correct: "Travail restant",
+          explanation: "Le burn-down montre le travail restant au fil du temps.",
+          tip: "Il descend vers zéro." },
+        // 20
+        { thematic: "Artefacts", q: "Conséquence d'items de backlog dépendants (INVEST) ?",
+          opts: ["Plus de connaissances", "Impossible de hiérarchiser par valeur", "Plus de développeurs", "Intervention d'une autre équipe"],
+          correct: "Impossible de hiérarchiser par valeur",
+          explanation: "La dépendance force un ordre non basé sur la valeur métier.",
+          tip: "L'indépendance est clé pour la priorisation." },
+        // 21
+        { thematic: "Artefacts", q: "Quel est l'engagement du sprint backlog ?",
+          opts: ["La DoD clarifie la vision", "La DoD clarifie les items", "L'objectif de sprint (exigences)", "L'objectif de sprint (ce qu'on veut atteindre)"],
+          correct: "L'objectif de sprint (ce qu'on veut atteindre)",
+          explanation: "L'objectif de sprint est l'engagement associé au sprint backlog.",
+          tip: "Il donne une direction." },
+        // 22
+        { thematic: "Artefacts", q: "Qu'est-ce qu'un objectif du produit ?",
+          opts: ["Liste de ce qui est nécessaire", "Mesure de qualité", "Objectif du sprint suivant", "Vision du produit"],
+          correct: "Vision du produit",
+          explanation: "Le product goal est une vision à long terme qui guide le backlog.",
+          tip: "C'est le 'pourquoi' du produit." },
+        // 23
+        { thematic: "Artefacts", q: "Définition de la vélocité ?",
+          opts: ["Vitesse commune", "Story points terminés par sprint", "Limite WIP", "Somme des items finis"],
+          correct: "Story points terminés par sprint",
+          explanation: "La vélocité mesure le travail accompli par sprint (généralement en story points).",
+          tip: "Elle sert à prévoir les prochains sprints." },
+        // 24
+        { thematic: "Artefacts", q: "Quels items doivent être petits (INVEST) ?",
+          opts: ["Tous", "Ceux en bas du backlog", "Ceux en haut du backlog", "Uniquement ceux du sprint backlog"],
+          correct: "Ceux en haut du backlog",
+          explanation: "Les items prioritaires doivent être détaillés et petits. Les items bas restent larges.",
+          tip: "Le backlog est un fleuve : grossier en aval, détaillé en amont." },
+        // 25
+        { thematic: "Artefacts", q: "Liste de contrôle pour considérer un incrément terminé ?",
+          opts: ["Burn-down", "DoD", "Product backlog", "Sprint backlog"],
+          correct: "DoD",
+          explanation: "La Définition of Done est cette checklist commune.",
+          tip: "Elle évolue avec la maturité de l'équipe." },
+        // 26
+        { thematic: "Artefacts", q: "Partie potentiellement livrable créée pendant un sprint ?",
+          opts: ["Composant", "Fonctionnalité", "Sprint backlog", "Incrément"],
+          correct: "Incrément",
+          explanation: "L'incrément est la somme des items finis, potentiellement livrable.",
+          tip: "Chaque sprint produit un incrément." },
+        // 27 Pratiques
+        { thematic: "Pratiques", q: "Équipe virtuelle sans heures communes : comment améliorer l'efficacité ?",
+          opts: ["Tous reçoivent toutes les infos", "Daily ensemble malgré le décalage", "Communication osmotique"],
+          correct: "Tous reçoivent toutes les infos",
+          explanation: "Partager toute l'information compense le manque de synchrone.",
+          tip: "Utilisez des outils asynchrones (wiki, boards)." },
+        // 28
+        { thematic: "Pratiques", q: "Limite WIP atteinte sur un kanban. Que faire ?",
+          opts: ["Pousser les tâches à la colonne suivante", "Repousser la limite", "Aider les Devs du goulot", "Attendre que ça se libère"],
+          correct: "Aider les Devs du goulot",
+          explanation: "La limite signale un goulot, il faut le résoudre en aidant.",
+          tip: "Le travail d'équipe prime sur les statuts individuels." },
+        // 29
+        { thematic: "Pratiques", q: "Méthode de transfert d'info la plus efficace ?",
+          opts: ["Courriel", "Face-à-face", "Médias sociaux", "Téléphone"],
+          correct: "Face-à-face",
+          explanation: "La communication directe est la plus riche et rapide.",
+          tip: "Privilégiez les échanges en direct." },
+        // 30
+        { thematic: "Pratiques", q: "Rythme de développement en Agile ?",
+          opts: ["Constant", "Rapide", "Croissant"],
+          correct: "Constant",
+          explanation: "Le développement doit être soutenable (rythme constant).",
+          tip: "Pas de surcharge, pas de burn-out." },
+        // 31
+        { thematic: "Pratiques", q: "8 sprints, 72 story points. Nouveau projet 56 SP. Combien de sprints ?",
+          opts: ["5", "7", "8", "10"],
+          correct: "7",
+          explanation: "Vélocité = 9, 56/9 ≈ 6,2 → 7 sprints.",
+          tip: "Toujours arrondir à l'entier supérieur." },
+        // 32
+        { thematic: "Pratiques", q: "Deux personnes, une code, l'autre observe et commente, permutent. Pratique ?",
+          opts: ["Revue de code", "Intégration continue", "Programmation en binôme", "TDD"],
+          correct: "Programmation en binôme",
+          explanation: "Pair programming : deux développeurs collaborent en temps réel.",
+          tip: "Améliore la qualité et le partage." },
+        // 33
+        { thematic: "Pratiques", q: "Estimation par affinité : comment sont affectés les story points ?",
+          opts: ["Classement par effort puis regroupement", "Estimation individuelle puis consensus", "Comparaison à des stories de référence"],
+          correct: "Classement par effort puis regroupement",
+          explanation: "L'affinité consiste à trier les stories par ordre d'effort puis à les grouper.",
+          tip: "Technique rapide pour de nombreuses stories." },
+        // 34
+        { thematic: "Pratiques", q: "Principe du planning poker ?",
+          opts: ["Comparer à des références", "Estimation individuelle puis mise en commun", "Classer par effort relatif"],
+          correct: "Estimation individuelle puis mise en commun",
+          explanation: "Chacun montre son estimation, on discute des écarts.",
+          tip: "Utilisez les cartes de Fibonacci." },
+        // 35
+        { thematic: "Pratiques", q: "Une équipe utilise un radiateur d'information. Pourquoi ?",
+          opts: ["Aider le SM à attribuer", "Améliorer la collaboration", "Montrer aux collègues qu'on est occupé"],
+          correct: "Améliorer la collaboration",
+          explanation: "La transparence améliore le feedback et la coopération.",
+          tip: "Tableaux visibles = informations partagées." },
+        // 36
+        { thematic: "Pratiques", q: "Critère à NE PAS prendre en compte pour ordonner le product backlog ?",
+          opts: ["Dépendance", "Disponibilité des Devs", "Risque", "Valeur"],
+          correct: "Disponibilité des Devs",
+          explanation: "On ordonne par valeur, risque, dépendance ; la dispo est pour le sprint planning.",
+          tip: "Le PO ne se soucie pas des ressources." },
+        // 37
+        { thematic: "Pratiques", q: "Burn-down chart : le bas de la barre passe au-dessus de l'axe horizontal entre sprint 3 et 4. Que s'est-il passé ?",
+          opts: ["Travail ajouté", "Travail supprimé", "User stories non finies", "User stories finies en trop"],
+          correct: "Travail supprimé",
+          explanation: "La barre monte quand on retire du travail (le restant diminue).",
+          tip: "Le travail restant peut être ajusté." },
+        // 38
+        { thematic: "Pratiques", q: "Quel type de contrat est adapté à Scrum ?",
+          opts: ["Prix forfaitaire", "Temps et matériel", "Aucun"],
+          correct: "Temps et matériel",
+          explanation: "Le contrat T&M permet l'adaptation au changement.",
+          tip: "Évitez les prix fixes qui figent le périmètre." },
+        // 39 Valeurs
+        { thematic: "Valeurs", q: "Laquelle de ces affirmations fait partie du Manifeste Agile ?",
+          opts: ["Documentation exhaustive plus que logiciels opérationnels", "Négociation contractuelle plus que collaboration client", "Individus et interactions plus que processus et outils", "Suivi d'un plan plus qu'adaptation au changement"],
+          correct: "Individus et interactions plus que processus et outils",
+          explanation: "Les quatre valeurs : individus et interactions, logiciels opérationnels, collaboration client, adaptation au changement.",
+          tip: "Mémorisez les quatre." },
+        // 40
+        { thematic: "Valeurs", q: "Quel type d'équipe donne les meilleurs architectures, exigences, designs ?",
+          opts: ["Colocalisée", "Autogérée", "Bien entraînée", "Expérimentée"],
+          correct: "Autogérée",
+          explanation: "Le Manifeste Agile dit que les meilleures conceptions viennent d'équipes auto-organisées.",
+          tip: "L'autonomie est source de créativité." }
+    ];
+
+    // badges par thème
+    const badgeMap = {
+        "Rôles": "badge-roles",
+        "Événements": "badge-events",
+        "Artefacts": "badge-artefacts",
+        "Pratiques": "badge-practices",
+        "Valeurs": "badge-values"
+    };
+
+    // ------------------------------------------------------------
+    // État du quiz
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIndex = 0;
+    let score = 0;
+    const passScore = 34; // 85% de 40
+
+    // éléments DOM
+    const settingsPanel = document.getElementById('settings-panel');
+    const quizContent = document.getElementById('quiz-content');
+    const startBtn = document.getElementById('start-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const finishBtn = document.getElementById('finish-btn');
+    const restartBtn = document.getElementById('restart-btn');
+    const qCounter = document.getElementById('question-counter');
+    const scoreDisplay = document.getElementById('score-display');
+    const progressBar = document.getElementById('progress-bar');
+    const thematicBadge = document.getElementById('thematic-badge');
+    const questionText = document.getElementById('question-text');
+    const optionsDiv = document.getElementById('options-container');
+    const explanationBox = document.getElementById('explanation-box');
+    const explanationTitle = document.getElementById('explanation-title');
+    const explanationText = document.getElementById('explanation-text');
+    const tipBox = document.getElementById('tip-box');
+    const tipText = document.getElementById('tip-text');
+
+    // modal
+    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+    const modalPercentage = document.getElementById('modal-percentage');
+    const modalCorrect = document.getElementById('modal-correct');
+    const modalTotal = document.getElementById('modal-total');
+    const skillBasic = document.getElementById('skill-basic');
+    const skillAdv = document.getElementById('skill-adv');
+    const resultMessage = document.getElementById('result-message');
+    const roadmapShort = document.getElementById('roadmap-short');
+    const roadmapLong = document.getElementById('roadmap-long');
+
+    // filtrage
+    function getSelectedThematics() {
+        const selected = [];
+        if (document.getElementById('roles').checked) selected.push('Rôles');
+        if (document.getElementById('events').checked) selected.push('Événements');
+        if (document.getElementById('artefacts').checked) selected.push('Artefacts');
+        if (document.getElementById('practices').checked) selected.push('Pratiques');
+        if (document.getElementById('values').checked) selected.push('Valeurs');
+        return selected;
+    }
+
+    function filterQuestions() {
+        const thematics = getSelectedThematics();
+        if (thematics.length === 0) return [...questionsDB]; // tout si aucun filtre
+        return questionsDB.filter(q => thematics.includes(q.thematic));
+    }
+
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function startQuiz() {
+        const filtered = filterQuestions();
+        if (filtered.length === 0) {
+            alert("Sélectionnez au moins un thème.");
+            return;
+        }
+        currentQuestions = shuffle(filtered);
+        userAnswers = new Array(currentQuestions.length).fill(null);
+        currentIndex = 0;
+        score = 0;
+        updateScoreDisplay();
+        settingsPanel.style.display = 'none';
+        quizContent.style.display = 'block';
+        displayQuestion(currentIndex);
+    }
+
+    function displayQuestion(idx) {
+        const q = currentQuestions[idx];
+        thematicBadge.textContent = q.thematic;
+        thematicBadge.className = `thematic-badge ${badgeMap[q.thematic] || 'badge-roles'}`;
+        questionText.textContent = q.q;
+
+        optionsDiv.innerHTML = '';
+        q.opts.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn option-btn';
+            btn.textContent = opt;
+            btn.onclick = () => selectAnswer(btn, opt, idx);
+            optionsDiv.appendChild(btn);
+        });
+
+        // restaure si déjà répondu
+        if (userAnswers[idx] !== null) {
+            showAnswerFeedback(idx);
+        } else {
+            explanationBox.classList.add('d-none');
+            tipBox.classList.add('d-none');
+        }
+
+        updateNavButtons();
+        updateProgress();
+    }
+
+    function selectAnswer(btn, selected, idx) {
+        if (userAnswers[idx] !== null) return; // déjà répondu
+        const q = currentQuestions[idx];
+        const isCorrect = (selected === q.correct);
+        userAnswers[idx] = { selected, correct: q.correct, isCorrect };
+        if (isCorrect) score++;
+        updateScoreDisplay();
+        showAnswerFeedback(idx);
+    }
+
+    function showAnswerFeedback(idx) {
+        const q = currentQuestions[idx];
+        const ans = userAnswers[idx];
+        if (!ans) return;
+
+        // marquer les boutons
+        const btns = optionsDiv.querySelectorAll('.option-btn');
+        btns.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === ans.correct) btn.classList.add('correct');
+            else if (btn.textContent === ans.selected) btn.classList.add('incorrect');
+        });
+
+        explanationTitle.textContent = ans.isCorrect ? '✅ Bonne réponse' : '❌ Réponse incorrecte';
+        explanationText.textContent = q.explanation;
+        explanationBox.className = ans.isCorrect ? 'explanation-correct' : 'explanation-incorrect';
+        explanationBox.classList.remove('d-none');
+
+        if (q.tip) {
+            tipText.textContent = q.tip;
+            tipBox.classList.remove('d-none');
+        } else {
+            tipBox.classList.add('d-none');
+        }
+    }
+
+    function updateNavButtons() {
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.classList.toggle('d-none', currentIndex === currentQuestions.length - 1);
+        finishBtn.classList.toggle('d-none', currentIndex !== currentQuestions.length - 1);
+    }
+
+    function updateProgress() {
+        const pct = ((currentIndex + 1) / currentQuestions.length) * 100;
+        progressBar.style.width = pct + '%';
+        qCounter.textContent = `Question ${currentIndex+1} / ${currentQuestions.length}`;
+    }
+
+    function updateScoreDisplay() {
+        scoreDisplay.textContent = `Score: ${score}/${currentQuestions.length}`;
+    }
+
+    function next() {
+        if (currentIndex < currentQuestions.length - 1) {
+            currentIndex++;
+            displayQuestion(currentIndex);
+        }
+    }
+    function prev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            displayQuestion(currentIndex);
+        }
+    }
+
+    function finishQuiz() {
+        const total = currentQuestions.length;
+        const percent = (score / total) * 100;
+        modalCorrect.textContent = score;
+        modalTotal.textContent = total;
+        modalPercentage.textContent = percent.toFixed(1) + '%';
+
+        // simulate skills
+        skillBasic.style.width = Math.min(100, percent + 5) + '%';
+        skillAdv.style.width = Math.max(0, percent - 10) + '%';
+
+        let msg = '';
+        if (score >= passScore) {
+            msg = '<span class="text-success fw-bold">✅ Succès ! Vous dépassez le seuil de 85% (34/40). Prêt(e) pour la certification EXIN.</span>';
+            roadmapShort.textContent = 'Vous maîtrisez les fondamentaux. Visez maintenant la certification officielle.';
+            roadmapLong.textContent = 'Révisez les points où vous avez hésité et simulez l\'examen en conditions réelles.';
+        } else {
+            msg = '<span class="text-warning fw-bold">⚠️ Score insuffisant (moins de 34/40). Revoyez les chapitres et réessayez.</span>';
+            roadmapShort.textContent = 'Priorité : consolider les rôles, événements et artefacts.';
+            roadmapLong.textContent = 'Relisez le Guide Scrum et utilisez les tips pour chaque question.';
+        }
+        resultMessage.innerHTML = msg;
+
+        resultModal.show();
+    }
+
+    function restartApp() {
+        settingsPanel.style.display = 'block';
+        quizContent.style.display = 'none';
+        resultModal.hide();
+    }
+
+    // events
+    startBtn.addEventListener('click', startQuiz);
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    finishBtn.addEventListener('click', finishQuiz);
+    restartBtn.addEventListener('click', restartApp);
+</script>
+</body>
+</html>
