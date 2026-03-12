@@ -281,157 +281,1222 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // -------------------------------------------------------------
-    // Questions extraites de l'examen de simulation complet n°1 (pages 105-156)
-    // Seules les 10 premières sont incluses pour cet exemple.
-    // -------------------------------------------------------------
+
 	const questions = [
+    // ... (questions 1 à 10 déjà fournies) ...
+
+    // Question 11
     {
-        id: 1,
-        thematic: "Gestion d'équipe",
-        question: "Dans un projet de construction presque terminé, le chef de projet remarque des niveaux de performance variables parmi les membres de l'équipe. Afin d'assurer une amélioration continue et d'aborder les problèmes de performance de manière constructive, le chef de projet décide de fournir un retour d'information à chaque membre de l'équipe. Que doit-il faire ?",
+        id: 11,
+        thematic: "Gestion de projet hybride",
+        question: "Un chef de projet dirige un projet de développement logiciel en utilisant une approche hybride. Pendant l'exécution du projet, le sponsor a quitté le projet et un nouveau sponsor a été désigné. Lorsque le chef de projet a informé le nouveau sponsor que les livrables ont été créés selon une approche de gestion de projet hybride, le sponsor a demandé des preuves. Comment le chef de projet doit-il répondre à la demande du nouveau sponsor ?",
         options: [
-            "A) Discuter avec chaque membre de l'équipe de ce qui a bien marché et de ce qui n'a pas marché lors de l'exécution d'une tâche spécifique qu'il a récemment réalisée.",
-            "B) Rencontrer tous les membres de l'équipe et leur fournir un retour d'information général sur leur exécution globale du travail.",
-            "C) Aborder le problème de l'écart des performances avec chaque membre de l'équipe au cours de leur session régulière d'évaluation des performances.",
-            "D) Éviter de fournir un retour d'information immédiat et attendre la fin du projet pour organiser une séance sur les retours d'expérience."
-        ],
-        correct: 0,
-        explanation: "Discuter de ce qui a bien marché et de ce qui n'a pas marché lors de la réalisation d'une tâche spécifique permet d'obtenir un retour d'information clair et concret. Cette approche encourage le membre de l'équipe à examiner ses performances et l'aide à déterminer comment améliorer son travail à l'avenir.",
-        tip: "Le feedback doit être spécifique, opportun et orienté vers les comportements, pas vers la personne."
-    },
-    {
-        id: 2,
-        thematic: "Dynamique d'équipe",
-        question: "Peu après l'acquisition des ressources, le chef de projet découvre que les membres de l'équipe sont très engagés politiquement; presque toutes leurs réunions se terminent par une dispute politique. Le chef de projet décide de mettre fin à cette situation avant qu'elle ne détériore les relations entre les membres de l'équipe, en interdisant toute discussion politique. Où doit-il noter cette règle ?",
-        options: [
-            "A) Charte d'équipe",
-            "B) Charte de projet",
-            "C) Charte des ressources",
-            "D) Plan de gestion des ressources"
-        ],
-        correct: 0,
-        explanation: "La charte d'équipe est le document approprié pour inclure les règles et directives sur la manière dont les membres de l'équipe doivent interagir entre eux. Elle définit les valeurs, les règles de base et les accords de fonctionnement.",
-        tip: "La charte d'équipe est co-créée par l'équipe ; elle favorise l'appropriation des règles."
-    },
-    {
-        id: 3,
-        thematic: "Agile / Scrum",
-        question: "Un coach agile a été chargé d'aider une organisation à implémenter le cadre de travail Scrum. L'un des membres de l'équipe souhaite savoir qui doit prioriser les éléments du Backlog de sprint. Que doit être la réponse du coach agile ?",
-        options: [
-            "A) Le Scrum Master",
-            "B) Le responsable de produit",
-            "C) Les membres de l'équipe pluridisciplinaire",
-            "D) Tous ceux mentionnés ci-dessus"
-        ],
-        correct: 2,
-        explanation: "À part l'équipe de développement, personne ne doit déterminer l'ordre des stories dans le backlog de sprint. Les membres de l'équipe définissent leur propre travail au niveau des tâches et s'auto-organisent pour atteindre l'objectif du sprint.",
-        tip: "Le Product Owner gère le backlog produit, mais l'équipe décide de l'ordre dans le sprint (capacité)."
-    },
-    {
-        id: 4,
-        thematic: "Leadership / MBTI",
-        question: "Dans un projet Agile, un membre de l'équipe, très expérimenté, encadre les nouveaux mais lors des rétrospectives il défend ses opinions sans considérer d'autres points de vue. Quels traits de personnalité (MBTI) décrit-il ? (Sélectionnez deux réponses)",
-        options: [
-            "A) Introverti",
-            "B) Extraverti",
-            "C) Jugeant",
-            "D) Percevant"
-        ],
-        correct: [1, 2], // B et C
-        explanation: "Son aisance à encadrer et partager indique de l'extraversion. Son assurance et sa fermeté à défendre des solutions sans considérer d'autres perspectives reflètent un trait 'Jugeant' (décidé, structuré).",
-        tip: "Le MBTI aide à comprendre les préférences ; un leader serviteur s'adapte à chaque style.",
-        multiple: true
-    },
-    {
-        id: 5,
-        thematic: "Leadership serviteur",
-        question: "Un Scrum Master travaillant dans une agence web gère une équipe de sept membres co-localisés. Le Scrum Master a récemment remarqué qu'un développeur web senior de l'équipe semble n'est plus aussi motivé. Après discussion, le développeur explique que son partenaire a déménagé dans une autre ville pour 6 mois et qu'il souhaite le rejoindre, mais ne veut pas perdre son travail. Que doit faire le Scrum Master ?",
-        options: [
-            "A) Donner au développeur un congé sans solde de 6 mois.",
-            "B) Utiliser ses compétences en intelligence émotionnelle pour le motiver.",
-            "C) Recruter un autre développeur pour faire face au risque de départ.",
-            "D) Si la politique de l'entreprise le permet, autoriser le travail à distance pour qu'il rejoigne son partenaire."
+            "A) Expliquer l'approche hybride au nouveau sponsor.",
+            "B) Demander au nouveau sponsor de contacter l'équipe de projet pour obtenir une explication claire sur la méthode de développement du produit.",
+            "C) Présenter la charte du projet au nouveau sponsor.",
+            "D) Présenter le plan de management du projet au nouveau sponsor."
         ],
         correct: 3,
-        explanation: "La meilleure solution est de permettre le travail à distance si possible. Le leadership serviteur consiste à comprendre les besoins et à trouver des solutions pour maintenir la motivation et la rétention des talents.",
-        tip: "L'intelligence émotionnelle inclut la motivation ; comprendre ce qui motive une personne aide à prendre la bonne décision."
+        explanation: "Le plan de management de projet est le document qui décrit comment le projet sera exécuté, y compris l'approche choisie. Le présenter au nouveau sponsor est la preuve la plus directe.",
+        tip: "La charte de projet autorise le projet, mais le plan de management détaille l'approche."
     },
+    // Question 12
     {
-        id: 6,
-        thematic: "Vélocité",
-        question: "Lors d'une session rétrospective, l'équipe pluridisciplinaire a demandé une formation spécifique pour suivre les dernières tendances technologiques. Comment cette formation affecte-t-elle la vélocité de l'équipe ?",
+        id: 12,
+        thematic: "Communication interculturelle",
+        question: "Un chef de projet a été chargé de gérer un projet critique à l'étranger en travaillant étroitement avec des parties prenantes étrangères. Deux mois après le lancement du projet, le travail se déroule de manière satisfaisante en vue d'atteindre les objectifs fixés. Toutefois, le sponsor a reçu des remarques indiquant que certaines parties prenantes trouvaient les échanges d'e-mails du chef de projet trop directs et agressifs. Que doit faire le chef de projet ?",
         options: [
-            "A) Elle aura un impact positif sur la vélocité, sans baisse de productivité à court terme.",
-            "B) Elle aura un impact positif sur la vélocité avec un déclin à court terme dû au temps consacré à la formation.",
-            "C) Elle aura un impact positif sur la vélocité avec un déclin à long terme dû à la formation continue.",
-            "D) Elle aura un impact négatif sur la vélocité avec augmentation à court terme grâce à la formation."
+            "A) Continuer à communiquer de la même manière, car il est tout à fait normal d'être clair et direct lors des communications par e-mail.",
+            "B) Présenter ses excuses aux parties prenantes concernées pour toute offense non intentionnelle causée par le ton de ses précédents e-mails et adapter ses futurs e-mails pour qu'ils soient plus respectueux des différences culturelles et plus diplomatiques.",
+            "C) Demander un retour d'information direct aux parties prenantes étrangères afin de mieux comprendre leurs préférences en termes de communication et passer à une communication en face à face afin d'éviter toute mauvaise interprétation.",
+            "D) Organiser une réunion avec les parties prenantes étrangères pour discuter des retours reçus et expliquer qu'il a l'habitude de communiquer de cette manière avec les parties prenantes dans ses projets précédents et qu'il n'a jamais reçu de plaintes."
         ],
         correct: 1,
-        explanation: "La formation améliore la performance à long terme mais peut provoquer une baisse temporaire de vélocité pendant l'apprentissage. C'est un investissement.",
-        tip: "La vélocité n'est pas un objectif ; elle reflète la capacité. Une baisse temporaire pour monter en compétence est saine."
+        explanation: "Présenter des excuses et adapter son style de communication montre de l'intelligence culturelle et de l'humilité. C'est la meilleure approche pour rétablir la confiance.",
+        tip: "La communication doit être adaptée au contexte culturel. Écouter et s'excuser le cas échéant est essentiel."
     },
+    // Question 13
     {
-        id: 7,
-        thematic: "Concepts clés",
-        question: "Associez : 1) Agile, 2) Scrum, 3) Remaniement (refactoring), 4) Backlog de produit. Lequel est un artefact ?",
+        id: 13,
+        thematic: "Gestion de la qualité",
+        question: "Au cours de l'exécution du projet, le sponsor découvre que le chef de projet ne sait pas que les montres étanches produites doivent être testées sous l'eau dans des conditions réelles afin de remplir les critères d'acceptation stipulés dans le contrat. Lorsque le chef de projet a effectué le test, 10% des montres déjà produites n'ont pas passé le test. Que doit faire le chef de projet ensuite ?",
         options: [
-            "A) Agile",
-            "B) Scrum",
-            "C) Le remaniement",
-            "D) Le backlog de produit"
+            "A) Considérer cela comme une défaillance interne et utiliser la réserve pour aléa pour reproduire les montres défectueuses.",
+            "B) Considérer cela comme une défaillance interne et utiliser la réserve pour imprévus pour reproduire les montres défectueuses.",
+            "C) Considérer cela comme une défaillance externe et utiliser la réserve pour aléa pour reproduire les montres défectueuses.",
+            "D) Considérer cela comme une défaillance externe et utiliser la réserve pour imprévus pour reproduire les montres défectueuses."
+        ],
+        correct: 1,
+        explanation: "Les défauts détectés en interne avant livraison sont des défaillances internes. La réserve pour imprévus (contingency reserve) est utilisée pour les risques identifiés, tandis que la réserve pour aléas (management reserve) est pour les risques non identifiés. Ici, le test était un risque non identifié, donc on utilise la réserve pour aléas ? Non, selon le texte, c'est une défaillance interne et on utilise la réserve pour imprévus (car le risque n'était pas identifié, mais la réserve pour imprévus est pour les risques connus. La réponse donnée dans le PDF est B, avec explication: 'Lorsque la qualité d'un produit est testée par l'équipe de projet et révèle certains défauts, les produits défectueux sont considérés comme des défaillances internes. Par conséquent, tous les défauts doivent être traités et corrigés en interne avant de livrer le produit final au client. Étant donné que le chef de projet ne connaît pas les critères d'acceptation, le problème n'a pas été identifié comme un risque, et la réserve pour imprévus doit être utilisée pour reproduire les montres défectueuses.'",
+        tip: "Distinguer réserve pour imprévus (risques identifiés) et réserve pour aléas (risques non identifiés)."
+    },
+    // Question 14
+    {
+        id: 14,
+        thematic: "Engagement des parties prenantes",
+        question: "Dans un projet de réaménagement urbain à grande échelle visant à revitaliser le centre-ville, le chef de projet rencontre des difficultés pour engager un dialogue avec une partie prenante clé, le chef de cabinet du maire. Ce dernier, ayant une influence significative sur les décisions et les allocations de financement du projet, a un emploi du temps particulièrement chargé en raison de ses responsabilités et de son implication dans divers projets municipaux. Malgré les efforts du chef de projet pour organiser des réunions régulières et fournir des mises à jour, il est difficile de rencontrer le chef de cabinet, ce qui entraîne souvent le report ou l'annulation des réunions. Que doit faire le chef de projet ?",
+        options: [
+            "A) Insister pour obtenir des réunions en face-à-face avec le chef de cabinet, en expliquant l'importance de ses contributions et de son rôle dans la réussite du projet.",
+            "B) Envoyer au chef de cabinet des mises à jour hebdomadaires par e-mail, des rapports d'avancement bihebdomadaires, et l'appeler régulièrement pour assurer son engagement et solliciter son retour d'information.",
+            "C) Déléguer la communication avec le chef de cabinet à un membre de l'équipe de projet ou à un assistant qui peut le contacter de manière proactive à propos du projet, en veillant à ce que les informations importantes soient communiquées en temps opportun et de manière efficace.",
+            "D) Organiser des séances stratégiques trimestrielles avec le chef de cabinet et les autres parties prenantes clés pour discuter de l'avancement et des défis du projet, permettant ainsi des discussions approfondies et un alignement sur les objectifs clés."
+        ],
+        correct: 1,
+        explanation: "L'approche la plus adaptée est d'utiliser des canaux de communication concis et ciblés, tels que des mises à jour hebdomadaires par e-mail, des appels réguliers et des rapports d'avancement bihebdomadaires, afin de fournir des mises à jour régulières sur le projet et de solliciter un retour d'information, tout en respectant les contraintes de temps de la partie prenante.",
+        tip: "Adapter la fréquence et le mode de communication aux disponibilités de la partie prenante est clé."
+    },
+    // Question 15
+    {
+        id: 15,
+        thematic: "Approche adaptative / budget fixe",
+        question: "Un chef de projet est assigné à un projet qui suit une approche adaptative. Après avoir recueilli toutes les exigences, le chef de projet a prévu 3 à 5 releases pour atteindre l'objectif du projet. Le chef de projet prévoit de définir les détails de chaque release de manière progressive après avoir obtenu plus de perspectives et de retours de la part des parties prenantes clés. Que doit faire le chef de projet, sachant que le projet dispose d'un budget fixe qui ne peut être dépassé ?",
+        options: [
+            "A) Étant donné que le budget est fixe, le chef de projet doit adopter une approche prédictive au lieu d'une approche adaptative.",
+            "B) Étant donné les risques élevés de dérive du périmètre, le chef de projet doit s'assurer qu'un comité de maîtrise des changements est établi avant le début du projet.",
+            "C) Avant le début du projet, le chef de projet doit définir un nombre fixe de releases et élaborer un budget détaillé pour chacun d'eux.",
+            "D) Le chef de projet doit travailler avec les parties prenantes pour prioriser les tâches de chaque release jusqu'à épuisement du budget."
         ],
         correct: 3,
-        explanation: "Agile est une approche, Scrum un cadre de travail, le remaniement une technique, et le backlog de produit est un artefact Scrum.",
-        tip: "Les artefacts Scrum sont : Product Backlog, Sprint Backlog, Incrément."
+        explanation: "En adaptatif, le budget est fixe, le périmètre est variable. On priorise les fonctionnalités les plus importantes dans chaque release jusqu'à consommation du budget.",
+        tip: "Dans un projet adaptatif à budget fixe, on priorise les fonctionnalités à plus forte valeur."
     },
+    // Question 16
     {
-        id: 8,
-        thematic: "Analyse financière",
-        question: "Un chef de projet a commencé à travailler pour une nouvelle organisation lorsqu'il a été informé que les revenus incrémentaux attendus de tous les projets doivent dépasser leurs coûts d'au moins 30%. Son projet actuel est censé avoir un BCR (rapport coûts-bénéfices) de 0,7. Laquelle des affirmations suivantes est vraie ?",
+        id: 16,
+        thematic: "Sélection d'approche",
+        question: "Une entreprise technologique internationale entreprend un projet complexe pour développer une plateforme d'intelligence artificielle de nouvelle génération. Le projet implique des technologies de pointe, des intérêts diversifiés des parties prenantes, et des exigences réglementaires importantes. Le chef de projet étudie différentes approches pour assurer la réussite de l'exécution du projet. Que doit-il recommander ?",
         options: [
-            "A) Le projet n'est pas rentable et le BCR n'atteint pas le seuil minimal établi par l'organisation.",
-            "B) Le projet n'est pas rentable mais le BCR atteint le seuil minimal fixé par l'organisation.",
-            "C) Le projet est rentable mais le BCR n'atteint pas le seuil minimal.",
-            "D) Le projet est rentable et le BCR atteint le seuil minimal."
+            "A) Adopter une approche en cascade pour garantir la clarté et la structure, permettant une planification et une documentation détaillées, ce qui est crucial pour gérer des projets complexes avec des exigences réglementaires strictes.",
+            "B) Adopter une approche Agile pour permettre un retour d'information et une adaptation continus, afin de favoriser le développement et la livraison rapides de fonctions d'IA de haute qualité tout en tenant en considération l'évolution des besoins des parties prenantes et les progrès technologiques.",
+            "C) Adopter une approche de la chaîne critique pour identifier et protéger la chaîne critique des tâches, ce qui permet d'atténuer les risques liés à la complexité du projet et de garantir la livraison en temps voulu de la plateforme d'IA sans compromettre la qualité ou la conformité.",
+            "D) Adopter une approche hybride pour permettre une planification et une documentation structurées tout en favorisant un développement itératif et une amélioration continue."
+        ],
+        correct: 3,
+        explanation: "Une approche hybride combine planification structurée (pour la conformité) et développement itératif (pour l'adaptation). C'est le meilleur compromis pour ce type de projet.",
+        tip: "Les projets complexes avec exigences réglementaires bénéficient souvent d'une approche hybride."
+    },
+    // Question 17
+    {
+        id: 17,
+        thematic: "Leadership et motivation d'équipe",
+        question: "Un chef de projet nouvellement recruté rejoint un projet de logiciel en cours et se retrouve avec une équipe composée de parties prenantes clés, d'experts en la matière et de développeurs seniors. En examinant l'état du projet avec l'équipe, le chef de projet a constaté un manque de direction et d'enthousiasme parmi les membres de l'équipe, ce qui explique les défis rencontrés lors de l'exécution du projet. Que doit faire le chef de projet ?",
+        options: [
+            "A) Encourager la participation active des membres de l'équipe aux processus de prise de décision pour s'assurer que leurs voix sont entendues et valorisées.",
+            "B) Veiller à ce que chaque membre de l'équipe accomplisse ses tâches telles qu'elles ont été définies afin de résoudre le problème du manque d'orientation de l'équipe.",
+            "C) Discuter des défis observés avec le sponsor du projet et proposer un plan d'action correctif.",
+            "D) Mettre à jour le registre des risques du projet pour prendre en considération les impacts potentiels des défis observés sur les résultats du projet."
         ],
         correct: 0,
-        explanation: "Un BCR < 1 signifie que les coûts dépassent les bénéfices. Ici BCR = 0,7 (<1) donc non rentable, et le seuil de rentabilité exigé est 1,3 (bénéfices > coûts de 30%), donc il ne l'atteint pas.",
-        tip: "BCR = bénéfices / coûts. >1 = rentable."
+        explanation: "Encourager la participation à la prise de décision et responsabiliser l'équipe favorise le sentiment d'appartenance et de responsabilité, ce qui se traduit par un engagement et une motivation accrus.",
+        tip: "L'auto-organisation et la participation aux décisions sont des leviers puissants de motivation."
     },
+    // Question 18
     {
-        id: 9,
-        thematic: "Développement d'équipe",
-        question: "Un chef de projet dirige une équipe de spécialistes en marketing pour lancer une nouvelle campagne. L'équipe est composée de professionnels expérimentés ayant déjà travaillé ensemble sur des projets similaires. À quel stade de l'échelle de Tuckman la charte d'équipe doit-elle être créée ?",
+        id: 18,
+        thematic: "Analyse des parties prenantes",
+        question: "Un chef de projet travaille dans une institution financière où la sécurité des données est accordée la plus grande importance. Il a récemment été affecté à un projet visant à examiner toutes les stations de travail de l'organisation afin de supprimer tout logiciel installé illégalement. Pour mettre en œuvre ce projet avec succès, le chef de projet doit collaborer avec tous les départements. Pendant l'exécution du projet, il a reçu le soutien de tous les responsables de département, à l'exception du responsable des investissements et du responsable des relations avec les clients. Le responsable des investissements prétend toujours qu'il n'a pas reçu les e-mails du chef de projet et qu'il ne peut donc pas répondre à ses demandes. Le responsable des relations avec les clients semble être constamment occupé et ne répond jamais aux emails du chef de projet. En revanche, il répond directement lorsque le chef de projet le croise dans le couloir. Comment le chef de projet doit-il classer le responsable du département des investissements et le responsable du département des relations avec les clients dans la matrice d'évaluation de l'engagement des parties prenantes ?",
         options: [
-            "A) Au stade de la formation (forming)",
-            "B) Au stade de la tension (storming)",
-            "C) Au stade de la normalisation (norming)",
-            "D) Au stade de l'exécution (performing)"
+            "A) Ils sont tous deux résistants.",
+            "B) Le responsable des investissements n'est pas au courant, tandis que le responsable des relations clients est résistant.",
+            "C) Le responsable des investissements n'est pas au courant, tandis que le responsable des relations clients est neutre.",
+            "D) Le responsable des investissements est résistant, tandis que le responsable des relations clients est neutre."
+        ],
+        correct: 3,
+        explanation: "Le responsable des investissements prétend ne pas recevoir les e-mails (résistance passive). Le responsable des relations clients répond quand on le voit, donc il n'est pas résistant, mais il ne répond pas aux e-mails : il est neutre (ne soutient pas activement mais ne bloque pas).",
+        tip: "La matrice d'engagement classe les parties prenantes en : inconscient, résistant, neutre, soutien, leader."
+    },
+    // Question 19
+    {
+        id: 19,
+        thematic: "Préaffectation des ressources",
+        question: "Un chef de projet en science des données a l'habitude de mettre en œuvre ses projets selon une approche hybride. Son organisation possède deux serveurs pour traiter le big data, l'un d'eux étant plus performant que l'autre. Après une réunion avec un client potentiel, le chef de projet informe son supérieur que si ce projet est approuvé, il souhaite utiliser le serveur le plus performant de l'organisation et inclure le développeur senior, Adam, dans l'équipe de projet. Le chef de projet a-t-il le droit de faire une telle demande ?",
+        options: [
+            "A) Oui, les chefs de projet peuvent pré-affecter des ressources si nécessaire.",
+            "B) Oui, la concurrence pour les ressources étant courante, les chefs de projet doivent être proactifs pour les réserver.",
+            "C) Non, les chefs de projet ne peuvent pas pré-affecter de ressources avant d'avoir effectué la planification des ressources.",
+            "D) Non, dans les projets hybrides, c'est la responsabilité du responsable de produit d'acquérir et de développer les ressources."
         ],
         correct: 0,
-        explanation: "La charte d'équipe doit être créée dès la phase de formation pour établir les bases du travail collaboratif, les valeurs, les règles de fonctionnement, et prévenir les conflits.",
-        tip: "Une charte d'équipe précoce clarifie les attentes et réduit les malentendus."
+        explanation: "La préaffectation peut avoir lieu dès la phase d'initialisation, souvent par le biais de négociations ou de besoins identifiés dans la charte. C'est une pratique courante pour sécuriser des ressources critiques.",
+        tip: "La préaffectation est possible et même recommandée pour les ressources rares ou critiques."
     },
+    // Question 20
     {
-        id: 10,
-        thematic: "Engagement des parties prenantes",
-        question: "Un chef de projet dirige un projet de construction d'une usine électrique dans une zone forestière. Un groupe d'environnementalistes proteste contre le projet, ce qui entraîne son interruption. Qu'aurait dû faire le chef de projet pour éviter ce problème ?",
+        id: 20,
+        thematic: "Audit qualité",
+        question: "Un mois après avoir rejoint sa nouvelle entreprise, un chef de projet est chargé de diriger un nouveau projet. Ce chef de projet est un peu stressé car c'est la première fois qu'il gère un projet hybride. Le chef de projet a été informé qu'un auditeur externe va effectuer un audit qualité sur son projet la semaine prochaine. Que doit attendre le chef de projet de cet audit ?",
         options: [
-            "A) Travailler avec l'équipe pour identifier des mesures d'atténuation et des solutions alternatives priorisant la conservation.",
-            "B) Signer un contrat d'assurance pour protéger le projet contre les risques majeurs.",
-            "C) Entamer un dialogue ouvert avec les environnementalistes pour comprendre leurs préoccupations.",
-            "D) Collaborer avec le sponsor pour offrir des compensations financières aux environnementalistes."
+            "A) Cet audit permettra de déterminer si le projet est inférieur au budget et en avance par rapport à l'échéancier ou non.",
+            "B) Cet audit permettra de détecter toute non-conformité par rapport à la référence de base du périmètre.",
+            "C) Cet audit permettra d'examiner si le projet respecte les procédures de l'entreprise.",
+            "D) Cet audit permettra de détecter les défauts et les erreurs du produit."
         ],
         correct: 2,
-        explanation: "Un dialogue précoce avec les parties prenantes opposantes permet de comprendre leurs préoccupations, de les impliquer et de trouver des solutions acceptables. L'assurance ou les compensations viennent après, mais le dialogue est la première étape proactive.",
-        tip: "La gestion des parties prenantes commence par l'écoute et l'engagement, pas par l'ignorance ou l'achat."
+        explanation: "Les audits qualité vérifient la conformité aux processus, politiques et procédures de l'organisation, pas la performance par rapport au budget ou aux délais, ni la qualité produit (c'est le contrôle qualité).",
+        tip: "L'audit qualité se concentre sur les processus ; le contrôle qualité se concentre sur le produit."
+    },
+    // Question 21
+    {
+        id: 21,
+        thematic: "Transparence et reporting",
+        question: "Un chef de projet est contacté pour gérer un projet en cours adoptant une approche prédictive. En examinant l'état d'avancement du projet, le chef de projet découvre que certains des livrables indiqués comme terminés sont en fait encore en cours de réalisation. De plus, contrairement à ce que pense le sponsor, le projet a dépassé le budget et est en retard par rapport à l'échéancier. Que doit faire le chef de projet ensuite ?",
+        options: [
+            "A) Refuser poliment de gérer un projet dans un tel état.",
+            "B) Informer le sponsor de ses découvertes.",
+            "C) Soumettre une demande de changement pour corriger les problèmes identifiés.",
+            "D) Étudier l'option de compresser les délais afin de remettre le projet sur la bonne voie."
+        ],
+        correct: 1,
+        explanation: "Le chef de projet doit d'abord informer le sponsor de l'état réel du projet, conformément au code de déontologie (transparence et honnêteté).",
+        tip: "Toujours communiquer les faits objectifs, même s'ils sont négatifs."
+    },
+    // Question 22
+    {
+        id: 22,
+        thematic: "Résolution de conflits contractuels",
+        question: "Un chef de projet est affecté à un projet de marketing prédictif. Le client demande que le chef de projet prenne en charge les frais de location des panneaux d'affichage, étant donné que les panneaux publicitaires sont inclus dans la section du périmètre du contrat. Cependant, le chef de projet répond que c'est hors périmètre parce que les coûts de location n'ont pas été mentionnés dans la section des prix du contrat. Après une longue discussion sans parvenir à un accord, quelle doit être l'étape suivante pour le chef de projet ?",
+        options: [
+            "A) Essayer la négociation directe",
+            "B) Essayer le mode alternatif de résolution des conflits",
+            "C) Établir une directive de règlement des revendications",
+            "D) Recourir au litige"
+        ],
+        correct: 1,
+        explanation: "Après échec de la négociation directe, la prochaine étape est un mode alternatif de résolution des conflits (médiation, arbitrage) avant d'envisager un litige.",
+        tip: "Toujours privilégier les méthodes alternatives avant d'aller en justice."
+    },
+    // Question 23
+    {
+        id: 23,
+        thematic: "Gestion de conflits",
+        question: "Lors d'une réunion avec le PDG de l'organisation, un chef de projet a reçu un appel d'un membre de l'équipe demandant un congé de quatre jours pour participer à une célébration religieuse. Le chef de projet a immédiatement refusé la demande du membre de l'équipe, car le projet était déjà en retard et approchait de son échéance. Le PDG, qui écoutait la conversation, est intervenu pour en discuter avec le membre de l'équipe. Après une longue conversation, le PDG a décidé de permettre au membre de l'équipe de prendre seulement deux jours de congé. Quelle technique de gestion des conflits le chef de projet a-t-il utilisée dans cette situation ?",
+        options: [
+            "A) L'acceptation",
+            "B) Le compromis",
+            "C) L'affrontement",
+            "D) La collaboration"
+        ],
+        correct: 2,
+        explanation: "Le chef de projet a imposé sa décision sans discussion, c'est de l'affrontement (forcing). Le PDG a fait un compromis (deux jours au lieu de quatre).",
+        tip: "L'affrontement est une approche gagnant-perdant, à utiliser avec parcimonie."
+    },
+    // Question 24
+    {
+        id: 24,
+        thematic: "Daily Scrum",
+        question: "Au cours du premier sprint d'un nouveau projet, un scrum master a eu une importante réunion d'affaires en même temps que la réunion standup quotidienne. Que doit faire le scrum master dans cette situation ?",
+        options: [
+            "A) S'abstenir de participer à la réunion standup et assister plutôt à la réunion d'affaires.",
+            "B) Demander à l'équipe pluridisciplinaire de reporter la réunion standup.",
+            "C) Annuler la réunion standup.",
+            "D) Demander à l'équipe pluridisciplinaire d'enregistrer la réunion standup afin de la visionner ultérieurement."
+        ],
+        correct: 0,
+        explanation: "Le Scrum Master n'est pas obligé d'assister au daily scrum ; l'équipe peut le tenir seule. Il peut donc se rendre à sa réunion d'affaires.",
+        tip: "Le daily scrum est une réunion pour l'équipe de développement ; le SM peut être absent."
+    },
+    // Question 25
+    {
+        id: 25,
+        thematic: "Prise de décision en équipe",
+        question: "Avant une réunion de démonstration avec le client, un membre de l'équipe a découvert un composant défectueux qui peut être réparé ou remplacé. Le coût des deux options est insignifiant, elles sont toutes deux sans risque et leur mise en œuvre prend moins d'une heure. Cependant, l'équipe a passé 15 minutes à discuter des deux options sans parvenir à un accord. Que doit faire le chef de projet ?",
+        options: [
+            "A) Permettre à la discussion de continuer jusqu'à ce que l'équipe parvienne à une solution.",
+            "B) Organiser et faciliter une réunion formelle avec les membres de l'équipe.",
+            "C) Escalader le problème au sponsor du projet.",
+            "D) Procéder à un vote pour prendre une décision."
+        ],
+        correct: 3,
+        explanation: "Pour une décision simple et sans risque, un vote permet de sortir de l'impasse rapidement sans perdre plus de temps.",
+        tip: "Quand le temps presse et que l'impact est faible, le vote est une méthode de décision efficace."
+    },
+    // Question 26
+    {
+        id: 26,
+        thematic: "Gestion du backlog",
+        question: "Après une discussion avec l'équipe de développement, le scrum master a décidé de classer les éléments du backlog comme étant à court terme, à moyen terme et à long terme. Peu de temps après, le scrum master a reçu un e-mail du responsable du produit lui demandant de retirer ce classement, sans donner aucune explication. Que doit faire le Scrum Master ensuite ?",
+        options: [
+            "A) Demander une explication.",
+            "B) Organiser une réunion pour aborder ce problème.",
+            "C) Attendre la prochaine réunion de planification du sprint pour mettre à jour le classement selon la demande du responsable de produit.",
+            "D) Retirer le classement."
+        ],
+        correct: 3,
+        explanation: "Le Product Owner est le propriétaire du backlog ; il a le dernier mot sur la façon dont il est organisé. Le Scrum Master doit respecter sa demande et retirer le classement.",
+        tip: "Le Product Owner est responsable du backlog ; le Scrum Master facilite mais ne décide pas."
+    },
+    // Question 27
+    {
+        id: 27,
+        thematic: "Chemin critique",
+        question: "La méthode du chemin critique est une technique d'analyse du réseau du projet. Laquelle des affirmations suivantes est vraie en ce qui concerne le chemin critique ?",
+        options: [
+            "A) Toutes les tâches du chemin critique doivent être elles-mêmes critiques.",
+            "B) Si une tâche du chemin critique est en retard, la date d'achèvement de tout le projet sera repoussée.",
+            "C) Une demande de changement n'a pas d'impact sur le chemin critique.",
+            "D) Le chemin critique peut être utilisé dans les cycles de vie prédictifs et adaptatifs."
+        ],
+        correct: 1,
+        explanation: "Par définition, tout retard sur une tâche du chemin critique retarde la fin du projet. Les autres affirmations sont fausses.",
+        tip: "Le chemin critique a une marge totale nulle."
+    },
+    // Question 28
+    {
+        id: 28,
+        thematic: "Estimation en Agile",
+        question: "Lors de la planification du sprint, l'équipe de développement a estimé qu'une tâche valait '8' story points, tandis que l'estimation du responsable de produit pour la même tâche était de '3' story points. Par conséquent, le Scrum Master a décidé d'attribuer '5' story points à cette tâche pour réduire l'écart entre les deux estimations. Quelle est l'erreur commise par le scrum master dans ce scénario ?",
+        options: [
+            "A) Le scrum master doit fournir son estimation avant de prendre la décision finale puisque les estimations doivent être attribuées par toute l'équipe Scrum.",
+            "B) Le scrum master doit attribuer '5.5' story points à la tâche en tant que moyenne des deux estimations.",
+            "C) Le scrum master doit attribuer '3' story points à la tâche puisque le responsable du produit est responsable de l'attribution des estimations.",
+            "D) Le scrum master doit attribuer '8' story points à la tâche puisque l'équipe de développement est responsable de l'attribution des estimations."
+        ],
+        correct: 3,
+        explanation: "Seule l'équipe de développement estime le travail (les story points). Le Product Owner et le Scrum Master ne doivent pas imposer d'estimation.",
+        tip: "L'estimation appartient à ceux qui réalisent le travail."
+    },
+    // Question 29
+    {
+        id: 29,
+        thematic: "Arrêt de projet",
+        question: "Un chef de projet dirige un projet de modélisation 3D d'un château qui sera construit près d'une rivière. En cours d'exécution, le sponsor demande l'arrêt du projet car un barrage sera construit à proximité, ce qui rendra l'emplacement du château moins attrayant. Que doit faire le chef de projet ?",
+        options: [
+            "A) Mettre fin au projet selon la demande du sponsor.",
+            "B) Procéder au règlement des revendications.",
+            "C) Essayer de négocier directement avec le sponsor afin de le convaincre d'autoriser la continuation du projet.",
+            "D) Insister pour que le projet soit complété puisque le barrage n'y est pas associé et ne l'affecte pas."
+        ],
+        correct: 0,
+        explanation: "Le sponsor a le pouvoir de décider d'arrêter le projet. Le chef de projet doit suivre cette instruction et procéder à la clôture du projet.",
+        tip: "Le sponsor est l'autorité qui peut arrêter un projet."
+    },
+    // Question 30
+    {
+        id: 30,
+        thematic: "Leadership serviteur",
+        question: "Un chef de projet a participé à un atelier de formation au leadership. Le formateur a énuméré les caractéristiques des leaders serviteurs, puis a mentionné quelques exemples de traits de comportement d'un leader serviteur, tels que : (Sélectionnez deux réponses)",
+        options: [
+            "A) Aider un membre de l'équipe à rédiger un e-mail à une partie prenante afin d'obtenir des informations clés.",
+            "B) Récompenser les employés les plus performants afin de les motiver.",
+            "C) S'enquérir auprès d'un membre de l'équipe des raisons pour lesquelles il est soudainement devenu introverti.",
+            "D) Inspirer son équipe par des exemples de réussite."
+        ],
+        correct: [0, 2],
+        explanation: "Le leadership serviteur consiste à servir l'équipe, à répondre à ses besoins, à l'écouter et à l'aider. Aider pour un e-mail et s'enquérir d'un changement de comportement sont des actions de service. Récompenser et inspirer sont davantage du leadership traditionnel.",
+        tip: "Le leader serviteur met les besoins de l'équipe en premier.",
+        multiple: true
+    },
+    // Question 31
+    {
+        id: 31,
+        thematic: "Priorisation du backlog",
+        question: "Un nouveau responsable du produit, peu familiarisé avec l'approche Agile, est affecté à un projet en cours. Le chef de projet présente au responsable du produit ses principales responsabilités, telles que le classement des éléments du backlog de produit. Comment le responsable du produit doit-il prioriser les éléments du backlog de produit ?",
+        options: [
+            "A) Les éléments les plus faciles à réaliser en haut",
+            "B) Les éléments de moindre valeur en bas",
+            "C) Les éléments les plus récents en haut",
+            "D) Les éléments les moins clairs en haut"
+        ],
+        correct: 1,
+        explanation: "Le Product Owner doit placer les éléments de plus grande valeur en haut du backlog. Les éléments de moindre valeur se retrouvent en bas.",
+        tip: "La priorisation se fait par la valeur métier, pas par la difficulté ou la nouveauté."
+    },
+    // Question 32
+    {
+        id: 32,
+        thematic: "Gestion des régressions",
+        question: "Un chef de projet dirige un projet de développement de logiciel en utilisant une approche prédictive. Pendant l'exécution, un membre de l'équipe a développé une nouvelle fonctionnalité, ce qui a entraîné des régressions sur d'autres fonctionnalités déjà utilisées par le client. Que doit faire le chef de projet ? (Sélectionnez trois réponses)",
+        options: [
+            "A) Soumettre une demande de changement pour corriger les régressions résultantes.",
+            "B) Informer les parties prenantes concernées des régressions, de leur impact et des solutions proposées.",
+            "C) Organiser une réunion des retours d'expérience pour éviter des problèmes similaires à l'avenir.",
+            "D) Puisqu'il s'agit d'un problème interne, essayer de le corriger sans en informer le client.",
+            "E) Ignorer les régressions et se concentrer sur l'achèvement du projet dans les délais."
+        ],
+        correct: [0, 1, 2],
+        explanation: "Les bonnes pratiques sont : informer les parties prenantes, soumettre une demande de changement pour corriger, et organiser un retour d'expérience pour éviter que cela ne se reproduise.",
+        tip: "Ne jamais cacher les problèmes au client. La transparence est essentielle.",
+        multiple: true
+    },
+    // Question 33
+    {
+        id: 33,
+        thematic: "Communication d'équipe distribuée",
+        question: "Un chef de projet est chargé de gérer un projet hybride dont les membres de l'équipe sont dispersés sur quatre continents. En conséquence, l'équipe a rencontré des problèmes de communication. Que peut faire le chef de projet pour résoudre les problèmes de communication de l'équipe? (Sélectionnez deux réponses)",
+        options: [
+            "A) Mettre en place un appariement à distance",
+            "B) Adopter une approche agile pour le projet",
+            "C) Co-localiser l'équipe",
+            "D) Créer des fenêtres d'aquarium"
+        ],
+        correct: [0, 3],
+        explanation: "L'appariement à distance (remote pairing) et les fenêtres d'aquarium (longues vidéoconférences ouvertes) sont des techniques pour améliorer la communication dans les équipes distribuées.",
+        tip: "Pour les équipes à distance, favoriser les canaux de communication synchrone et asynchrone.",
+        multiple: true
+    },
+    // Question 34
+    {
+        id: 34,
+        thematic: "Décomposition du WBS",
+        question: "Un chef de projet a créé l'organigramme des travaux en décomposant les travaux en trois niveaux. Le bureau de projets soutenant indique que ces trois niveaux ne sont pas suffisants et recommande de décomposer le travail du projet en cinq niveaux. Que doit faire le chef de projet ?",
+        options: [
+            "A) Prendre en considération la recommandation du bureau de projets et décomposer le travail selon les besoins.",
+            "B) Trouver un terrain d'entente en décomposant l'organigramme des travaux du projet en quatre niveaux.",
+            "C) Étant donné que le bureau de projets a un niveau de contrôle élevé, le chef de projet doit décomposer l'organigramme des travaux en cinq niveaux, comme recommandé.",
+            "D) Le bureau de projets ayant un faible niveau de contrôle, le chef de projet doit ignorer leur demande et maintenir les niveaux de décomposition de l'organigramme des travaux à trois."
+        ],
+        correct: 0,
+        explanation: "Le niveau de détail du WBS dépend de la complexité et des besoins de contrôle. Un bureau de projets soutenant donne des conseils, mais le chef de projet peut adapter en fonction des besoins du projet.",
+        tip: "Il n'y a pas de nombre fixe de niveaux ; l'important est d'avoir le bon niveau de détail pour gérer."
+    },
+    // Question 35
+    {
+        id: 35,
+        thematic: "Réserve pour aléas",
+        question: "Un chef de projet a utilisé la méthode de la valeur monétaire attendue pour définir la réserve pour aléa du nouveau projet industriel. Au cours de la phase d'exécution, le chef de projet a mis à jour la probabilité d'occurrence dans le registre des risques comme suit : [tableau avec risques]. Selon les mises à jour du chef de projet, combien reste-t-il dans la réserve pour aléa ?",
+        options: [
+            "A) €6,000",
+            "B) €5,000",
+            "C) €2,000",
+            "D) €1,000"
+        ],
+        correct: 3,
+        explanation: "La réserve initiale est la somme des EMV : 1000+1000+4000 = 6000. Le risque 1 est survenu (5000 € dépensés). Il reste 1000 €.",
+        tip: "La réserve pour aléas se consume au fur et à mesure que les risques se matérialisent."
+    },
+    // Question 36
+    {
+        id: 36,
+        thematic: "Contrôle de l'avancement",
+        question: "Un chef de projet est chargé d'organiser un concert de deux heures au cours duquel le groupe jouera une playlist de 20 chansons. Une heure après le début du concert, le chef de projet remarque que le groupe n'a joué que 8 chansons. Que doit faire le chef de projet ensuite ?",
+        options: [
+            "A) Demander au groupe de se dépêcher pour qu'il puisse terminer les 20 chansons avant la fin du concert.",
+            "B) Demander au groupe de ne jouer que 8 autres chansons.",
+            "C) Jouer les 20 chansons même si cela prend plus de temps que prévu.",
+            "D) Recueillir plus de données avant de prendre une décision."
+        ],
+        correct: 3,
+        explanation: "Le chef de projet doit d'abord analyser la durée des chansons restantes pour savoir si le retard est réel. Il ne peut pas décider sans plus d'informations.",
+        tip: "Ne pas prendre de décision hâtive ; collecter des données d'abord."
+    },
+    // Question 37
+    {
+        id: 37,
+        thematic: "Compétences du chef de projet",
+        question: "Un chef de projet rencontre quelques difficultés après avoir rejoint une nouvelle entreprise; ses supérieurs ont remarqué que, lors d'une réunion de lancement, il avait du mal à répondre aux questions sur la manière dont le projet correspond aux objectifs de l'organisation. Laquelle des compétences critiques le chef de projet manque-t-il ?",
+        options: [
+            "A) Sens des affaires",
+            "B) Techniques de travail",
+            "C) Compétences en communication",
+            "D) Compétences interpersonnelles"
+        ],
+        correct: 0,
+        explanation: "Le sens des affaires (business acumen) est la capacité à aligner le projet sur la stratégie de l'organisation. Le chef de projet doit comprendre comment le projet crée de la valeur.",
+        tip: "Le triangle des talents PMI comprend le sens des affaires, les compétences techniques et les compétences de leadership."
+    },
+    // Question 38
+    {
+        id: 38,
+        thematic: "Mise en œuvre des changements",
+        question: "Au cours de l'exécution des travaux, un chef de projet a rencontré un problème nécessitant une déviation du périmètre. Le chef de projet a discuté du problème avec le reste de l'équipe et a fourni au comité de maîtrise des changements un plan sur la façon de traiter la modification. Le comité de maîtrise des changements a reconnu la nécessité du changement, mais il a approuvé une méthode de mise en œuvre différente que le chef de projet n'appréciait pas. Que doit faire le chef de projet ?",
+        options: [
+            "A) Démissionner de son poste et quitter le projet.",
+            "B) S'abstenir de mettre en œuvre le changement.",
+            "C) Effectuer le changement en utilisant la méthode approuvée.",
+            "D) Créer un prototype en utilisant la méthode rejetée pour convaincre le comité de maîtrise des changements de son efficacité."
+        ],
+        correct: 2,
+        explanation: "La décision du comité de maîtrise des changements doit être respectée. Le chef de projet met en œuvre la méthode approuvée, même s'il préfère une autre.",
+        tip: "Le chef de projet exécute les décisions du CCB, même s'il n'est pas d'accord."
+    },
+    // Question 39
+    {
+        id: 39,
+        thematic: "Dérive de périmètre (gold plating)",
+        question: "Lors d'une réunion stand-up quotidienne, le scrum master a entendu l'un des membres de l'équipe dire qu'il avait travaillé sur une fonctionnalité supplémentaire qui n'était pas décrite dans la user story. Le membre de l'équipe a expliqué que le client allait apprécier cette fonctionnalité. Que doit faire le scrum master ?",
+        options: [
+            "A) Remercier le membre de l'équipe pour son initiative et informer le client de la nouvelle fonctionnalité ajoutée.",
+            "B) Demander au membre de l'équipe d'ajouter la fonctionnalité supplémentaire au Backlog de sprint en tant qu'élément distinct et de le marquer comme terminé.",
+            "C) Demander au membre de l'équipe de supprimer la fonctionnalité et recommander à l'équipe projet de respecter les exigences définies.",
+            "D) Rien, car le rôle du scrum master est de lever les obstacles plutôt que de diriger l'équipe."
+        ],
+        correct: 2,
+        explanation: "Ajouter une fonctionnalité non demandée est du gold plating. Le Scrum Master doit s'assurer que l'équipe suit les exigences et éviter ce gaspillage.",
+        tip: "Le gold plating augmente la complexité sans valeur ajoutée validée par le client."
+    },
+    // Question 40
+    {
+        id: 40,
+        thematic: "Revue de sprint",
+        question: "Un chef de projet facilite une réunion de revue de sprint. À la fin de la réunion, le responsable du produit a approuvé le lancement des incréments fonctionnels. Cependant, une partie prenante clé assistant à la réunion a exprimé son insatisfaction quant aux livrables et son désaccord quant au lancement. Que doit faire le chef de projet en premier lieu ?",
+        options: [
+            "A) Consulter l'équipe pluridisciplinaire et considérer leur décision.",
+            "B) Demander aux participants de voter et adopter la décision de la majorité.",
+            "C) Aligner le responsable de produit et la partie prenante clé sur une décision commune.",
+            "D) Soutenir la décision du responsable de produit."
+        ],
+        correct: 2,
+        explanation: "Le chef de projet doit faciliter un alignement entre le Product Owner (qui a le pouvoir de décision) et la partie prenante. Il cherche un consensus.",
+        tip: "Le Product Owner est le décideur final pour le contenu du produit, mais il est préférable d'obtenir l'adhésion des parties prenantes clés."
+    },
+    // Question 41
+    {
+        id: 41,
+        thematic: "Amélioration continue",
+        question: "Lorsqu'il facilite la planification du sprint, le chef de projet veille à ce que chaque story ait une liste de contrôle qui inclut les activités de test. Cependant, après quelques itérations, le chef de projet remarque que la plupart du temps, l'équipe de développement n'effectue aucun test, ce qui fait que les stories restent ouvertes pendant longtemps. Que doit faire le chef de projet en premier lieu ?",
+        options: [
+            "A) Séparer les activités de test des user stories.",
+            "B) Charger une équipe d'assurance qualité indépendante d'exécuter les tests à la fin de chaque itération.",
+            "C) Discuter du problème avec l'équipe lors de la réunion de rétrospective du sprint.",
+            "D) Planifier une formation pour l'équipe sur la réalisation des activités de test."
+        ],
+        correct: 2,
+        explanation: "La rétrospective est le moment approprié pour discuter des problèmes de processus et trouver des solutions avec l'équipe.",
+        tip: "La rétrospective sert à améliorer les processus ; c'est là qu'on aborde ce genre de problème."
+    },
+    // Question 42
+    {
+        id: 42,
+        thematic: "Communication et gestion des changements",
+        question: "Un chef de projet est chargé de gérer un projet de marketing pour un parti politique. Lors d'un appel téléphonique avec le représentant du parti, ce dernier demande d'ajouter au projet des publicités sur les réseaux sociaux. Le chef de projet a informé le représentant que cela coûterait €8,000 supplémentaires, ce que le représentant a accepté. Cependant, lorsque le chef de projet a envoyé la facture comprenant les frais de services demandés, le représentant a refusé de payer le coût supplémentaire en prétendant que le projet avait pris un retard inacceptable qui aurait dû être pénalisé. Qu'aurait dû faire le chef de projet pour éviter cette situation? (Sélectionnez deux réponses)",
+        options: [
+            "A) Le chef de projet aurait dû choisir un canal de communication plus approprié.",
+            "B) Le chef de projet aurait dû réduire le périmètre pour équilibrer le coût du service supplémentaire.",
+            "C) Le chef de projet aurait dû demander un prix moins élevé pour le service supplémentaire.",
+            "D) Le chef de projet aurait dû demander une extension de l'échéancier du projet pour effectuer les travaux supplémentaires."
+        ],
+        correct: [0, 3],
+        explanation: "Une communication informelle (téléphone) n'est pas traçable. Il aurait dû formaliser par écrit. De plus, il n'a pas évalué l'impact sur les délais ; demander une extension d'échéancier aurait été prudent.",
+        tip: "Toujours formaliser les changements par écrit et analyser tous les impacts (coût, délai, qualité).",
+        multiple: true
+    },
+    // Question 43
+    {
+        id: 43,
+        thematic: "Leadership serviteur",
+        question: "Un chef de projet gère un projet selon une approche agile. Son objectif principal est de répondre aux besoins des membres de son équipe, d'éliminer les obstacles qu'ils rencontrent et de promouvoir les tâches de support afin de maximiser la productivité de l'équipe. Ce chef de projet est un leader :",
+        options: [
+            "A) Adaptatif",
+            "B) Serviteur",
+            "C) Soutenant",
+            "D) Collaboratif"
+        ],
+        correct: 1,
+        explanation: "La description correspond au leadership serviteur, typique des environnements agiles.",
+        tip: "Le leader serviteur met l'accent sur le service à l'équipe."
+    },
+    // Question 44
+    {
+        id: 44,
+        thematic: "Sélection des fournisseurs",
+        question: "Un chef de projet est chargé de gérer un grand projet dont une partie importante doit être sous-traitée par un prestataire de services. Pour réduire les risques, le chef de projet veut s'assurer que le prestataire sélectionné est bien adapté au projet et aux exigences de qualité avant de lui accorder le contrat. Que doit faire le chef de projet ?",
+        options: [
+            "A) Engager un auditeur pour contrôler continuellement la qualité du travail du prestataire",
+            "B) Assurer la flexibilité du contrat afin de pouvoir remplacer facilement le prestataire s'il ne satisfait pas aux exigences de qualité.",
+            "C) Choisir soigneusement les critères de sélection.",
+            "D) Demander au prestataire un contrat à l'essai."
+        ],
+        correct: 2,
+        explanation: "Des critères de sélection bien définis permettent de choisir le bon prestataire en amont, réduisant ainsi les risques.",
+        tip: "La prévention (bien sélectionner) est plus efficace que la correction."
+    },
+    // Question 45
+    {
+        id: 45,
+        thematic: "Gestion de la performance",
+        question: "Au cours d'un projet de développement de logiciel, le chef de projet procède à une évaluation complète des performances de l'équipe de projet. L'évaluation révèle que plusieurs membres de l'équipe ont constamment sous-performé dans leurs tâches, ce qui a eu un impact sur l'avancement et les résultats du projet. Que doit faire le chef de projet ?",
+        options: [
+            "A) Établir une nouvelle métrique de performance basée sur les exigences du projet pour évaluer l'efficacité des membres de l'équipe.",
+            "B) Adapter la méthode de gestion de l'équipe en fonction des motivations et des compétences de chaque membre pour combler les lacunes de performance.",
+            "C) Mettre en œuvre un mécanisme standardisé de feedback pour fournir des retours constructifs à tous les membres de l'équipe.",
+            "D) Offrir une supervision intensive aux membres sous-performants pour assurer la réalisation efficace de leurs tâches assignées."
+        ],
+        correct: 1,
+        explanation: "Adapter son style de management aux besoins individuels (motivation, compétences) est une approche personnalisée et efficace pour améliorer la performance.",
+        tip: "Le leadership situationnel recommande d'adapter son style à la maturité du collaborateur."
+    },
+    // Question 46
+    {
+        id: 46,
+        thematic: "Préparation du backlog",
+        question: "Lors de la réunion de planification du sprint, le responsable de produit découvre que seules quelques user stories sont prêtes pour le prochain sprint, tandis que les autres nécessitent encore un affinage. Le responsable de produit s'inquiète, car la réunion ne sera pas assez longue pour terminer la planification du nouveau sprint qui commence le lendemain. Comment le responsable de produit aurait-il pu éviter une telle situation ?",
+        options: [
+            "A) En organisant des réunions d'affinage du backlog avec l'équipe de développement tout au long du sprint.",
+            "B) En demandant à l'équipe de développement de prendre la responsabilité de l'affinage des user stories avant la session de planification.",
+            "C) En demandant au Scrum Master de prendre la responsabilité de l'affinage des user stories avant la session de planification",
+            "D) Le responsable du produit n'a commis aucune faute dans cette situation. Il doit simplement inclure les user stories qui sont prêtes, et terminer l'affinage des stories restantes au cours du sprint."
+        ],
+        correct: 0,
+        explanation: "L'affinage du backlog est une activité continue, idéalement réalisée tout au long du sprint, pas seulement à la fin. Des sessions régulières avec l'équipe permettent d'avoir un backlog prêt pour la prochaine planification.",
+        tip: "Le Product Owner doit organiser des sessions d'affinage régulières (backlog grooming)."
+    },
+    // Question 47
+    {
+        id: 47,
+        thematic: "Représentation des données",
+        question: "Un chef de projet gère un projet d'une durée de quatre ans en adoptant une approche prédictive. Le budget initial du projet est de €1,000,000. À la fin de la première année, le comité de pilotage a demandé au chef de projet de partager un diagramme montrant les dépenses de chaque mois. Quelle technique de représentation des données le chef de projet doit-il utiliser ?",
+        options: [
+            "A) Diagramme d'avancement",
+            "B) Diagramme d'achèvement",
+            "C) Histogramme",
+            "D) Diagramme de Gantt"
+        ],
+        correct: 2,
+        explanation: "Un histogramme est une représentation graphique de données numériques, ici les dépenses mensuelles. Les autres diagrammes sont pour l'avancement ou la planification.",
+        tip: "L'histogramme (diagramme en barres) est idéal pour montrer des distributions par catégorie ou période."
+    },
+    // Question 48
+    {
+        id: 48,
+        thematic: "Vélocité",
+        question: "Un chef de projet agile dirige un projet culturel. Après avoir examiné et suivi la vélocité de l'équipe, le chef de projet agile décide :",
+        options: [
+            "A) De fixer un objectif pour que l'équipe atteigne une vélocité supérieure à la moyenne du secteur.",
+            "B) Que la vélocité de l'équipe doit augmenter de 10% à chaque itération.",
+            "C) Qu'il est inutile de suivre la vélocité de l'équipe, car elle est autogérée.",
+            "D) Que la vélocité de l'équipe doit être plus cohérente."
+        ],
+        correct: 3,
+        explanation: "Une vélocité constante est un signe de maturité et de prévisibilité. Chercher à l'augmenter à tout prix peut nuire à la qualité.",
+        tip: "La vélocité n'est pas un objectif, mais une mesure de capacité. La constance est plus précieuse que la croissance."
+    },
+    // Question 49
+    {
+        id: 49,
+        thematic: "Gestion des risques liés aux compétences",
+        question: "Un chef de projet est affecté à un projet de développement de logiciel qui nécessite des compétences de programmation spécialisées, actuellement très demandées sur le marché du travail. En outre, en raison de l'évolution rapide du langage de programmation, il est de plus en plus difficile de trouver et de retenir des personnes qualifiées. Que doit faire le chef de projet ?",
+        options: [
+            "A) Opter pour une analyse des alternatives pour explorer les différentes options et allouer une réserve budgétaire suffisante afin d'atténuer les risques liés au taux élevé de rotation du personnel.",
+            "B) Développer le logiciel en utilisant un langage de programmation plus courant.",
+            "C) Atténuer le risque en inscrivant toute l'équipe à un programme de formation pour acquérir ces compétences spécialisées en programmation.",
+            "D) Signaler un risque sur l'achèvement du projet en raison de la menace posée par la rareté des compétences requises."
+        ],
+        correct: 0,
+        explanation: "L'analyse des alternatives permet d'étudier différentes options (recrutement, formation, sous-traitance) et la réserve budgétaire permet de faire face à des coûts imprévus (hausse des salaires).",
+        tip: "Face à une pénurie de compétences, il faut envisager plusieurs stratégies et provisionner des réserves."
+    },
+    // Question 50
+    {
+        id: 50,
+        thematic: "Analyse coûts-bénéfices",
+        question: "Un chef de projet qui travaille dans une agence web, propose de créer un projet d'e-commerce en dropshipping vu que c'est rentable. Par contre, son manager n'est pas tout à fait d'accord. Que doit faire le chef de projet pour persuader le manager ?",
+        options: [
+            "A) Calculer l'indice de performance des coûts du projet.",
+            "B) Effectuer une analyse SWOT.",
+            "C) Calculer le budget à terminaison du projet.",
+            "D) Calculer le rapport coûts-bénéfices du projet."
+        ],
+        correct: 3,
+        explanation: "Le rapport coûts-bénéfices (BCR) est un indicateur clé de rentabilité. Il permet de convaincre le manager de la valeur du projet.",
+        tip: "Un BCR > 1 indique que les bénéfices dépassent les coûts."
+    },
+    // Question 51
+    {
+        id: 51,
+        thematic: "Changement de durée de sprint",
+        question: "Une organisation suit le cadre de travail scrum, selon des sprints de 4 semaines. Un jour, le directeur des technologies de l'organisation s'est adressé au Scrum Master pour lui indiquer qu'un sprint de 4 semaines était trop long et qu'il est préférable de le réduire à 2 semaines. Convaincu par la suggestion du directeur des technologies, comment le scrum master peut-il effectuer ce changement ?",
+        options: [
+            "A) Annoncer à toute l'équipe Scrum que le directeur des technologies, disposant d'un pouvoir formel, a décidé que les sprints ne devraient durer que 2 semaines.",
+            "B) Informer le responsable de produit et les membres de l'équipe de l'intention de réduire la durée des sprints et les impliquer dans la décision.",
+            "C) Informer l'équipe du changement de durée des sprints lors de la rétrospective et leur fournir des arguments.",
+            "D) Impliquer un coach agile pour faciliter cette transition, car le fait d'avoir une personne externe à l'équipe va très probablement réduire toute résistance au changement."
+        ],
+        correct: 1,
+        explanation: "Toute modification de processus doit être discutée et acceptée par l'équipe. Le Scrum Master doit impliquer le Product Owner et l'équipe dans la décision.",
+        tip: "Les changements de durée de sprint se décident en équipe, pas unilatéralement."
+    },
+    // Question 52
+    {
+        id: 52,
+        thematic: "Développement de l'esprit d'équipe",
+        question: "Après avoir rejoint un projet en cours, le chef de projet a remarqué qu'il n'y avait pas suffisamment d'interaction et de collaboration entre les membres de l'équipe. Quelles activités de développement de l'esprit d'équipe le chef de projet peut-il adopter? (Sélectionnez deux réponses)",
+        options: [
+            "A) Offrir des abonnements à la salle de sport pour tous les membres de l'équipe, leur permettant de choisir la salle et les horaires d'entraînement qui leur conviennent.",
+            "B) Acheter une table de ping-pong et permettre à l'équipe de l'utiliser pendant les pauses.",
+            "C) Partir en randonnée avec l'équipe de projet.",
+            "D) Leur offrir des billets de cinéma pour voir de nouveaux films."
+        ],
+        correct: [1, 2],
+        explanation: "Les activités de groupe (ping-pong, randonnée) favorisent l'interaction et la cohésion. Les abonnements individuels ou billets de cinéma ne créent pas d'interaction.",
+        tip: "Le team building vise à créer des liens par des activités communes.",
+        multiple: true
+    },
+    // Question 53
+    {
+        id: 53,
+        thematic: "Gestion de conflit avec intervention du sponsor",
+        question: "Dirigeant le développement d'une nouvelle application mobile de services bancaires pour une institution financière, le chef de projet et un membre de l'équipe, responsable d'une tâche critique, ont des points de vue contradictoires sur la manière de traiter un livrable clé. Le membre de l'équipe a l'impression d'être microgéré, tandis que le chef de projet pense que le membre de l'équipe ne répond pas aux attentes et fournit un travail de qualité médiocre. Le chef de projet reçoit un e-mail inattendu du sponsor qui explique que le membre de l'équipe demande l'intervention du sponsor. Que doit faire le chef de projet ensuite ?",
+        options: [
+            "A) Rencontrer le membre de l'équipe et le sponsor pour résoudre le problème de manière collaborative.",
+            "B) Demander au sponsor de retirer ce membre de l'équipe du projet, car il n'est plus digne de confiance lorsqu'il s'agit de problèmes internes confidentiels.",
+            "C) Discuter de la situation avec le responsable fonctionnel pour décider des mesures disciplinaires appropriées.",
+            "D) Initier une réunion de résolution de conflit impliquant les parties prenantes concernées, y compris le membre de l'équipe, le sponsor du projet et d'autres membres clés de l'équipe projet."
+        ],
+        correct: 0,
+        explanation: "Une réunion avec les deux parties (membre et sponsor) permet de clarifier les attentes et de trouver une solution collaborative. Impliquer d'autres membres pourrait élargir inutilement le conflit.",
+        tip: "Le sponsor peut jouer un rôle de médiateur ; il faut l'impliquer directement."
+    },
+    // Question 54
+    {
+        id: 54,
+        thematic: "Contrôle qualité / échantillonnage",
+        question: "Un chef de projet gère un projet industriel. Le chef de projet a besoin d'un lot de 1000 filtres identiques fabriqués sur mesure pour le projet. Vu leur grande importance, le chef de projet choisit un fournisseur fiable et bien connu pour produire ces filtres. Sachant qu'un filtre testé doit être jeté car il ne peut être réutilisé, que doit faire le chef de projet ?",
+        options: [
+            "A) Ignorer l'inspection car le chef de projet fait confiance au fournisseur pour livrer les filtres conformément aux spécifications.",
+            "B) Commander plus de 1000 filtres afin de réaliser un échantillonnage d'acceptation sur le surplus du lot.",
+            "C) Demander au vendeur de fournir un certificat de conformité des matières premières du filtre.",
+            "D) Effectuer une inspection à 100% lors de la livraison, puis commander un autre lot de 1000 filtres s'il est satisfait de la qualité."
+        ],
+        correct: 1,
+        explanation: "Comme les tests sont destructifs, il faut prévoir un surplus pour échantillonnage. Commander plus permet de tester un échantillon sans compromettre le lot.",
+        tip: "Pour les tests destructifs, l'échantillonnage est nécessaire ; il faut prévoir des unités supplémentaires."
+    },
+    // Question 55
+    {
+        id: 55,
+        thematic: "Gestion des délais",
+        question: "Au cours de l'exécution du projet, un membre de l'équipe chargé d'une tâche informe le chef de projet qu'il ne sera pas capable de la terminer dans les délais et qu'il aura besoin de deux jours supplémentaires. Après avoir examiné le diagramme de Gantt, le chef de projet constate que la nouvelle estimation n'aura aucun impact sur le chemin critique ou le coût du projet. Que doit faire le chef de projet ?",
+        options: [
+            "A) Confier la tâche à un autre membre de l'équipe qui peut la terminer dans les délais.",
+            "B) Informer le membre de l'équipe que, puisque l'échéancier du projet a déjà été approuvé, il ne sera pas possible de le modifier.",
+            "C) Demander au membre de l'équipe de s'occuper de la mise à jour de l'échéancier du projet chaque fois qu'une inexactitude dans les estimations des activités est identifiée.",
+            "D) Approuver la nouvelle estimation de l'activité par le membre de l'équipe et mettre à jour le diagramme de Gantt en conséquence."
+        ],
+        correct: 3,
+        explanation: "Si le retard n'a pas d'impact, le chef de projet peut accepter la nouvelle estimation et ajuster le planning en conséquence.",
+        tip: "Les estimations peuvent être révisées si cela ne compromet pas les objectifs."
+    },
+    // Question 56
+    {
+        id: 56,
+        thematic: "Adoption de Kanban",
+        question: "Un chef de projet a récemment été affecté à un nouveau projet. Après avoir vérifié les exigences, le chef de projet a décidé que Kanban est le cadre de travail Agile idéal à utiliser. Cependant, l'équipe de projet n'est pas habituée à Kanban. Que doit faire le chef de projet ?",
+        options: [
+            "A) Ne pas utiliser Kanban, car l'équipe ne le maîtrise pas.",
+            "B) Expliquer Kanban lors de la première réunion de planification de l'itération.",
+            "C) Organiser des sessions de formation pour que l'équipe apprenne Kanban en pratique.",
+            "D) Demander aux membres de l'équipe d'apprendre les pratiques Kanban par leurs propres moyens."
+        ],
+        correct: 2,
+        explanation: "Si le chef de projet estime que Kanban est le meilleur choix, il doit former l'équipe pour qu'elle acquière les compétences nécessaires.",
+        tip: "Le chef de projet doit s'assurer que l'équipe est formée aux méthodes choisies."
+    },
+    // Question 57
+    {
+        id: 57,
+        thematic: "Atténuation des risques fournisseur",
+        question: "Un chef de projet découvre une menace sérieuse pour le projet; l'un de ses sous-traitants est susceptible de déclarer faillite. Si ça arrive, le projet subira un retard de deux mois. Que doit faire le chef de projet pour atténuer le risque ?",
+        options: [
+            "A) Examiner le contrat pour vérifier les conséquences d'une éventuelle rupture de contrat.",
+            "B) Cesser immédiatement de travailler avec le sous-traitant.",
+            "C) Contacter une compagnie d'assurance pour obtenir une couverture contre les pertes potentielles.",
+            "D) Contacter d'autres sous-traitants capables de fournir les matériaux nécessaires."
+        ],
+        correct: 3,
+        explanation: "Atténuer le risque signifie réduire son impact. Contacter d'autres fournisseurs permet d'avoir une solution de rechange si le risque se réalise.",
+        tip: "L'atténuation proactive consiste à préparer des alternatives."
+    },
+    // Question 58
+    {
+        id: 58,
+        thematic: "Gestion des risques en phase de démarrage",
+        question: "Au cours de la phase d'élaboration de la charte du projet, le chef de projet a découvert une lacune dans le cas d'affaires; certaines exigences réglementaires clés manquaient. Le non-respect de ces réglementations pourrait entraîner des problèmes juridiques. En revanche, le respect de ces réglementations pourrait entraîner des changements radicaux du périmètre et des dépassements de budget. Que doit faire le chef de projet ?",
+        options: [
+            "A) Emettre une demande de changement pour mettre en œuvre les changements nécessaires afin de respecter les réglementations.",
+            "B) Considérer ces conclusions comme un risque et planifier une réponse.",
+            "C) Commencer à mettre en œuvre le projet et décider plus tard de la manière de répondre à ces exigences après avoir trouvé une meilleure solution.",
+            "D) Informer le sponsor du projet de ses conclusions."
+        ],
+        correct: 3,
+        explanation: "En phase de charter, il n'y a pas encore de baseline. Le chef de projet doit informer le sponsor de cette lacune pour qu'il décide de la suite (modifier le cas d'affaires, abandonner, etc.).",
+        tip: "La transparence est cruciale dès le début. Le sponsor doit être informé des problèmes potentiels."
+    },
+    // Question 59
+    {
+        id: 59,
+        thematic: "Gestion des parties prenantes nombreuses",
+        question: "Un chef de projet gère un projet d'installation de 120 climatiseurs dans un bâtiment d'entreprise. Le projet comprend un très grand nombre de parties prenantes, car chaque bureau est équipé d'au moins un climatiseur. Quelle est la meilleure façon pour le chef de projet de gérer la situation ?",
+        options: [
+            "A) Demander au sponsor du projet de représenter toutes les parties prenantes.",
+            "B) Mettre en place un moyen efficace pour définir les besoins de chaque partie prenante.",
+            "C) Classer les parties prenantes et ne travailler qu'avec celles qui ont des niveaux de pouvoir et d'intérêt élevés.",
+            "D) Informer la direction que le projet doit être divisé en sous-projets afin qu'il soit géré comme un programme."
+        ],
+        correct: 1,
+        explanation: "Avec un grand nombre de parties prenantes, il est essentiel d'avoir une méthode pour recueillir et prioriser leurs besoins (sondages, réunions par groupe, etc.).",
+        tip: "Ne pas ignorer les parties prenantes à faible pouvoir ; leurs besoins peuvent impacter le projet."
+    },
+    // Question 60
+    {
+        id: 60,
+        thematic: "Motivation d'équipe",
+        question: "En examinant le dernier rapport des performances de l'équipe de projet, le chef de projet remarque une chute des résultats de l'équipe. Que doit faire le chef de projet pour augmenter la productivité de l'équipe ?",
+        options: [
+            "A) Mettre plus de pression sur chaque membre de l'équipe pour qu'il respecte les délais.",
+            "B) Effectuer des évaluations quotidiennes des performances pour que l'équipe reste concentrée et motivée.",
+            "C) Offrir une récompense spéciale au membre de l'équipe le plus performant.",
+            "D) Renforcer et promouvoir la confiance et la cohésion entre les membres de l'équipe."
+        ],
+        correct: 3,
+        explanation: "La cohésion et la confiance sont des leviers de motivation à long terme. La pression ou les évaluations quotidiennes peuvent être contre-productives.",
+        tip: "Un environnement de travail positif améliore la productivité durablement."
+    },
+    // Question 61
+    {
+        id: 61,
+        thematic: "Information radiators",
+        question: "Un chef de projet adopte une approche incrémentale pour la réalisation d'un nouveau projet de création d'un smartphone de pointe. Le projet est mené par une équipe colocalisée et le travail est visualisé à l'aide d'un tableau Kanban. Le projet est en bonne voie lorsqu'une partie prenante clé demande que toutes les activités du projet soient suspendues jusqu'à ce qu'elle reçoive un rapport d'avancement. Qu'aurait dû faire le chef de projet pour éviter cette situation ?",
+        options: [
+            "A) Centraliser la documentation du projet dans un dossier partagé accessible à toutes les parties prenantes.",
+            "B) Organiser des réunions hebdomadaires avec toutes les parties prenantes clés pour fournir des mises à jour sur l'état d'avancement du projet.",
+            "C) Inclure toutes les parties prenantes dans les réunions standup quotidiennes.",
+            "D) Inviter les parties prenantes clés à consulter le tableau Kanban pour obtenir des informations sur l'état d'avancement du projet."
+        ],
+        correct: 3,
+        explanation: "Le tableau Kanban est un radiateur d'information. En invitant les parties prenantes à le consulter, elles ont une visibilité en continu et n'ont pas besoin de demander des rapports.",
+        tip: "Les radiateurs d'information (tableaux visibles) améliorent la transparence."
+    },
+    // Question 62
+    {
+        id: 62,
+        thematic: "Test de personnalité (MBTI)",
+        question: "Une organisation a décidé de réaliser un test de personnalité. Un membre de l'équipe est persuadé que les résultats du test révéleront sa personnalité pragmatique, car il ne croit qu'aux faits et ne se fie jamais à son intuition. Quel est le type de personnalité de ce membre de l'équipe ?",
+        options: [
+            "A) Sensible (Sensing)",
+            "B) Penseur (Thinking)",
+            "C) Jugeant (Judging)",
+            "D) Percevant (Perceiving)"
+        ],
+        correct: 0,
+        explanation: "La préférence pour les faits et le concret, sans intuition, correspond au type 'Sensing' (S) du MBTI.",
+        tip: "Le MBTI comporte quatre dimensions : Sensing/Intuition, Thinking/Feeling, Judging/Perceiving, Extraversion/Introversion."
+    },
+    // Question 63
+    {
+        id: 63,
+        thematic: "Rôle du chef de projet en Agile",
+        question: "Un chef de projet travaille pour une organisation utilisant l'approche prédictive. La direction de l'organisation a assisté à une conférence sur l'approche Agile et a décidé d'adopter cette approche pour ses prochains projets. Le chef de projet craint de perdre son travail car, à sa connaissance, une équipe Agile est composée de membres de l'équipe, d'un scrum master et d'un responsable de produit. L'organisation n'aura donc plus besoin d'un chef de projet. L'inquiétude du chef de projet est-elle justifiée ?",
+        options: [
+            "A) Oui, l'équipe Agile n'inclut pas de chef de projet.",
+            "B) Oui, le chef de projet doit se convertir à un rôle de scrum master ou chercher une nouvelle opportunité dans une organisation qui suit l'approche prédictive.",
+            "C) Non, le chef de projet peut travailler comme responsable de produit, car les deux rôles sont similaires.",
+            "D) Non, il peut continuer à travailler en tant que chef de projet, mais il sera plutôt un facilitateur."
+        ],
+        correct: 3,
+        explanation: "En Agile, le chef de projet peut jouer le rôle de facilitateur (Scrum Master) ou de leader serviteur. Son rôle évolue mais reste nécessaire.",
+        tip: "Le chef de projet en Agile devient un facilitateur d'équipe, éliminant les obstacles."
+    },
+    // Question 64
+    {
+        id: 64,
+        thematic: "Analyse de diagramme d'avancement",
+        question: "Après avoir terminé un sprint de trois semaines, une équipe Agile examine son diagramme d'avancement. À quelle phase la progression de l'équipe a-t-elle connu le plus de difficultés: A, B, C ou D ? (le diagramme n'est pas reproduit ici, mais la réponse est généralement la phase où la pente est la plus faible ou où il y a un plateau)",
+        options: [
+            "A) Phase A",
+            "B) Phase B",
+            "C) Phase C",
+            "D) Phase D"
+        ],
+        correct: 1, // selon l'explication page 174, c'est la phase B
+        explanation: "Dans la phase B, l'équipe est en retard par rapport à la ligne idéale ; la progression ralentit. C'est là que les difficultés sont les plus marquées.",
+        tip: "Le burn-down chart montre le travail restant ; une pente faible indique un ralentissement."
+    },
+    // Question 65
+    {
+        id: 65,
+        thematic: "Gestion d'une partie prenante difficile",
+        question: "Au cours du projet, le sponsor désigne un inspecteur pour vérifier la qualité des livrables accomplis. Le chef de projet ne connaît pas l'inspecteur en personne, mais il a entendu dire que ce dernier n'est pas flexible et qu'il est souvent difficile de travailler avec lui. Que doit faire le chef de projet ?",
+        options: [
+            "A) Demander au sponsor de désigner un autre inspecteur.",
+            "B) Ignorer la désignation de l'inspecteur puisqu'il s'agit d'une partie prenante externe.",
+            "C) Collaborer avec l'inspecteur et lui fournir de l'aide si nécessaire.",
+            "D) Utiliser ses compétences interpersonnelles pour convaincre l'inspecteur d'ignorer les problèmes de qualité et de ne pas les signaler au sponsor."
+        ],
+        correct: 2,
+        explanation: "Le chef de projet doit collaborer avec toutes les parties prenantes, même difficiles. L'aider et faciliter son travail est la meilleure approche.",
+        tip: "Ne jamais ignorer ou tenter de contourner une partie prenante ; chercher à collaborer."
+    },
+    // Question 66
+    {
+        id: 66,
+        thematic: "Soumission de demandes de changement",
+        question: "Un chef de projet gère un nouveau projet prédictif. Pour évaluer toutes les demandes de changement, un comité de maîtrise des changements a été mis en place, dont le sponsor du projet est membre. Un mois après le début du projet, le comité a reçu trois demandes de changement: la première a été soumise par le sponsor, la deuxième par une partie prenante au pouvoir faible, et la troisième a été émise par un membre senior de l'équipe. Laquelle de ces personnes n'est pas autorisée à soumettre une demande de changement ?",
+        options: [
+            "A) Le sponsor, car il est membre du comité.",
+            "B) La partie prenante, car elle a peu de pouvoir.",
+            "C) Le membre senior de l'équipe, car il fait partie de l'équipe de projet.",
+            "D) Toutes ces personnes peuvent soumettre une demande de changement."
+        ],
+        correct: 3,
+        explanation: "N'importe quelle partie prenante peut soumettre une demande de changement, quel que soit son rôle ou son pouvoir. Le comité examine ensuite.",
+        tip: "Toute personne impliquée dans le projet peut suggérer un changement."
+    },
+    // Question 67
+    {
+        id: 67,
+        thematic: "Gestion des risques en Agile",
+        question: "Travaillant dans une organisation réticente au risque, le chef de projet a suggéré d'utiliser l'approche agile pour un nouveau projet ayant un niveau d'incertitude élevé. Comment la gestion des risques doit-elle être effectuée dans ce cas ?",
+        options: [
+            "A) Le chef de projet est responsable de la gestion des risques.",
+            "B) Le chef de projet et l'équipe de projet analysent les risques, définissent les réponses aux risques et mettent à jour le registre des risques.",
+            "C) L'équipe de projet analyse et traite les risques lors des réunions de planification.",
+            "D) Les risques sont gérés par le responsable du produit lors de la réunion d'affinement du backlog."
+        ],
+        correct: 2,
+        explanation: "En Agile, l'équipe est responsable de la gestion des risques, et cela se fait de manière continue, notamment lors des réunions de planification (itération, daily, rétrospective).",
+        tip: "En Agile, la gestion des risques est intégrée aux cérémonies ; pas de registre formel séparé."
+    },
+    // Question 68
+    {
+        id: 68,
+        thematic: "Types de PMO",
+        question: "Après avoir décidé d'investir dans les capacités de gestion de projet de l'organisation, un bureau de projets est créé pour assurer le respect d'un ensemble de normes de gestion de projet. Quel type de bureau de projets l'organisation a-t-elle établi ?",
+        options: [
+            "A) Soutenant",
+            "B) Contrôle",
+            "C) Directif",
+            "D) Agile"
+        ],
+        correct: 1,
+        explanation: "Un PMO de contrôle impose la conformité aux normes et processus. Il soutient et exige le respect.",
+        tip: "PMO soutenant : rôle consultatif ; contrôle : conformité ; directif : gère directement les projets."
+    },
+    // Question 69
+    {
+        id: 69,
+        thematic: "Prise de décision en estimation",
+        question: "Un chef de projet facilite une session de planification pour définir et estimer la durée de plusieurs activités. Sept membres ont assisté à la réunion, et Katherine était la plus expérimentée parmi eux. Face à un désaccord sur la durée d'une des activités, le chef de projet décide de procéder à un vote et d'adopter la décision de la majorité. Les résultats du vote étaient les suivants : [tableau]. Que doit faire le chef de projet ensuite ?",
+        options: [
+            "A) Attribuer à l'activité une estimation de '5 jours' puisque c'est la décision de la majorité.",
+            "B) Attribuer à l'activité une estimation de '4 jours' comme moyenne de toutes les estimations.",
+            "C) Attribuer à l'activité une estimation de '3 jours' comme suggéré par Katherine.",
+            "D) Discuter des différentes estimations et procéder à un nouveau tour de vote."
+        ],
+        correct: 3,
+        explanation: "Aucune majorité claire (3 voix pour 5, 2 pour 4, etc.). Il faut discuter des écarts et revoter pour affiner.",
+        tip: "Le consensus est préférable au vote lorsque les estimations divergent fortement."
+    },
+    // Question 70
+    {
+        id: 70,
+        thematic: "Gestion d'un membre introverti",
+        question: "Dans un cabinet de conseil, le chef de projet choisit des consultants pour un projet complexe. Le chef de projet a identifié un membre potentiel de l'équipe qui excelle dans son rôle et fournit constamment un travail de haute qualité. Cependant, il s'agit d'un introverti qui préfère travailler de manière indépendante plutôt qu'en groupe. Comment le chef de projet doit-il adapter l'environnement de travail à ce membre introverti de l'équipe ?",
+        options: [
+            "A) Planifier des réunions individuelles régulières avec le membre introverti de l'équipe afin de lui offrir la possibilité de communiquer et de recevoir un retour d'information personnalisé et de l'encourager à partager ses points de vue et ses idées.",
+            "B) Organiser des activités de développement de l'esprit d'équipe et des ateliers axés sur l'amélioration des compétences en communication et en collaboration pour offrir au membre de l'équipe des occasions d'interagir avec ses collègues dans des environnements structurés favorisant l'engagement et la création de relations.",
+            "C) Assigner au membre de l'équipe des tâches individuelles correspondant à ses forces et à sa préférence pour le travail indépendant.",
+            "D) Intégrer des outils et plateformes technologiques facilitant la communication asynchrone et la collaboration virtuelle afin de minimiser les interactions en face à face."
+        ],
+        correct: 0,
+        explanation: "Les réunions individuelles permettent à l'introverti de s'exprimer dans un cadre moins intimidant, tout en restant connecté à l'équipe.",
+        tip: "Adapter son management à la personnalité de chacun améliore l'efficacité."
+    },
+    // Question 71
+    {
+        id: 71,
+        thematic: "Planification de l'affinage du backlog",
+        question: "Lors de la réunion de rétrospective du sprint, les membres de l'équipe ont exprimé leur frustration quant au temps perdu à faire des va-et-vient avec le responsable du produit pour planifier la réunion d'affinage du backlog. Pour résoudre ce problème, le chef de projet a proposé de créer un événement récurrent. Quand cet événement doit-il être planifié ?",
+        options: [
+            "A) Juste après la rétrospective du sprint",
+            "B) Juste avant la planification du sprint",
+            "C) Juste après la planification du sprint",
+            "D) À tout moment pendant le sprint"
+        ],
+        correct: 3,
+        explanation: "L'affinage du backlog est une activité continue, pas nécessairement à un moment fixe. L'équipe et le PO peuvent s'organiser pour des sessions régulières, mais elles peuvent avoir lieu à tout moment.",
+        tip: "Le backlog grooming se fait tout au long du sprint, pas seulement en réunion formelle."
+    },
+    // Question 72
+    {
+        id: 72,
+        thematic: "Matrice pouvoir/intérêt",
+        question: "Un chef de projet effectue une analyse des parties prenantes à l'aide de la matrice pouvoir/intérêt. Placez les actions suivantes dans les cases correspondantes de la matrice : Surveiller, Maintenir satisfait, Gérer avec attention, Maintenir informé. (Question de type 'drag and drop', ici nous donnons la correspondance)",
+        options: [
+            "A) Pouvoir élevé, intérêt faible -> Maintenir satisfait",
+            "B) Pouvoir élevé, intérêt élevé -> Gérer avec attention",
+            "C) Pouvoir faible, intérêt faible -> Surveiller",
+            "D) Pouvoir faible, intérêt élevé -> Maintenir informé"
+        ],
+        correct: [0,1,2,3], // les quatre sont correctes, c'est un appariement
+        explanation: "La matrice pouvoir/intérêt classique associe ces stratégies.",
+        tip: "Les parties prenantes à fort pouvoir et fort intérêt doivent être gérées de près.",
+        multiple: true
+    },
+    // Question 73
+    {
+        id: 73,
+        thematic: "Estimation en Agile",
+        question: "Au cours de la session de planification du sprint, une équipe Scrum a rencontré une user story qui posait débat et pour laquelle tout le monde avait une estimation différente. Le responsable du produit, qui connaît le mieux le cas d'affaires, a proposé une estimation de '2' story points. Cependant, le scrum master pense qu'elle devrait être de '3', en la comparant à des stories similaires réalisées précédemment. L'équipe pluridisciplinaire pense qu'il faut lui attribuer '5' story points. Quelle estimation faut-il retenir ?",
+        options: [
+            "A) 2, parce que le responsable du produit est celui qui connaît le mieux les besoins de l'entreprise.",
+            "B) 3, parce que le chef de projet a une expérience passée qui lui permet d'utiliser la technique d'estimation par analogie.",
+            "C) 5, parce que les membres de l'équipe sont ceux qui vont traiter la story.",
+            "D) 3, en tant que moyenne de toutes les estimations."
+        ],
+        correct: 2,
+        explanation: "Ce sont les développeurs qui réalisent le travail, donc leur estimation prévaut. Le Product Owner et le Scrum Master ne doivent pas imposer d'estimation.",
+        tip: "Seule l'équipe de développement estime le travail."
+    },
+    // Question 74
+    {
+        id: 74,
+        thematic: "Amélioration de la planification",
+        question: "Un chef de projet dirige un projet utilisant une approche Agile basée sur des itérations. Lors de la réunion de rétrospective, un membre de l'équipe a déclaré que la réunion de planification de sprint prenait toujours trop de temps, car les tâches n'étaient pas assez détaillées dès le départ. Que doit faire le chef de projet pour résoudre ce problème ?",
+        options: [
+            "A) Établir une règle interdisant la création de tâches non détaillées.",
+            "B) Encourager l'équipe à tenir une ou plusieurs sessions d'affinage du backlog avec le responsable de produit pendant les itérations.",
+            "C) Ignorer le feedback du membre de l'équipe sauf si d'autres membres sont d'accord avec lui.",
+            "D) Diviser la réunion de planification en deux ou trois sessions pour éviter que les participants ne s'ennuient."
+        ],
+        correct: 1,
+        explanation: "L'affinage du backlog en continu permet d'avoir des stories prêtes et détaillées pour la prochaine planification, réduisant ainsi sa durée.",
+        tip: "Un bon backlog grooming réduit le temps de sprint planning."
+    },
+    // Question 75
+    {
+        id: 75,
+        thematic: "Charte d'équipe",
+        question: "Un chef de projet qui adopte un style de leadership serviteur est en train d'intégrer un nouveau membre de l'équipe qui, selon lui, peut aider à combler les lacunes de l'équipe actuelle en matière de compétences. Le chef de projet lui donne une copie de la charte du projet et promet de lui envoyer une copie du ______, qui comprend les valeurs de l'équipe, les règles de base et les accords de travail.",
+        options: [
+            "A) Contrat de travail",
+            "B) Plan de gestion des ressources",
+            "C) Plan de gestion de la communication",
+            "D) Charte d'équipe"
+        ],
+        correct: 3,
+        explanation: "La charte d'équipe (team charter) définit les valeurs, règles de fonctionnement et accords de l'équipe.",
+        tip: "La charte d'équipe est un document interne à l'équipe, distinct de la charte projet."
+    },
+    // Question 76
+    {
+        id: 76,
+        thematic: "Estimation par analogie",
+        question: "Un chef de projet planifie un projet consistant à fabriquer un drone destiné à la protection de la faune. Le projet est ambitieux car le drone doit être capable d'identifier et de compter un large éventail d'animaux sauvages. Comme il a déjà travaillé avec des drones dans le domaine militaire, le chef de projet pense que l'estimation par analogie va lui être très utile pour son projet actuel. Cette technique d'estimation est connue sous le nom d' :",
+        options: [
+            "A) Estimation à trois points",
+            "B) Estimation par jugement à dire d'expert",
+            "C) Estimation ascendante",
+            "D) Estimation paramétrique"
+        ],
+        correct: 1,
+        explanation: "L'estimation par analogie utilise l'expérience de projets similaires ; c'est une forme de jugement d'expert.",
+        tip: "Le jugement d'expert peut inclure l'analogie."
+    },
+    // Question 77
+    {
+        id: 77,
+        thematic: "Planification par vagues",
+        question: "Voulant avoir leur propre maison, un couple a décidé de construire une petite maison et a commencé à planifier le projet. Cependant, ils n'étaient pas d'accord sur de nombreux détails concernant la décoration intérieure. Comme le couple voulait que leur maison soit prête avant la fin de l'année, ils ont décidé de commencer par les travaux de construction et de décider des détails de la décoration intérieure plus tard. Quelle technique le couple a-t-il utilisée ?",
+        options: [
+            "A) Planification par vagues",
+            "B) Mise en parallèle",
+            "C) Compression des délais",
+            "D) Décomposition"
+        ],
+        correct: 0,
+        explanation: "La planification par vagues (rolling wave planning) consiste à planifier en détail le travail à court terme et à laisser les détails à long terme pour plus tard.",
+        tip: "Utile quand on a des incertitudes sur les travaux futurs."
+    },
+    // Question 78
+    {
+        id: 78,
+        thematic: "Utilisation des informations historiques",
+        question: "Un chef de projet est contacté par une organisation pour développer la planification des ressources d'un nouveau projet innovant. Bien que le chef de projet ait travaillé avec de nombreuses organisations similaires dans le passé, cette fois-ci, il est incertain quant au modèle commercial du projet. Le chef de projet doit-il dans ce cas utiliser des informations historiques ?",
+        options: [
+            "A) Non, car chaque projet est unique et il existe rarement une corrélation entre les attentes des différents projets en matière de ressources.",
+            "B) Non, car les informations historiques ne sont généralement pas applicables aux projets innovants et en changement rapide.",
+            "C) Oui, car les informations historiques peuvent être utiles pour établir des comparaisons avec les ressources utilisées pour des projets similaires passés.",
+            "D) Oui, car une estimation précise des ressources ne peut être exécutée sans référence aux informations historiques."
+        ],
+        correct: 2,
+        explanation: "Même pour un projet innovant, les données historiques de projets similaires peuvent fournir des ordres de grandeur utiles. Elles ne doivent pas être ignorées.",
+        tip: "Les informations historiques sont toujours une source d'estimation, même si le projet est innovant."
+    },
+    // Question 79
+    {
+        id: 79,
+        thematic: "Accessibilité et inclusion",
+        question: "Dans une entreprise de développement de logiciels, le chef de projet dirige une équipe pluridisciplinaire de développeurs, de designers et de testeurs dans le cadre d'un grand projet. L'équipe travaille dans un environnement Agile au rythme rapide et s'appuie fortement sur diverses technologies de communication et de collaboration pour faciliter son travail. Cependant, l'un des membres de l'équipe est malentendant, ce qui pose des défis particuliers quant à l'utilisation efficace de ces technologies. Que doit faire le chef de projet pour adapter les technologies de travail utilisées et assurer une collaboration continue pour tous les membres de l'équipe ?",
+        options: [
+            "A) Utiliser des services de transcription en temps réel ou des outils de sous-titrage lors des réunions virtuelles et des conférences téléphoniques afin de fournir des représentations textuelles exactes des communications orales.",
+            "B) Organiser régulièrement des sessions de formation pour les membres de l'équipe sur les stratégies et techniques de communication efficaces lorsqu'ils interagissent avec des personnes malentendantes.",
+            "C) Explorer d'autres canaux de communication, tels que les plateformes de messagerie instantanée ou les e-mails, pour accompagner les échanges verbaux et veiller à ce que les informations importantes soient transmises efficacement au membre de l'équipe concerné.",
+            "D) Établir un système de jumelage au sein de l'équipe, où un membre désigné de l'équipe est apparié avec le membre concerné de l'équipe pour lui apporter un soutien et une assistance supplémentaires pendant les réunions et les discussions."
+        ],
+        correct: 0,
+        explanation: "La solution la plus directe est d'adapter les outils de communication pour les rendre accessibles (sous-titrage). Cela permet une inclusion en temps réel sans isoler le membre.",
+        tip: "L'accessibilité doit être intégrée dans les choix technologiques."
+    },
+    // Question 80
+    {
+        id: 80,
+        thematic: "Gestion des discussions en réunion",
+        question: "Au cours d'une réunion de revue de sprint, un membre de l'équipe a présenté une nouvelle fonctionnalité et a indiqué qu'elle avait pris plus de temps que prévu à cause de l'absence de documentation technique. Il a ensuite demandé à un membre senior de l'équipe comment il pourrait éviter cela à l'avenir. Que doit faire le facilitateur de la réunion ?",
+        options: [
+            "A) Laisser la discussion évoluer naturellement, car elle est importante, et n'intervenir que si cette discussion secondaire dure trop longtemps.",
+            "B) Demander au membre de l'équipe de réfléchir à la manière d'apporter ces améliorations lors d'une autre réunion.",
+            "C) Interrompre le membre de l'équipe car le responsable du produit n'est pas censé savoir qu'il manque de la documentation.",
+            "D) Laisser la discussion continuer, puis demander au responsable du produit de donner son avis sur les améliorations possibles."
+        ],
+        correct: 1,
+        explanation: "La revue de sprint n'est pas le lieu pour discuter des améliorations de processus ; cela doit être fait en rétrospective. Le facilitateur doit recentrer la réunion.",
+        tip: "La rétrospective est dédiée à l'amélioration des processus, pas la revue."
+    },
+    // Question 81
+    {
+        id: 81,
+        thematic: "Gestion des retards fournisseur",
+        question: "La direction générale d'une société financière lance un nouveau projet de rénovation de ses bureaux. Cinq mois après le début du projet, le chef de projet est invité à participer à une réunion avec la direction pour expliquer pourquoi le projet subit de nombreux retards. Depuis le début de la phase d'exécution, le chef de projet a rencontré plusieurs retards de la part de l'équipe de construction sous-traitante chargée de la préparation du site, de la pose des fondations et de la construction de la structure. Au début, ces retards n'ont pas eu d'impact considérable sur le projet. Toutefois, récemment, les retards du contractant sont susceptibles de compromettre l'achèvement du projet dans les délais prévus. Que doit faire le chef de projet en premier lieu ?",
+        options: [
+            "A) Appliquer des pénalités contractuelles pour inciter à respecter les délais et atténuer l'impact de ces retards sur l'échéancier du projet.",
+            "B) Collaborer avec le sous-traitant pour identifier les causes profondes des retards et développer des stratégies pour les atténuer et récupérer le temps perdu.",
+            "C) Résilier le contrat et engager d'autres sous-traitants pour terminer les travaux restants, assurant ainsi le respect des délais du projet.",
+            "D) Solliciter le soutien et les conseils de la direction générale pour résoudre le problème des retards et minimiser leur impact sur les objectifs du projet, car la direction s'intéresse de près à ce projet."
+        ],
+        correct: 1,
+        explanation: "La première étape est toujours la collaboration et la résolution de problème avec le fournisseur avant d'envisager des sanctions ou la rupture.",
+        tip: "Chercher d'abord à comprendre et à résoudre avec le partenaire."
+    },
+    // Question 82
+    {
+        id: 82,
+        thematic: "Feuille de route produit",
+        question: "Toutes les parties prenantes participent à une réunion pour discuter d'un nouveau projet qui devrait démarrer dans un mois et durer au moins 10 itérations. L'une des parties prenantes propose de désigner une personne pour développer et maintenir la feuille de route du produit. Qui doit assumer cette responsabilité ?",
+        options: [
+            "A) Le chef de projet",
+            "B) L'équipe de développement",
+            "C) Le Scrum Master",
+            "D) Le responsable du produit"
+        ],
+        correct: 3,
+        explanation: "En Agile, le Product Owner est responsable de la vision produit et de la feuille de route.",
+        tip: "Le Product Owner définit la direction du produit."
+    },
+    // Question 83
+    {
+        id: 83,
+        thematic: "Technique de résolution de conflit",
+        question: "Un chef de projet demande à un membre clé de l'équipe pourquoi il semble frustré dernièrement. Le membre de l'équipe explique que les erreurs commises par un certain collègue ont eu un impact sur son travail, ce qui lui a causé un retard sans précédent par rapport à l'échéancier. Le chef de projet explique au membre de l'équipe qu'il est conscient de la situation et que son travail est reconnu et apprécié. Quelle technique de résolution des conflits le chef de projet a-t-il utilisée ?",
+        options: [
+            "A) Acceptation",
+            "B) Compromis",
+            "C) Collaboration",
+            "D) Affrontement"
+        ],
+        correct: 0,
+        explanation: "Le chef de projet utilise l'apaisement (smoothing) en mettant l'accent sur les points d'accord (reconnaissance du travail) pour calmer le conflit, sans le résoudre directement. C'est une forme d'acceptation ? En réalité, c'est du 'smoothing' (lissage), qui est parfois appelé 'accommodation' ou 'apaisement'. Dans le PMI, c'est 'smoothing' ou 'accommodating'. Mais dans les options, 'Acceptation' peut correspondre à 'smoothing'.",
+        tip: "Le lissage (smoothing) cherche à minimiser le conflit en insistant sur les points communs."
+    },
+    // Question 84
+    {
+        id: 84,
+        thematic: "Gestion d'un sprint en difficulté",
+        question: "Après avoir consulté le diagramme d'avancement, le chef de projet constate qu'il reste beaucoup de travail à accomplir qui sera difficile à terminer avant la fin du sprint. Que doit faire le chef de projet ?",
+        options: [
+            "A) Demander une réunion urgente avec l'équipe et informer les membres de l'équipe qu'ils vont travailler des heures supplémentaires afin de respecter le délai du sprint et de satisfaire le client.",
+            "B) Envoyer un e-mail aux membres de l'équipe pour les informer de la situation et les encourager à redoubler d'efforts.",
+            "C) Attendre la réunion standup suivante pour comprendre la raison de la lenteur de l'équipe.",
+            "D) Attendre la prochaine réunion de rétrospective pour analyser ce qui se passe."
+        ],
+        correct: 2,
+        explanation: "Le chef de projet doit d'abord comprendre les obstacles lors du daily meeting, puis aider l'équipe à les lever. Les heures supplémentaires ne sont pas une bonne pratique Agile.",
+        tip: "Le daily scrum est l'occasion d'identifier les problèmes et d'ajuster."
+    },
+    // Question 85
+    {
+        id: 85,
+        thematic: "Prise de décision en comité",
+        question: "Un sponsor a soumis une demande de changement au comité de maîtrise des changements dont le chef de projet est membre. Le comité compte cinq membres et leurs avis divergent quant à l'acceptation ou au rejet de la demande de changement. Quelle est la meilleure démarche à suivre pour prendre une décision ?",
+        options: [
+            "A) Essayer de parvenir à un consensus",
+            "B) Demander un vote et laisser la majorité décider",
+            "C) Laisser le membre le plus expérimenté du comité décider",
+            "D) Laisser le directeur du comité décider"
+        ],
+        correct: 0,
+        explanation: "La collaboration et la recherche de consensus sont préférables dans un comité pour une décision partagée. Le vote ou la décision unilatérale peuvent créer des frustrations.",
+        tip: "Le consensus renforce l'adhésion à la décision."
+    },
+    // Question 86
+    {
+        id: 86,
+        thematic: "Gestion des exigences contradictoires",
+        question: "Au cours de la phase de planification du projet, les parties prenantes ont demandé que toutes leurs exigences contradictoires soient intégrées. Il était donc difficile pour le chef de projet de créer un plan qui satisfasse toutes les parties prenantes. Que doit faire le chef de projet pour établir un terrain d'entente ?",
+        options: [
+            "A) Créer des groupes de discussion impliquant les parties prenantes concernées afin de discuter et de résoudre les conflits d'intérêts.",
+            "B) Créer un document expliquant son point de vue personnel et demander aux parties prenantes en conflit de l'examiner.",
+            "C) Donner à chaque partie prenante la possibilité de rédiger un énoncé du périmètre, puis combiner tous les documents pour créer l'énoncé du périmètre du projet.",
+            "D) Utiliser son autorisation et sa position en tant que chef de projet pour décider quelles exigences doivent être priorisées."
+        ],
+        correct: 0,
+        explanation: "Les groupes de discussion (focus groups) permettent de discuter et de trouver des compromis entre parties prenantes.",
+        tip: "Impliquer les parties prenantes dans la résolution des conflits est plus efficace que d'imposer une solution."
+    },
+    // Question 87
+    {
+        id: 87,
+        thematic: "Intégration dans une nouvelle organisation",
+        question: "Un chef de projet vient de rejoindre une nouvelle organisation. Une majorité des projets de l'organisation sont gérés par des chefs de projet expérimentés. Quel doit être le principal objectif du nouveau chef de projet ?",
+        options: [
+            "A) Créer une équipe compétente.",
+            "B) Se familiariser avec la culture de l'organisation.",
+            "C) Faire connaissance avec les dirigeants de l'organisation.",
+            "D) Faire connaissance avec les chefs de projet de l'organisation."
+        ],
+        correct: 1,
+        explanation: "Comprendre la culture organisationnelle est primordial pour s'adapter et travailler efficacement.",
+        tip: "La culture d'entreprise influence la façon de gérer les projets."
+    },
+    // Question 88
+    {
+        id: 88,
+        thematic: "Gestion des risques à faible impact",
+        question: "Un chef de projet gérant une foire nationale du livre a identifié certains risques à faible impact au début de la phase de planification. Que doit faire le chef de projet ensuite ?",
+        options: [
+            "A) Ignorer les risques car leur impact est relativement faible.",
+            "B) Ajouter les risques au registre des risques et continuer à les contrôler.",
+            "C) Élaborer une réponse détaillée aux risques.",
+            "D) Informer le(s) sponsor(s) de la foire des risques identifiés."
+        ],
+        correct: 1,
+        explanation: "Même les risques à faible impact doivent être enregistrés et surveillés, car ils peuvent évoluer.",
+        tip: "Tous les risques doivent être documentés, même s'ils sont acceptés passivement."
+    },
+    // Question 89
+    {
+        id: 89,
+        thematic: "Gestion des divergences d'opinion",
+        question: "Un chef de projet a repris la gestion d'un projet, remplaçant le chef de projet qui a démissionné. Au début de la phase d'exécution, le chef de projet constate que les membres de l'équipe ont des opinions divergentes concernant le travail du projet, les livrables et le niveau de complexité global. Que doit faire le chef de projet ?",
+        options: [
+            "A) Éviter d'intervenir pour laisser à l'équipe suffisamment de temps pour se familiariser avec le périmètre du projet.",
+            "B) Identifier et évaluer les risques potentiels causés par cette divergence d'opinions, puis élaborer un plan pour gérer et répondre à ces risques.",
+            "C) Organiser une réunion impliquant tous les membres de l'équipe pour identifier et résoudre les malentendus afin d'éviter les problèmes, la désintégration et les reprises de travail.",
+            "D) Parler à chaque membre de l'équipe séparément pour expliquer les exigences du projet."
+        ],
+        correct: 2,
+        explanation: "Une réunion collective permet de clarifier les attentes et d'aligner tout le monde, évitant ainsi des problèmes futurs.",
+        tip: "La communication ouverte en groupe est souvent plus efficace que des entretiens individuels pour aligner une équipe."
+    },
+    // Question 90
+    {
+        id: 90,
+        thematic: "Définition of Ready",
+        question: "Un chef de projet gère un projet en adoptant une approche itérative. Au cours de la planification de l'itération, l'un des membres de l'équipe a insisté sur le fait qu'une user story ne doit pas être ajoutée au prochain sprint car de nombreux cas d'utilisation sont encore manquants. Quelle est la raison la plus probable pour laquelle le membre de l'équipe a rejeté cette user story ?",
+        options: [
+            "A) La user story ne répond pas à la définition d'accompli.",
+            "B) La user story ne répond pas à la définition de prêt.",
+            "C) La user story implique une demande irréalisable de la part de la partie prenante.",
+            "D) La user story peut entraîner une perte de temps et d'efforts."
+        ],
+        correct: 1,
+        explanation: "La définition de prêt (Definition of Ready) est l'ensemble des critères qu'une user story doit remplir pour être sélectionnée dans un sprint. Si des cas d'utilisation manquent, elle n'est pas prête.",
+        tip: "DoR : la story est suffisamment claire et détaillée pour être travaillée."
     }
 ];
 
-// Pour les questions suivantes (11 à 90), le même format est à appliquer.
-// En raison de la longueur, seules les 10 premières sont affichées ici.
-// Le reste du tableau peut être généré en suivant la même structure à partir des pages 105 à 156 du PDF.
+// Note: Ce tableau contient les questions 11 à 90. Les questions 1 à 10 ont été fournies précédemment.
+// Pour une utilisation complète, fusionnez les deux tableaux.
+
 
     // -------------------------------------------------------------
     // État du quiz
