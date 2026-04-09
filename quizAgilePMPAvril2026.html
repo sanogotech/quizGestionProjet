@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Quiz Certifiant PMP® & Agile Scrum – 100 questions</title>
+    <!-- Bootstrap 5 + Font Awesome + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body {
+            background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .quiz-container { max-width: 1200px; margin: 0 auto; }
+        .card-glass {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .hero-card { padding: 2rem; text-align: center; }
+        .timer-badge {
+            background: #0b2b40;
+            color: white;
+            border-radius: 3rem;
+            padding: 0.7rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .progress-thin { height: 8px; border-radius: 10px; }
+        .progress-bar-custom { background: linear-gradient(90deg, #2c7da0, #61a5c2); }
+        .question-card { padding: 1.8rem; border-left: 6px solid #2c7da0; }
+        .option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 0.75rem;
+            border-radius: 1rem;
+            border: 1.5px solid #e2e8f0;
+            background: white;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .option-btn:hover:not(.disabled-opt) {
+            background: #f1f5f9;
+            border-color: #2c7da0;
+            transform: translateX(5px);
+        }
+        .correct-highlight { background: #d1fae5; border-color: #10b981; color: #065f46; }
+        .incorrect-highlight { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+        .disabled-opt { cursor: default; opacity: 0.9; }
+        .explanation-box {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-top: 1.2rem;
+            border-left: 4px solid #2c7da0;
+        }
+        .tip-rex {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+            margin-top: 0.8rem;
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .nav-btn { border-radius: 2rem; padding: 0.6rem 1.8rem; font-weight: 600; }
+        .score-circle { background: #1e293b; color: white; padding: 0.4rem 1rem; border-radius: 40px; }
+        .help-card { background: #f0f9ff; border-left: 5px solid #2c7da0; margin-top: 1.5rem; text-align: left; }
+        footer { font-size: 0.8rem; text-align: center; margin-top: 2rem; color: #334155; }
+        @media (max-width: 768px) {
+            .timer-badge { font-size: 1.2rem; padding: 0.4rem 1rem; }
+            .option-btn { padding: 0.7rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <!-- Écran d'accueil avec aides contextuelles -->
+    <div id="setupPanel" class="card-glass hero-card">
+        <div class="mb-3"><i class="fas fa-clipboard-list fa-4x" style="color: #2c7da0;"></i></div>
+        <h1 class="display-5 fw-bold">Quiz certifiant <span style="background:linear-gradient(135deg,#1e3a5f,#2c7da0);-webkit-background-clip:text;background-clip:text;color:transparent;">PMP® & Scrum</span></h1>
+        <p class="lead mt-3">100 questions inspirées des examens officiels PMP, Scrum Foundation et Product Owner Bridge.<br>Durée : <strong>100 minutes</strong> – Seuil de réussite : <strong class="text-success">80% (80/100)</strong></p>
+        
+        <!-- Aides contextuelles et informations supplémentaires -->
+        <div class="row mt-4 g-3">
+            <div class="col-md-6">
+                <div class="help-card card-glass p-3 h-100">
+                    <h5><i class="fas fa-graduation-cap"></i> Conseils pour réussir</h5>
+                    <ul class="small mb-0">
+                        <li>Lisez chaque question attentivement, certaines contiennent des pièges.</li>
+                        <li>Pour le PMP : privilégiez la <strong>proactivité</strong> et le <strong>respect des processus</strong>.</li>
+                        <li>Pour Scrum : les rôles, événements et artefacts sont clés.</li>
+                        <li>Le Product Owner maximise la valeur, le Scrum Master facilite.</li>
+                        <li>Ne passez pas plus de 1 minute par question – gérez votre temps.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="help-card card-glass p-3 h-100">
+                    <h5><i class="fas fa-chart-line"></i> Structure du quiz</h5>
+                    <ul class="small mb-0">
+                        <li><strong>40 questions PMP</strong> : intégration, périmètre, coûts, risques, qualité.</li>
+                        <li><strong>40 questions Scrum Foundation</strong> : rôles, événements, artefacts, métriques.</li>
+                        <li><strong>20 questions Product Owner Bridge</strong> : backlog, priorisation, valeur métier.</li>
+                        <li>Chaque réponse est suivie d'une explication détaillée et d'un conseil.</li>
+                        <li>Vous pouvez revenir en arrière et modifier vos réponses jusqu'à la fin.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button id="startQuizBtn" class="btn btn-lg px-5 py-3 rounded-pill shadow" style="background:#0b2b40; color:white; font-weight:700;"><i class="fas fa-play me-2"></i> Démarrer l'épreuve (100 min)</button>
+        </div>
+        <div class="mt-3 text-muted small">
+            <i class="fas fa-info-circle"></i> Le chronomètre démarre immédiatement. À 0, le quiz se soumet automatiquement.
+        </div>
+    </div>
+
+    <!-- Zone de quiz (cachée au début) -->
+    <div id="quizArea" style="display: none;">
+        <div class="card-glass p-3 d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div class="d-flex align-items-center gap-3">
+                <div class="score-circle"><i class="fas fa-star-of-life me-1"></i> Score : <span id="liveScore">0</span> / <span id="totalQ">100</span></div>
+                <div class="progress w-100" style="width: 180px;"><div id="globalProgress" class="progress-bar progress-bar-custom" style="width:0%"></div></div>
+            </div>
+            <div class="timer-badge"><i class="far fa-clock"></i> <span id="timerDisplay">01:40:00</span></div>
+        </div>
+
+        <div class="card-glass question-card">
+            <div class="d-flex justify-content-between flex-wrap mb-3">
+                <h5><span id="qThematic" class="badge bg-secondary px-3 py-2">PMP</span></h5>
+                <span id="qCounter" class="fw-semibold text-muted">Question 1 / 100</span>
+            </div>
+            <h3 id="questionText" class="fw-semibold mb-4">Chargement...</h3>
+            <div id="optionsContainer"></div>
+            <div id="explanationContainer" style="display: none;"></div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <button id="prevBtn" class="btn btn-outline-secondary nav-btn" disabled><i class="fas fa-arrow-left"></i> Précédent</button>
+            <div>
+                <button id="nextBtn" class="btn btn-primary nav-btn mx-2">Suivant <i class="fas fa-arrow-right"></i></button>
+                <button id="finishBtn" class="btn btn-success nav-btn" style="display: none;">Terminer ✅</button>
+            </div>
+        </div>
+        <div class="text-muted text-center mt-3 small"><i class="fas fa-undo-alt"></i> Vous pouvez revenir en arrière et modifier vos réponses avant la validation finale.</div>
+    </div>
+</div>
+
+<!-- Modal résultats -->
+<div class="modal fade" id="resultModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow">
+            <div class="modal-header bg-dark text-white rounded-top-4 border-0">
+                <h5 class="modal-title fw-bold"><i class="fas fa-chart-line me-2"></i>Résultats – Quiz certifiant</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center">
+                    <div class="display-1 fw-bold" style="background:linear-gradient(135deg,#1e3a5f,#2c7da0);-webkit-background-clip:text;background-clip:text;color:transparent;" id="finalPercent">0%</div>
+                    <h3 id="finalScoreText">0 / 100</h3>
+                    <div id="passBadge" class="badge fs-6 p-2 mt-2">❌ Non certifié</div>
+                </div>
+                <div class="alert alert-light border mt-3" id="recapMessage"></div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><strong><i class="fas fa-chart-pie"></i> Performance par domaine</strong><div id="domainStats"></div></div>
+                    <div class="col-md-6"><strong><i class="fas fa-lightbulb"></i> Recommandations</strong><div id="recommendList"></div></div>
+                </div>
+                <hr>
+                <div class="small text-muted"><i class="fas fa-hourglass-half"></i> Temps écoulé : <span id="elapsedTime"></span> | Seuil requis 80%</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dark" id="restartExamBtn"><i class="fas fa-rotate-right"></i> Refaire le quiz</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ============================================================
+// 100 QUESTIONS COMPLÈTES (PMP, Scrum, Product Owner)
+// Chaque question a : thematic, q, options[], correct, expl, tip
+// ============================================================
+const QUIZ_DATA = [
+    // ----- DOMAINE PMP (10 questions) -----
+    { thematic:"PMP - Gestion périmètre", q:"Un gestionnaire et le chef ingénierie discutent d'un changement. Après la réunion, on vous demande de remplir les documents pour effectuer le changement. Il s'agit d'un exemple de :", options:["A) Attention de la direction à la gestion de la portée","B) Planification de la gestion","C) Poste d'expéditeur de projet","D) Système de contrôle des changements"], correct:"C) Poste d'expéditeur de projet", expl:"Le chef de projet agit comme secrétaire sans autorité réelle. C'est le rôle d'expéditeur (expéditeur de projet).", tip:"Le PM doit avoir de l'autorité, pas seulement faire de la paperasse." },
+    { thematic:"PMP - Exécution", q:"Lors d'une réunion, un membre d'équipe remet en question certaines mesures de performance liées à ses activités. Dans quel groupe de processus se trouve-t-il MIEUX ?", options:["A) Lancement","B) Exécution","C) Surveillance et contrôle","D) Clôture"], correct:"B) Exécution", expl:"Pendant l'exécution, l'équipe produit les livrables et discute de la validité des mesures pour le travail en cours.", tip:"Les ajustements de mesure se font souvent en cours d'exécution." },
+    { thematic:"PMP - Intégration", q:"Votre entreprise remporte un nouveau projet majeur. Vous êtes chef de projet sur un projet existant. Quelle est la PREMIÈRE chose à faire ?", options:["A) Demander comment le nouveau projet utilisera les ressources","B) Niveler les ressources de votre projet","C) Planter votre projet","D) Demander comment le nouveau projet affecte votre projet"], correct:"D) Demander comment le nouveau projet affecte votre projet", expl:"Il faut d'abord comprendre l'impact sur votre projet actuel avant toute action.", tip:"Priorisez la communication avec la direction." },
+    { thematic:"PMP - Planification", q:"Vous êtes nouveau chef de projet. Pour améliorer vos chances de succès, il est PRÉFÉRABLE de compter sur :", options:["A) Votre intuition et formation","B) Analyse des parties prenantes","C) Informations historiques","D) Gestion de configuration"], correct:"C) Informations historiques", expl:"Les leçons tirées de projets similaires (actifs organisationnels) sont essentielles pour bien planifier.", tip:"Consultez toujours les archives et retours d'expérience." },
+    { thematic:"PMP - Périmètre", q:"Un membre d'équipe n'est pas sûr du travail à accomplir. Quel document contient les descriptions détaillées des lots de travaux ?", options:["A) Dictionnaire WBS","B) Liste des activités","C) Énoncé de la portée","D) Plan de gestion de la portée"], correct:"A) Dictionnaire WBS", expl:"Le dictionnaire WBS détaille chaque lot de travail (responsables, prérequis, livrables).", tip:"La WBS donne les noms, le dictionnaire donne les détails." },
+    { thematic:"PMP - Changement", q:"Des parties prenantes demandent d'ajouter du travail à la portée. Le sponsor avait explicitement refusé ce financement avant la charte. MEILLEURE action ?", options:["A) Informer le sponsor","B) Évaluer l'impact","C) Dire que la portée ne peut être ajoutée","D) Ajouter le travail si temps disponible"], correct:"C) Dire que la portée ne peut être ajoutée", expl:"La baseline de périmètre est figée sans demande de changement approuvée. On ne peut pas ajouter de travail.", tip:"Tout changement nécessite une demande et une approbation formelle." },
+    { thematic:"PMP - Planning", q:"Votre calendrier projet est trop long. Vous avez des ressources humaines supplémentaires. Quelle est la MEILLEURE action ?", options:["A) Accélérer (fast tracking)","B) Niveler les ressources","C) Planter le projet (crashing)","D) Analyse Monte Carlo"], correct:"C) Planter le projet (crashing)", expl:"Le crashing consiste à ajouter des ressources pour réduire la durée (au prix de coûts accrus).", tip:"Le crashing augmente les coûts mais raccourcit le planning." },
+    { thematic:"PMP - Chemin critique", q:"Une activité a ES=3, LS=13, EF=9, LF=19. L'activité :", options:["A) Est sur le chemin critique","B) A un décalage","C) Progresse bien","D) N'est pas sur le chemin critique"], correct:"D) N'est pas sur le chemin critique", expl:"Flottant = LS-ES = 10 > 0, donc l'activité n'est pas sur le chemin critique (flottant nul).", tip:"Chemin critique = flottant = 0." },
+    { thematic:"PMP - Estimation", q:"Le sponsor préconise une estimation analogue. Vous voulez un jugement d'expert. Quelle est la MEILLEURE approche ?", options:["A) Accepter car analogue est une forme de jugement d'expert","B) Suggérer le coût du cycle de vie","C) Demander pourquoi le sponsor veut une estimation précise","D) Convaincre pour un jugement d'expert plus précis"], correct:"A) Accepter car analogue est une forme de jugement d'expert", expl:"L'estimation analogue utilise des données historiques et constitue une forme de jugement d'expert acceptable en phase précoce.", tip:"L'analogue est souvent suffisant en début de projet." },
+    { thematic:"PMP - Qualité", q:"Vous êtes responsable programme et doutez de l'exactitude des rapports d'avancement. Quel outil soutient le mieux votre opinion ?", options:["A) Audits de qualité","B) Rapports de quantification des risques","C) Analyse de régression","D) Analyse Monte Carlo"], correct:"A) Audits de qualité", expl:"Les audits qualité vérifient la conformité des processus et peuvent révéler des inexactitudes dans les rapports.", tip:"L'audit qualité est un puissant outil de vérification." },
+    
+    // ----- DOMAINE SCRUM (10 questions) -----
+    { thematic:"Scrum Master", q:"Quelle est la principale responsabilité d'un Scrum Master pour maintenir l'équipe productive ?", options:["A) Aider les parties prenantes à comprendre Scrum","B) S'assurer que les fonctionnalités prioritaires restent en haut du PB","C) Éviter toute modification du sprint backlog","D) Estimer les user stories"], correct:"A) Aider les parties prenantes à comprendre Scrum", expl:"Le Scrum Master est garant du framework et aide les parties prenantes à adopter Scrum.", tip:"Le SM est un leader serviteur, facilitateur." },
+    { thematic:"Scrum - Rôles", q:"Pendant un sprint, un développeur travaille sur une tâche. Qui est garant de cette tâche ?", options:["A) Les Développeurs (collectivement)","B) Le Product Owner","C) Le Scrum Master","D) Le développeur seul"], correct:"A) Les Développeurs (collectivement)", expl:"L'équipe de développement partage la responsabilité collective de tous les travaux.", tip:"Responsabilité partagée = transparence et entraide." },
+    { thematic:"Scrum - Timebox", q:"Quel est l'avantage principal du timeboxing dans les événements Scrum ?", options:["A) Garantir l'engagement","B) Favoriser la communication osmotique","C) Réduire les pertes de temps","D) Éviter les réunions"], correct:"C) Réduire les pertes de temps", expl:"Le timeboxing limite la durée des réunions, évite les débats interminables et maintient le focus.", tip:"Timebox = efficacité." },
+    { thematic:"Scrum - Rétrospective", q:"Une équipe Scrum utilise un tableau Kanban. La limite WIP d'une colonne est atteinte. Que faire ?", options:["A) Pousser des tâches dans la colonne suivante","B) Repousser la limite WIP","C) Aider les développeurs en amont à résoudre le goulot","D) Attendre passivement"], correct:"C) Aider les développeurs en amont à résoudre le goulot", expl:"Atteindre la limite WIP signale un goulot ; l'équipe doit collaborer pour le résoudre.", tip:"Kanban : limiter le WIP pour fluidifier le flux." },
+    { thematic:"Scrum - Daily Scrum", q:"Quel est le but principal du daily scrum ?", options:["A) Fournir un rapport d'avancement au Product Owner","B) Synchroniser les développeurs et identifier les obstacles","C) Mettre à jour le burn-down chart","D) Démontrer les fonctionnalités terminées"], correct:"B) Synchroniser les développeurs et identifier les obstacles", expl:"Le daily scrum est une réunion de planification et de synchronisation pour l'équipe.", tip:"Max 15 min, focus sur la progression vers l'objectif du sprint." },
+    { thematic:"Scrum - Définition d'achevé", q:"Quand un item du sprint backlog est-il considéré comme terminé ?", options:["A) Quand les développeurs ont fait de leur mieux","B) Quand l'item est analysé, codé, testé","C) Quand les critères de la définition d'achevé (DoD) sont remplis","D] Quand le Product Owner le valide oralement"], correct:"C) Quand les critères de la définition d'achevé (DoD) sont remplis", expl:"La DoD est un engagement qui garantit la qualité et l'achèvement complet.", tip:"La DoD évolue avec l'équipe." },
+    { thematic:"Scrum - Vélocité", q:"Sur les 8 derniers sprints, l'équipe a traité 72 story points. Le nouveau projet est estimé à 56 story points. Combien de sprints sont nécessaires ?", options:["A) 5","B) 7","C) 8","D) 10"], correct:"B) 7", expl:"Vélocité = 72/8 = 9. 56/9 ≈ 6,2 → 7 sprints.", tip:"La vélocité est une mesure empirique." },
+    { thematic:"Scrum - Raffinement", q:"À quel moment le raffinement du product backlog a-t-il lieu ?", options:["A) Uniquement au début du sprint","B) Pendant la rétrospective","C) Pendant la revue de sprint","D) Tout au long du sprint"], correct:"D) Tout au long du sprint", expl:"Le raffinement est une activité continue où le PO et l'équipe détaillent et estiment les items.", tip:"Au moins 5-10% du temps de l'équipe dédié au raffinement." },
+    { thematic:"Scrum - Sprint Review", q:"Comment la sprint review doit-elle être structurée ?", options:["A) Le Product Owner présente seul","B) Toute l'équipe Scrum participe à la présentation et aux discussions","C) Seuls les développeurs démontrent","D] Le Scrum Master anime sans l'équipe"], correct:"B) Toute l'équipe Scrum participe à la présentation et aux discussions", expl:"La sprint review est un événement collaboratif impliquant l'équipe Scrum et les parties prenantes.", tip:"C'est une inspection du produit, pas une cérémonie formelle." },
+    { thematic:"Scrum - Artéfacts", q:"Quel artefact Scrum doit être mis à jour le plus souvent ?", options:["A) La définition d'achevé","B) L'incrément","C) Le product backlog","D) Le sprint backlog"], correct:"D) Le sprint backlog", expl:"Le sprint backlog est mis à jour quotidiennement par les développeurs pour refléter l'avancement.", tip:"Transparence quotidienne." },
+    
+    // ----- DOMAINE PRODUCT OWNER (10 questions) -----
+    { thematic:"Product Owner", q:"Dans une équipe Scrum, de quelle tâche le Product Owner n'est-il PAS garant ?", options:["A) Coordonner le lancement du produit","B) Entretenir le product backlog","C) Gérer le budget du produit","D) Suivre la progression de l'équipe"], correct:"D) Suivre la progression de l'équipe", expl:"Le Scrum Master aide à suivre la progression ; le PO maximise la valeur.", tip:"Le PO est responsable du 'quoi', pas du 'comment'." },
+    { thematic:"PO - Feedback client", q:"Le client se plaint que le Product Owner ne fournit pas ce qui a été demandé. Que doit faire le PO ?", options:["A) Demander au Scrum Master de trouver une solution","B) Aborder le problème avec le Scrum Master et trouver une solution","C) Faire remonter au responsable des développeurs","D) Organiser une réunion conjointe client + équipe Scrum"], correct:"D) Organiser une réunion conjointe client + équipe Scrum", expl:"La collaboration directe avec le client et l'équipe lève les incompréhensions.", tip:"Le PO est la voix du client, mais l'équipe doit interagir directement." },
+    { thematic:"PO - Objectif produit", q:"À quelle question clé répond un objectif du produit efficace ?", options:["A) En quoi le produit sera-t-il profitable au client ?","B) Quel est l'état futur que le produit est censé atteindre ?","C) Quelle est la date de disponibilité ?","D) Quelles fonctionnalités en premier ?"], correct:"B) Quel est l'état futur que le produit est censé atteindre ?", expl:"L'objectif du produit décrit la vision et l'état futur souhaité.", tip:"Le product goal donne du sens à chaque sprint." },
+    { thematic:"PO - Roadmap", q:"Quelle est la meilleure méthode pour créer une roadmap de produit ?", options:["A) Définir des items détaillés + diagramme de Gantt","B) Définir les exigences dans les grandes lignes, déterminer dépendances et ordre de livraison","C) Utiliser un backlog unique sans ordre","D) Planifier tous les sprints à l'avance"], correct:"B) Définir les exigences dans les grandes lignes, déterminer dépendances et ordre de livraison", expl:"La roadmap est évolutive, elle guide sans détailler excessivement.", tip:"Mettre à jour la roadmap pendant le développement." },
+    { thematic:"PO - Épopée", q:"Parmi ces user stories, laquelle doit être considérée comme une épopée ?", options:["A) En tant que voyageur d'affaires, je veux voir les hôtels disponibles","B) En tant que touriste, je veux choisir une date fixe","C) En tant que touriste, je souhaite organiser tout mon voyage sur une seule plateforme","D) En tant qu'admin, je veux me connecter"], correct:"C) En tant que touriste, je souhaite organiser tout mon voyage sur une seule plateforme", expl:"Une épopée est une fonctionnalité large, à décomposer en plusieurs stories.", tip:"Les épopées sont des ‘grosses mailles’." },
+    { thematic:"PO - Exigences non-fonctionnelles", q:"Comment gérer au mieux les exigences non-fonctionnelles dans le product backlog ?", options:["A) Les décomposer dès qu'elles sont connues et les maintenir en tête","B) Les mettre en bas du backlog","C) Les supprimer après livraison","D) Les traiter comme des bugs"], correct:"A) Les décomposer dès qu'elles sont connues et les maintenir en tête", expl:"Les NFR (sécurité, performance) sont souvent des prérequis critiques à traiter tôt.", tip:"Les NFR doivent être intégrées dans la DoD." },
+    { thematic:"PO - Priorisation", q:"Comment établir l'ordre de priorité des exigences non-fonctionnelles ?", options:["A) Toujours plus prioritaires que le métier","B) Toujours moins prioritaires","C) Selon les dépendances qu'elles imposent","D] Selon la vision du PO uniquement"], correct:"C) Selon les dépendances qu'elles imposent", expl:"Si une NFR bloque plusieurs fonctionnalités, elle devient hautement prioritaire.", tip:"Les dépend techniques peuvent forcer la priorisation." },
+    { thematic:"PO - Mise à l'échelle", q:"Dans un Nexus (Scrum à l'échelle), comment le product backlog est-il géré ?", options:["A) Un Product Owner et un seul product backlog pour toutes les équipes","B) Un backlog par équipe","C) Un chief PO et plusieurs backlogs","D) Aucune règle"], correct:"A) Un Product Owner et un seul product backlog pour toutes les équipes", expl:"Nexus prescrit un seul PO et un backlog unique pour maintenir l'alignement.", tip:"Un backlog unique évite les silos." },
+    { thematic:"PO - Minimal Marketable Product", q:"Qu'est-ce qu'un Minimal Marketable Product (MMP) ?", options:["A) Le plus petit jeu de fonctionnalités pour tester une hypothèse","B) Le plus petit ensemble de fonctionnalités répondant aux besoins des utilisateurs et qu'ils sont prêts à acheter","C) Un prototype jetable","D) La première version bêta"], correct:"B) Le plus petit ensemble de fonctionnalités répondant aux besoins des utilisateurs et qu'ils sont prêts à acheter", expl:"Le MMP est viable commercialement, contrairement au MVP qui peut être non commercialisable.", tip:"Le MMP apporte de la valeur rapidement." },
+    { thematic:"PO - Valeur", q:"Quelle action optimise le mieux la valeur métier ?", options:["A) Aider l'équipe à comprendre des items clairs","B) S'assurer que le PO organise le backlog pour maximiser la valeur","C) Les deux A et B","D] Former l'équipe à l'architecture"], correct:"C) Les deux A et B", expl:"Des items clairs et un backlog bien priorisé sont essentiels pour la valeur.", tip:"Le PO est responsable de l'ordre, l'équipe de la clarté." }
+,
+// ===== 40 QUESTIONS SUPPLÉMENTAIRES (de la 31 à la 70) =====
+// À insérer dans le tableau QUIZ_DATA après les 30 premières questions
+
+{
+    thematic: "PMP - Gestion des risques",
+    q: "Au cours de la gestion des risques, 236 risques sont identifiés, causés par 13 causes profondes. Vous éliminez 234 risques. Les 2 derniers ne peuvent être atténués, ni transférés, ni exclus du périmètre. Quelle est la meilleure solution ?",
+    options: ["A) Accepter le risque", "B) Atténuer le risque", "C) Éviter le risque", "D) Transférer le risque"],
+    correct: "A) Accepter le risque",
+    expl: "Lorsqu'aucune stratégie active n'est possible, on accepte le risque et on prévoit des réserves pour éventualités.",
+    tip: "L'acceptation peut être passive (sans action) ou active (plan de contingence)."
+},
+{
+    thematic: "PMP - Approvisionnement",
+    q: "L'équipe se dispute sur le choix d'un fournisseur. La MEILLEURE chose à faire est de rappeler que la sélection doit se baser sur :",
+    options: ["A) Documents d'approvisionnement", "B) Audits d'approvisionnement", "C) Critères d'évaluation", "D) Plan de gestion des achats"],
+    correct: "C) Critères d'évaluation",
+    expl: "Les critères d'évaluation (pondérés, objectifs) définis en amont guident la sélection et évitent les conflits.",
+    tip: "Définissez les critères avant de recevoir les propositions."
+},
+{
+    thematic: "PMP - Approvisionnement",
+    q: "Un chef de projet crée une demande de propositions (RFP). À quel processus appartient cette activité ?",
+    options: ["A) Effectuer les achats", "B) Planifier les approvisionnements", "C) Contrôler les achats", "D) Clôturer les achats"],
+    correct: "B) Planifier les approvisionnements",
+    expl: "La RFP est un document d'approvisionnement préparé lors de la planification des achats.",
+    tip: "Planifier les approvisionnements définit aussi l'énoncé des travaux."
+},
+{
+    thematic: "PMP - Parties prenantes",
+    q: "Vous souhaitez regrouper les parties prenantes selon leur autorité et leur implication. Quel modèle est approprié ?",
+    options: ["A) Grille Pouvoir/Intérêt", "B) Grille Pouvoir/Influence", "C) Grille Influence/Impact", "D) Modèle de saillance"],
+    correct: "B) Grille Pouvoir/Influence",
+    expl: "L'autorité représente le pouvoir, l'implication représente l'influence. La grille Power/Influence est adaptée.",
+    tip: "La grille Power/Interest est plus courante mais moins précise pour l'implication."
+},
+{
+    thematic: "Agile - Manifeste",
+    q: "Laquelle des affirmations suivantes ne fait PAS partie des valeurs du manifeste agile ?",
+    options: ["A) Les individus et leurs interactions", "B) Une documentation exhaustive", "C) La collaboration avec les clients", "D) La réponse au changement"],
+    correct: "B) Une documentation exhaustive",
+    expl: "Le manifeste valorise 'des logiciels opérationnels plus qu'une documentation exhaustive'.",
+    tip: "La documentation utile est bienvenue, mais pas au détriment du produit."
+},
+{
+    thematic: "PMP - Communications",
+    q: "Dans un modèle de communication émetteur-récepteur, toutes les affirmations suivantes sont correctes SAUF :",
+    options: ["A) Le bruit doit être minimal", "B) Le récepteur doit répondre après décodage", "C) Le récepteur doit d'abord accuser réception puis être d'accord", "D) Le récepteur doit envoyer un feedback"],
+    correct: "C) Le récepteur doit d'abord accuser réception puis être d'accord",
+    expl: "Accuser réception est nécessaire, mais être d'accord ne l'est pas ; le récepteur peut ne pas approuver.",
+    tip: "Distinguer compréhension et adhésion."
+},
+{
+    thematic: "PMP - Gestion de la configuration",
+    q: "Quel outil ou technique est utilisé pour établir la baseline des coûts dans le processus Déterminer le budget ?",
+    options: ["A) Agrégation des coûts", "B) Estimation bottom-up", "C) Jugement d'expert", "D) Relations historiques"],
+    correct: "B) Estimation bottom-up",
+    expl: "L'estimation bottom-up est utilisée dans 'Estimer les coûts', pas dans 'Déterminer le budget' (où l'on agrège, analyse les réserves, etc.).",
+    tip: "Le budget utilise l'agrégation, l'analyse de réserves et les relations historiques."
+},
+{
+    thematic: "PMP - Contrôle qualité",
+    q: "Quelle technique inclut la mesure, l'examen et la validation pour vérifier si les livrables satisfont aux critères d'acceptation ?",
+    options: ["A) Ateliers", "B) Sondages", "C) Jugement d'expert", "D) Inspection"],
+    correct: "D) Inspection",
+    expl: "L'inspection examine un livrable pour détecter les défauts et vérifier la conformité aux exigences.",
+    tip: "Les inspections sont aussi appelées revues, audits ou walkthroughs."
+},
+{
+    thematic: "PMP - Gestion des risques",
+    q: "Un risque identifié (inondation) se réalise. Vous appliquez votre plan de réponse avec des caoutchoucs plus anciens, ce qui introduit un nouveau risque de casse. Ce nouveau risque est appelé :",
+    options: ["A) Risque secondaire", "B) Risque résiduel", "C) Plan de contingence", "D) Risque non maîtrisable"],
+    correct: "A) Risque secondaire",
+    expl: "Un risque secondaire résulte directement de la mise en œuvre d'une réponse à un risque.",
+    tip: "Toujours évaluer les risques secondaires lors de la planification des réponses."
+},
+{
+    thematic: "Leadership serviteur",
+    q: "Victoria, membre de l'équipe, vous envoie un email disant qu'elle n'a pas bien compris ses tâches. Que devez-vous faire en premier ?",
+    options: ["A) Lui répondre de relire la portée", "B) Appeler son responsable fonctionnel", "C) Organiser une rencontre individuelle", "D) En discuter en réunion d'équipe"],
+    correct: "C) Organiser une rencontre individuelle",
+    expl: "L'écoute active et l'empathie sont primordiales. Comprendre d'abord le problème en privé.",
+    tip: "Le leadership serviteur commence par l'écoute individuelle."
+},
+{
+    thematic: "PMP - Compétences interpersonnelles",
+    q: "Pour gérer les attentes des parties prenantes, vous appliquez des compétences interpersonnelles. Laquelle n'en fait PAS partie ?",
+    options: ["A) Instaurer la confiance", "B) Résoudre les conflits", "C) Prendre des risques", "D) Écouter activement"],
+    correct: "C) Prendre des risques",
+    expl: "La prise de risque n'est pas une compétence interpersonnelle pour gérer les attentes ; les trois autres le sont.",
+    tip: "La confiance, la résolution de conflits et l'écoute sont des soft skills clés."
+},
+{
+    thematic: "PMP - Gestion des coûts (EAC)",
+    q: "Calculez l'estimation à l'achèvement (EAC) avec : BAC = 360 000 $, AC = 120 000 $, ETC = 145 000 $.",
+    options: ["A) 300 000 $", "B) 265 000 $", "C) 325 000 $", "D) 360 000 $"],
+    correct: "B) 265 000 $",
+    expl: "EAC = AC + ETC = 120 000 + 145 000 = 265 000 $.",
+    tip: "Quand l'ETC est donné, utilisez EAC = AC + ETC."
+},
+{
+    thematic: "Agile - Lean",
+    q: "Scott travaille dans une entreprise Lean. Une nouvelle exigence est demandée. David dit : 'Il est trop tard pour accepter de nouvelles exigences.' Ce comportement va à l'encontre de :",
+    options: ["A) Des valeurs agiles", "B) Du manifeste Lean", "C) Du manifeste Agile", "D) Du développement axé sur les besoins"],
+    correct: "C) Du manifeste Agile",
+    expl: "Le manifeste Agile dit : 'Répondre au changement plutôt que suivre un plan'. Les méthodes Lean accueillent les changements tardifs.",
+    tip: "L'agilité embrace le changement, même tard dans le projet."
+},
+{
+    thematic: "PMP - Coentreprise",
+    q: "Votre entreprise forme une coentreprise avec un fournisseur. Quel document doit être préparé en coopération par l'acheteur et le vendeur ?",
+    options: ["A) Contrat", "B) Contrat et énoncé des travaux d'approvisionnement", "C) Demande de proposition", "D) Plan des ressources humaines"],
+    correct: "B) Contrat et énoncé des travaux d'approvisionnement",
+    expl: "Dans une coentreprise, les deux parties collaborent pour définir l'énoncé des travaux puis négocient le contrat final.",
+    tip: "La collaboration précoce évite les malentendus."
+},
+{
+    thematic: "PMP - Valeur actuelle nette (VAN)",
+    q: "Trois projets sont possibles : Projet A : délai récupération 6 ans, VAN = 3 M$ ; Projet B : 4 ans, VAN = 2 M$ ; Projet C : 2 ans, VAN = 1 M$. Selon la VAN, quel projet choisir ?",
+    options: ["A) Projet A", "B) Projet B", "C) Projet C", "D) Aucun, valeur égale"],
+    correct: "A) Projet A",
+    expl: "La VAN la plus élevée (3 M$) indique la meilleure création de valeur, indépendamment du délai de récupération.",
+    tip: "La VAN tient compte de la valeur temporelle de l'argent."
+},
+{
+    thematic: "PMP - Recueil des exigences",
+    q: "Quelle technique est utilisée pour générer et collecter de multiples idées sur les exigences du projet et du produit ?",
+    options: ["A) Remue-méninges", "B) Technique de groupe nominal", "C) Diagramme d'affinité", "D) Analyse multicritère"],
+    correct: "A) Remue-méninges",
+    expl: "Le brainstorming vise à générer un grand nombre d'idées en groupe, sans jugement immédiat.",
+    tip: "Combinez brainstorming et diagramme d'affinité pour organiser les idées."
+},
+{
+    thematic: "PMP - Placage d'or",
+    q: "Une fonctionnalité 'durée d'attente d'écran réglable' est ajoutée sans que le client l'ait demandée. Le client est ravi. De quoi s'agit-il ?",
+    options: ["A) Placage d'or", "B) Satisfaction client accrue", "C) Demande de modification réussie", "D) Risque inutile"],
+    correct: "A) Placage d'or",
+    expl: "Le placage d'or consiste à ajouter des fonctionnalités non demandées, ce qui peut être source de risques et de gaspillage.",
+    tip: "Évitez le placage d'or ; respectez la portée approuvée."
+},
+{
+    thematic: "PMP - Risques résiduels",
+    q: "Vous avez documenté tous les risques avec des réponses appropriées. Les risques qui subsistent après les réponses sont appelés :",
+    options: ["A) Déclencheurs de risque", "B) Risques non maîtrisables", "C) Risques résiduels", "D) Risques acceptés"],
+    correct: "C) Risques résiduels",
+    expl: "Les risques résiduels sont ceux qui restent après la mise en œuvre des réponses (y compris ceux délibérément acceptés).",
+    tip: "Il faut toujours planifier des réserves pour les risques résiduels."
+},
+{
+    thematic: "PMP - Structure organisationnelle",
+    q: "Vous avez le plus haut degré d'autorité, travaillez à temps plein sur le projet et gérez le budget. Quelle est votre structure ?",
+    options: ["A) Matrice forte", "B) Projetée", "C) Fonctionnelle", "D) Matrice équilibrée"],
+    correct: "B) Projetée",
+    expl: "Dans une organisation projetée, le chef de projet a une autorité maximale et gère le budget.",
+    tip: "Les structures matricielles partagent l'autorité."
+},
+{
+    thematic: "PMP - Canaux de communication",
+    q: "Équipe : 2 analystes, 4 dev, 3 testeurs, 1 PM. Un nouvel ingénieur test arrive. Combien de canaux de communication ?",
+    options: ["A) 55", "B) 50", "C) 45", "D) 36"],
+    correct: "A) 55",
+    expl: "n = 11 (10 + 1). Canaux = n(n-1)/2 = 11*10/2 = 55.",
+    tip: "Ajouter une personne augmente considérablement les canaux."
+},
+{
+    thematic: "PMP - Avantages intangibles",
+    q: "Après un projet d'amélioration, quel avantage est intangible ?",
+    options: ["A) +7% de clients", "B) -88% de plaintes", "C) +9% de perception de marque", "D) -17% de coût par client"],
+    correct: "C) +9% de perception de marque",
+    expl: "La perception de marque est non monétaire, contrairement aux chiffres d'affaires ou coûts.",
+    tip: "Les avantages intangibles incluent la réputation, la satisfaction, la marque."
+},
+{
+    thematic: "PMP - Conflit d'intérêts",
+    q: "Vous connaissez les critères d'évaluation confidentiels de l'acheteur. Que proposez-vous ?",
+    options: ["A) Ne rien faire", "B) Discuter en privé avec la personne appropriée chez l'acheteur", "C) Divulguer les critères à votre organisation", "D) Vous retirer du projet"],
+    correct: "B) Discuter en privé avec la personne appropriée chez l'acheteur",
+    expl: "L'éthique exige de révéler le conflit d'intérêts potentiel à l'acheteur.",
+    tip: "La transparence protège toutes les parties."
+},
+{
+    thematic: "PMP - Ordre des étapes",
+    q: "Pendant la planification, quelle étape est la plus récente par rapport aux autres ?",
+    options: ["A) Tenir une réunion de lancement", "B) Obtenir l'approbation formelle du plan", "C) Élaborer un budget", "D) Élaborer un calendrier"],
+    correct: "A) Tenir une réunion de lancement",
+    expl: "Ordre : calendrier → budget → approbation du plan → réunion de lancement.",
+    tip: "Le kick-off meeting est la dernière étape de la planification."
+},
+{
+    thematic: "Scrum - Équipe autogérée",
+    q: "Les meilleures architectures, exigences et designs proviennent de quel type d'équipe ?",
+    options: ["A) Colocalisée", "B) Autogérée", "C) Bien entraînée", "D) Expérimentée"],
+    correct: "B) Autogérée",
+    expl: "Le manifeste Agile indique que les meilleures architectures émergent d'équipes autogérées.",
+    tip: "L'autonomie favorise l'innovation."
+},
+{
+    thematic: "Scrum - Priorisation",
+    q: "Le Product Owner priorise le backlog. Quel critère n'est PAS à prendre en compte ?",
+    options: ["A) Dépendances", "B) Disponibilité des développeurs", "C) Risque", "D) Valeur"],
+    correct: "B) Disponibilité des développeurs",
+    expl: "La disponibilité est un facteur de planification du sprint, pas de priorisation du backlog.",
+    tip: "La priorisation se base sur la valeur, le risque et les dépendances."
+},
+{
+    thematic: "Scrum - Daily Scrum",
+    q: "Pourquoi le daily scrum doit-il avoir lieu à la même heure et au même endroit chaque jour ?",
+    options: ["A) Pour réserver une salle", "B) Pour que le management obtienne un point quotidien", "C) Pour minimiser la complexité", "D) Par obligation réglementaire"],
+    correct: "C) Pour minimiser la complexité",
+    expl: "Un lieu et une heure constants réduisent la charge cognitive et facilitent la routine.",
+    tip: "La constance améliore l'engagement."
+},
+{
+    thematic: "Scrum - Burn-down chart",
+    q: "Dans un burn-down chart en barres (type release), que représente la barre ?",
+    options: ["A) Le travail effectué", "B) Le travail restant", "C) La vélocité", "D) Le nombre de bugs"],
+    correct: "B) Le travail restant",
+    expl: "Un burn-down chart montre le travail restant (généralement en story points) au fil du temps.",
+    tip: "La ligne descend idéale tend vers zéro."
+},
+{
+    thematic: "Scrum - Contrats",
+    q: "Quel type de contrat est le plus adapté à une approche Scrum ?",
+    options: ["A) Prix forfaitaire", "B) Temps et matériel", "C) Les deux", "D) Aucun"],
+    correct: "B) Temps et matériel",
+    expl: "Le contrat 'time & material' est flexible et s'adapte aux changements itératifs.",
+    tip: "Le prix forfaitaire peut être utilisé avec des sprints fixes, mais il est moins agile."
+},
+{
+    thematic: "Scrum - Définition d'achevé (DoD)",
+    q: "Plusieurs équipes travaillent sur le même produit. Désaccord sur la DoD. Qui a raison ? (Scrum Master : DoD unique ; PO : DoD par équipe)",
+    options: ["A) Le PO, car la DoD aide l'équipe", "B) Le PO, car la DoD relève du PO", "C) Le SM, car les processus Scrum relèvent du SM", "D) Le SM, car une DoD intégrée assure la cohésion"],
+    correct: "D) Le SM, car une DoD intégrée assure la cohésion",
+    expl: "Pour un produit unique, une DoD commune garantit la qualité et la cohérence entre les incréments.",
+    tip: "Une DoD partagée évite les incohérences."
+},
+{
+    thematic: "Product Owner - Valeur",
+    q: "Le directeur financier veut calculer le ROI pour mesurer la valeur. Quelle est la meilleure réponse ?",
+    options: ["A) Oui, le client l'a demandé", "B) Oui, basé sur les benchmarks", "C) Non, le délai d'intégration est un meilleur indicateur", "D) Non, le ROI ne reflète que la valeur pour le fabricant"],
+    correct: "C) Non, le délai d'intégration est un meilleur indicateur",
+    expl: "Pour un projet d'intégration de coursiers, le temps d'intégration est une métrique plus pertinente que le ROI financier.",
+    tip: "Choisissez des indicateurs alignés sur l'objectif métier réel."
+},
+{
+    thematic: "Product Owner - Feedback client",
+    q: "Comment développer une compréhension intime des besoins des clients ?",
+    options: ["A) Recueillir le feedback à la mise en production", "B) Inviter les clients aux daily scrums", "C) Faire participer les clients tôt et souvent au processus", "D) Leur envoyer des questionnaires annuels"],
+    correct: "C) Faire participer les clients tôt et souvent au processus",
+    expl: "L'agilité implique le client tout au long du projet, pas seulement à la fin.",
+    tip: "Les cycles courts de feedback réduisent les mauvaises surprises."
+},
+{
+    thematic: "Product Owner - MMP",
+    q: "Qu'est-ce qu'un Minimal Marketable Product (MMP) ?",
+    options: ["A) Le plus petit ensemble de fonctionnalités testant une hypothèse", "B) Le plus petit ensemble répondant aux besoins des utilisateurs et qu'ils paieraient", "C) La première version gratuite", "D) Un prototype non fonctionnel"],
+    correct: "B) Le plus petit ensemble répondant aux besoins des utilisateurs et qu'ils paieraient",
+    expl: "Le MMP est commercialisable, contrairement au MVP qui peut être uniquement destiné à l'apprentissage.",
+    tip: "Le MMP apporte de la valeur rapidement et génère du revenu."
+},
+{
+    thematic: "Scrum - Vélocité (rappel)",
+    q: "La vélocité d'une équipe Scrum est définie comme :",
+    options: ["A) La vitesse à laquelle le sprint doit être effectué", "B) Le nombre de story points terminés par sprint", "C) La limite WIP optimale", "D) La somme des items du sprint backlog"],
+    correct: "B) Le nombre de story points terminés par sprint",
+    expl: "La vélocité est une mesure historique de la quantité de travail accomplie par sprint.",
+    tip: "Elle sert à la planification, pas à la comparaison entre équipes."
+},
+{
+    thematic: "Scrum - Estimation par affinité",
+    q: "Comment les story points sont-ils attribués avec l'estimation par affinité ?",
+    options: ["A) Classement relatif puis regroupement par taille", "B) Estimation individuelle puis consensus", "C) Comparaison à des stories de référence", "D) Utilisation d'une loi de probabilité"],
+    correct: "A) Classement relatif puis regroupement par taille",
+    expl: "L'affinité consiste à trier les stories par ordre de complexité puis à les regrouper dans des catégories de points.",
+    tip: "C'est une méthode rapide pour de grands lots."
+},
+{
+    thematic: "Scrum - Programmation en binôme",
+    q: "Un développeur code, un autre observe et commente, ils échangent régulièrement. De quelle pratique s'agit-il ?",
+    options: ["A) Revue de code", "B) Intégration continue", "C) Programmation en binôme", "D) TDD"],
+    correct: "C) Programmation en binôme",
+    expl: "Le pair programming améliore la qualité et le partage de connaissances.",
+    tip: "Alterner les rôles (driver/navigator) maximise l'efficacité."
+},
+{
+    thematic: "Scrum - Sprint Review",
+    q: "Un développeur pense qu'une partie prenante externe pourrait fournir un feedback précieux sur l'incrément. Quel est le meilleur événement pour l'inviter ?",
+    options: ["A) Daily Scrum", "B) Sprint Planning", "C) Sprint Retrospective", "D) Sprint Review"],
+    correct: "D) Sprint Review",
+    expl: "La sprint review est l'événement dédié à la démonstration et au recueil de feedback.",
+    tip: "Toute partie prenante peut être invitée à la review."
+},
+{
+    thematic: "Scrum - INVEST (Small)",
+    q: "Selon INVEST, quels items du product backlog doivent être de petite taille ?",
+    options: ["A) Tous les items", "B) Ceux en bas du backlog", "C) Ceux en haut du backlog", "D) Aucun, uniquement le sprint backlog"],
+    correct: "C) Ceux en haut du backlog",
+    expl: "Les items prioritaires doivent être suffisamment petits pour tenir dans un sprint.",
+    tip: "Le bas du backlog peut rester grossier (épopées)."
+},
+{
+    thematic: "Scrum - Rétrospective",
+    q: "Un membre de l'équipe propose une nouvelle approche technique qui accélère le travail. Quand est-il préférable de la partager ?",
+    options: ["A) Immédiatement en réunion d'équipe", "B) Après avoir rédigé une documentation", "C) Lors de la rétrospective du sprint", "D) Par email à tous"],
+    correct: "C) Lors de la rétrospective du sprint",
+    expl: "La rétrospective est l'occasion d'inspecter et d'améliorer les processus.",
+    tip: "Toute amélioration doit être discutée collectivement."
+},
+{
+    thematic: "PMP - Intégration continue (rappel agile)",
+    q: "Quelle pratique consiste à fusionner fréquemment le code dans la branche principale et à exécuter des tests automatisés ?",
+    options: ["A) Intégration continue", "B) Livraison continue", "C) Déploiement continu", "D) Refactoring"],
+    correct: "A) Intégration continue",
+    expl: "La CI intègre et valide le code plusieurs fois par jour.",
+    tip: "La CI réduit les conflits et détecte les erreurs tôt."
+},
+{
+    thematic: "PMP - Management visuel",
+    q: "Un tableau Kanban avec des colonnes 'À faire', 'En cours', 'Fait' est un exemple de :",
+    options: ["A) Diagramme de Gantt", "B) Radiateur d'information", "C) Burndown chart", "D) Plan de communication"],
+    correct: "B) Radiateur d'information",
+    expl: "Les radiateurs d'information (tableaux, graphs) rendent l'état du projet visible à tous.",
+    tip: "La transparence visuelle améliore la collaboration."
+},
+{
+    thematic: "PMP - Éthique",
+    q: "Vous découvrez qu'un fournisseur a offert un cadeau à un membre de votre équipe. Quelle est la première action ?",
+    options: ["A) Ignorer si la valeur est faible", "B) Signaler selon la politique de l'entreprise", "C) Accepter et ne pas en parler", "D) Renvoyer le fournisseur"],
+    correct: "B) Signaler selon la politique de l'entreprise",
+    expl: "Le code d'éthique exige de déclarer tout conflit d'intérêts potentiel.",
+    tip: "La transparence protège l'intégrité du projet."
+},
+
+// ===== 30 QUESTIONS SUPPLÉMENTAIRES (71 à 100) =====
+// À ajouter après les 40 questions précédentes dans QUIZ_DATA
+
+{
+    thematic: "PMP - Gestion de la valeur acquise",
+    q: "Si l'IPC = 0,8 et l'ISP = 1,2, que peut-on conclure ?",
+    options: ["A) Le projet est en avance sur le calendrier et en dessous du budget", "B) Le projet est en retard sur le calendrier et au-dessus du budget", "C) Le projet est en avance sur le calendrier mais au-dessus du budget", "D) Le projet est en retard mais en dessous du budget"],
+    correct: "C) Le projet est en avance sur le calendrier mais au-dessus du budget",
+    expl: "IPC < 1 = dépassement de coût ; ISP > 1 = avance sur le calendrier.",
+    tip: "IPC et ISP sont des indicateurs de performance clés."
+},
+{
+    thematic: "PMP - Gestion des risques",
+    q: "Quelle est la différence entre un risque connu et un risque inconnu ?",
+    options: ["A) Le risque connu est identifié, l'inconnu ne l'est pas", "B) Le risque connu a un plan de réponse, l'inconnu une réserve de gestion", "C) Les deux sont corrects", "D) Aucun des deux"],
+    correct: "C) Les deux sont corrects",
+    expl: "Les risques connus sont identifiés et peuvent avoir des réserves d'éventualité ; les inconnus sont gérés par la réserve de gestion.",
+    tip: "La réserve de gestion couvre les risques imprévus."
+},
+{
+    thematic: "PMP - Planification des achats",
+    q: "Quel document décrit le travail à réaliser par un fournisseur ?",
+    options: ["A) Énoncé des travaux (SOW)", "B) Demande de prix (RFQ)", "C) Lettre d'intention", "D) Contrat-cadre"],
+    correct: "A) Énoncé des travaux (SOW)",
+    expl: "Le SOW définit le périmètre, les livrables et les critères d'acceptation pour le fournisseur.",
+    tip: "Un SOW clair évite les contentieux."
+},
+{
+    thematic: "PMP - Gestion des conflits",
+    q: "Deux parties prenantes s'opposent violemment sur une décision technique. Quelle technique de résolution est la plus adaptée ?",
+    options: ["A) Compromis", "B) Collaboration / résolution de problème", "C) Forçage", "D) Lissage"],
+    correct: "B) Collaboration / résolution de problème",
+    expl: "La collaboration cherche une solution gagnant-gagnant en intégrant les points de vue.",
+    tip: "Privilégiez la collaboration pour les décisions importantes."
+},
+{
+    thematic: "Scrum - Événements",
+    q: "Quel événement Scrum est le meilleur moment pour adapter le product backlog en fonction des retours du marché ?",
+    options: ["A) Daily Scrum", "B) Sprint Planning", "C) Sprint Review", "D) Sprint Retrospective"],
+    correct: "C) Sprint Review",
+    expl: "La revue de sprint est l'occasion d'inspecter l'incrément et d'ajuster le backlog.",
+    tip: "Le Product Owner peut reprioriser après la review."
+},
+{
+    thematic: "Scrum - Rôles",
+    q: "Qui peut annuler un sprint ?",
+    options: ["A) Le Product Owner", "B) Le Scrum Master", "C) Les Développeurs", "D) Le sponsor"],
+    correct: "A) Le Product Owner",
+    expl: "Seul le Product Owner a l'autorité d'annuler un sprint si l'objectif devient obsolète.",
+    tip: "L'annulation est rare et coûteuse."
+},
+{
+    thematic: "Scrum - Métriques",
+    q: "Quelle métrique permet de mesurer la stabilité de l'équipe à livrer la valeur prévue ?",
+    options: ["A) Vélocité", "B) Taux d'achèvement du sprint", "C) Délai de cycle (cycle time)", "D) Taux d'échec des changements"],
+    correct: "A) Vélocité",
+    expl: "La vélocité (story points par sprint) donne une tendance de capacité.",
+    tip: "Utilisez la moyenne des 3 derniers sprints pour la planification."
+},
+{
+    thematic: "Scrum - Definition of Ready",
+    q: "À quoi sert la 'Definition of Ready' (DoR) ?",
+    options: ["A) À définir quand un item est terminé", "B) À définir quand un item peut être tiré dans un sprint", "C) À remplacer la DoD", "D) À mesurer la vélocité"],
+    correct: "B) À définir quand un item peut être tiré dans un sprint",
+    expl: "La DoR est un ensemble de critères qu'un item doit satisfaire pour être accepté dans le sprint planning.",
+    tip: "La DoR améliore la prévisibilité."
+},
+{
+    thematic: "Agile à l'échelle - SAFe",
+    q: "Dans SAFe (Scaled Agile Framework), qu'est-ce qu'un 'Program Increment' (PI) ?",
+    options: ["A) Un sprint de 2 semaines", "B) Une itération de planification de 8 à 12 semaines", "C) Une réunion quotidienne", "D) Un artefact de backlog"],
+    correct: "B) Une itération de planification de 8 à 12 semaines",
+    expl: "Le PI est une caisse de synchronisation pour plusieurs équipes Agile, se terminant par une démonstration.",
+    tip: "SAFe utilise des PI Planning de 2 jours."
+},
+{
+    thematic: "Agile - LeSS",
+    q: "Dans LeSS (Large-Scale Scrum), combien de Product Owners y a-t-il pour un produit ?",
+    options: ["A) Un par équipe", "B) Un seul pour tout le produit", "C) Un par fonctionnalité", "D) Aucun, rôle collectif"],
+    correct: "B) Un seul pour tout le produit",
+    expl: "LeSS préserve un seul Product Owner et un seul backlog pour l'ensemble du produit.",
+    tip: "LeSS simplifie la mise à l'échelle."
+},
+{
+    thematic: "PMP - Management des équipes virtuelles",
+    q: "Quel est le plus grand défi des équipes virtuelles ?",
+    options: ["A) Le coût des outils", "B) Les fuseaux horaires et la communication", "C) Le manque de compétences techniques", "D) La sécurité des données"],
+    correct: "B) Les fuseaux horaires et la communication",
+    expl: "Les différences de temps et l'absence de communication informelle sont les principaux obstacles.",
+    tip: "Planifiez des plages de chevauchement et utilisez des outils asynchrones."
+},
+{
+    thematic: "PMP - Gestion des bénéfices",
+    q: "Quel document décrit comment et quand les bénéfices du projet seront réalisés ?",
+    options: ["A) Charte du projet", "B) Plan de management des bénéfices", "C) Énoncé de la portée", "D) Registre des risques"],
+    correct: "B) Plan de management des bénéfices",
+    expl: "Ce plan identifie les bénéfices attendus, leurs indicateurs et le calendrier de réalisation.",
+    tip: "Les bénéfices sont souvent mesurés après la clôture."
+},
+{
+    thematic: "PMP - Estimation",
+    q: "Quelle technique d'estimation utilise des valeurs à trois points (optimiste, pessimiste, le plus probable) ?",
+    options: ["A) Estimation paramétrique", "B) Estimation par analogie", "C) Estimation PERT", "D) Jugement d'expert"],
+    correct: "C) Estimation PERT",
+    expl: "PERT (Program Evaluation Review Technique) calcule une moyenne pondérée.",
+    tip: "La formule PERT : (O + 4M + P)/6."
+},
+{
+    thematic: "PMP - Gestion de la qualité",
+    q: "Quel outil est utilisé pour identifier les causes racines d'un problème ?",
+    options: ["A) Diagramme de Pareto", "B) Diagramme en arête de poisson (Ishikawa)", "C) Cartes de contrôle", "D) Échantillonnage statistique"],
+    correct: "B) Diagramme en arête de poisson (Ishikawa)",
+    expl: "Le diagramme cause-effet aide à explorer les causes potentielles d'un défaut.",
+    tip: "Combinez-le avec les '5 pourquoi'."
+},
+{
+    thematic: "PMP - Gestion des parties prenantes",
+    q: "Que faire si une partie prenante a un pouvoir élevé mais un intérêt faible ?",
+    options: ["A) Tenir informé", "B) Surveiller", "C) Maintenir satisfait", "D) Gérer étroitement"],
+    correct: "C) Maintenir satisfait",
+    expl: "Selon la matrice pouvoir/intérêt, les acteurs de cette zone doivent être tenus satisfaits sans surcharge.",
+    tip: "Évitez de les négliger car ils peuvent bloquer le projet."
+},
+{
+    thematic: "Scrum - Burndown chart",
+    q: "Un burndown chart montre une ligne qui remonte soudainement. Quelle en est la cause probable ?",
+    options: ["A) L'équipe a terminé plus de travail que prévu", "B) Du travail a été ajouté au sprint backlog", "C) La vélocité a augmenté", "D) Une erreur de saisie"],
+    correct: "B) Du travail a été ajouté au sprint backlog",
+    expl: "Si de nouvelles tâches sont ajoutées, le travail restant augmente, faisant remonter la courbe.",
+    tip: "Le burndown doit refléter toute modification du périmètre."
+},
+{
+    thematic: "Scrum - Refinement",
+    q: "Quel pourcentage du temps d'un sprint est généralement consacré au raffinement du backlog ?",
+    options: ["A) 1%", "B) 5 à 10%", "C) 20 à 30%", "D) 50%"],
+    correct: "B) 5 à 10%",
+    expl: "Le guide Scrum suggère environ 5 à 10% du temps de l'équipe pour le raffinement.",
+    tip: "Cela peut être réparti sur tout le sprint."
+},
+{
+    thematic: "Scrum - Valeurs",
+    q: "Laquelle des valeurs suivantes n'est PAS une valeur Scrum ?",
+    options: ["A) Courage", "B) Focus", "C) Efficacité", "D) Ouverture"],
+    correct: "C) Efficacité",
+    expl: "Les cinq valeurs Scrum sont : Courage, Focus, Engagement, Ouverture, Respect.",
+    tip: "Ces valeurs guident le comportement de l'équipe."
+},
+{
+    thematic: "Product Owner - Gestion financière",
+    q: "Le Product Owner doit comprendre quel aspect financier pour maximiser la valeur ?",
+    options: ["A) Le coût de développement par story point", "B) La VAN et le ROI", "C) L'amortissement des serveurs", "D) La comptabilité en partie double"],
+    correct: "B) La VAN et le ROI",
+    expl: "Le PO doit évaluer le retour sur investissement et la valeur actualisée pour prioriser.",
+    tip: "Connaître les métriques financières aide à justifier les décisions."
+},
+{
+    thematic: "Product Owner - Contrats",
+    q: "Dans un contrat à prix forfaitaire, comment le PO peut-il maintenir l'agilité ?",
+    options: ["A) Définir un périmètre fixe détaillé", "B) Utiliser des sprints de démonstration et des clauses de changement", "C) Refuser le contrat", "D) Développer sans contrat"],
+    correct: "B) Utiliser des sprints de démonstration et des clauses de changement",
+    expl: "Des jalons de validation et des mécanismes de modification permettent d'ajuster le périmètre.",
+    tip: "Prévoir des sprints de validation avec le client."
+},
+{
+    thematic: "PMP - Clôture de projet",
+    q: "Quel document atteste que le client a accepté les livrables ?",
+    options: ["A) Certificat d'acceptation", "B) Registre des leçons apprises", "C) Rapport de clôture", "D) Facture finale"],
+    correct: "A) Certificat d'acceptation",
+    expl: "L'acceptation formelle des livrables est une étape clé de la clôture.",
+    tip: "Obtenez une signature avant la transition."
+},
+{
+    thematic: "PMP - Gestion des ressources",
+    q: "Qu'est-ce que le 'nivellement des ressources' (resource leveling) ?",
+    options: ["A) Ajouter des ressources pour raccourcir le planning", "B) Lisser l'utilisation des ressources pour éviter les pics", "C) Évaluer les compétences", "D) Remplacer les ressources défaillantes"],
+    correct: "B) Lisser l'utilisation des ressources pour éviter les pics",
+    expl: "Le nivellement ajuste les dates pour respecter les disponibilités, souvent en allongeant le calendrier.",
+    tip: "Utile quand les ressources sont limitées."
+},
+{
+    thematic: "Agile - DevOps",
+    q: "Quel est l'objectif principal de l'intégration continue (CI) ?",
+    options: ["A) Déployer automatiquement en production", "B) Détecter rapidement les erreurs d'intégration", "C) Générer la documentation", "D) Gérer les versions"],
+    correct: "B) Détecter rapidement les erreurs d'intégration",
+    expl: "La CI exécute des tests à chaque commit pour identifier les régressions immédiatement.",
+    tip: "Une bonne CI inclut des tests unitaires et d'intégration."
+},
+{
+    thematic: "Agile - Métriques",
+    q: "Quelle métrique mesure le temps entre la demande d'une fonctionnalité et sa livraison ?",
+    options: ["A) Lead time", "B) Cycle time", "C) Throughput", "D) Vélocité"],
+    correct: "A) Lead time",
+    expl: "Le lead time couvre toute la période, de la demande à la livraison. Le cycle time ne couvre que le travail actif.",
+    tip: "Réduire le lead time est un objectif Lean."
+},
+{
+    thematic: "PMP - Analyse de la valeur acquise",
+    q: "La formule de l'indice de performance des coûts (IPC) est :",
+    options: ["A) EV / AC", "B) EV / PV", "C) AC / EV", "D) PV / EV"],
+    correct: "A) EV / AC",
+    expl: "IPC = Valeur acquise / Coût réel. >1 = bon, <1 = mauvais.",
+    tip: "Mémorisez : EV/AC pour les coûts, EV/PV pour le planning."
+},
+{
+    thematic: "PMP - Plan de management",
+    q: "Quel plan décrit comment les changements seront évalués et approuvés ?",
+    options: ["A) Plan de gestion de la configuration", "B) Plan de gestion des changements", "C) Plan de gestion des risques", "D) Plan de gestion de la qualité"],
+    correct: "B) Plan de gestion des changements",
+    expl: "Ce plan définit le processus de demande, d'analyse et d'approbation des changements.",
+    tip: "Il fait partie du plan de gestion de l'intégration."
+},
+{
+    thematic: "Scrum - Équipe",
+    q: "Taille recommandée d'une équipe Scrum (développeurs) ?",
+    options: ["A) 3 à 9", "B) 1 à 5", "C) 10 à 15", "D) 2 à 4"],
+    correct: "A) 3 à 9",
+    expl: "Le guide Scrum préconise 3 à 9 développeurs (plus le PO et le SM).",
+    tip: "Moins de 3 réduit l'interaction, plus de 9 complexifie la coordination."
+},
+{
+    thematic: "Scrum - Artefacts",
+    q: "L'incrément est :",
+    options: ["A) La somme de tous les items terminés dans le sprint", "B) La somme de tous les items terminés depuis le début du produit", "C) Le sprint backlog", "D) Le product backlog"],
+    correct: "B) La somme de tous les items terminés depuis le début du produit",
+    expl: "L'incrément est cumulatif : chaque sprint ajoute des fonctionnalités à l'incrément précédent.",
+    tip: "L'incrément doit être potentiellement livrable."
+},
+{
+    thematic: "PMP - Code d'éthique",
+    q: "Le code de déontologie du PMI repose sur deux piliers :",
+    options: ["A) Responsabilité et respect", "B) Équité et honnêteté", "C) Les quatre valeurs : responsabilité, respect, équité, honnêteté", "D) Transparence et intégrité"],
+    correct: "C) Les quatre valeurs : responsabilité, respect, équité, honnêteté",
+    expl: "Le code d'éthique du PMI inclut ces quatre valeurs fondamentales.",
+    tip: "Connaissez-les pour l'examen PMP."
+},
+{
+    thematic: "Agile - Rétrospective",
+    q: "Quelle question n'est PAS typiquement posée en rétrospective Scrum ?",
+    options: ["A) Qu'avons-nous bien fait ?", "B) Qu'avons-nous mal fait ?", "C) Combien de story points avons-nous terminés ?", "D) Qu'allons-nous améliorer ?"],
+    correct: "C) Combien de story points avons-nous terminés ?",
+    expl: "La vélocité est mesurée ailleurs ; la rétrospective se concentre sur les processus et interactions.",
+    tip: "La rétrospective est orientée amélioration continue."
+}
+
+
+];
+
+// Complétion à 100 questions avec des items réalistes (simulation)
+
+// Normalisation des options pour éviter les erreurs
+for(let q of QUIZ_DATA) {
+    if(!q.options) q.options = ["A) Option manquante","B) Option manquante","C) Option manquante","D) Option manquante"];
+    if(!q.correct) q.correct = q.options[0];
+    if(!q.expl) q.expl = "Explication : reportez-vous aux référentiels officiels.";
+    if(!q.tip) q.tip = "Conseil : relisez le domaine concerné.";
+}
+
+// État du quiz
+let currentIndex = 0;
+let userAnswers = new Array(QUIZ_DATA.length).fill(null);
+let timerInterval = null;
+let timeLeft = 100 * 60; // 100 minutes
+let score = 0;
+
+// DOM elements
+const setupPanel = document.getElementById('setupPanel');
+const quizArea = document.getElementById('quizArea');
+const startBtn = document.getElementById('startQuizBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const finishBtn = document.getElementById('finishBtn');
+const questionText = document.getElementById('questionText');
+const optionsContainer = document.getElementById('optionsContainer');
+const explanationContainer = document.getElementById('explanationContainer');
+const qThematicSpan = document.getElementById('qThematic');
+const qCounterSpan = document.getElementById('qCounter');
+const liveScoreSpan = document.getElementById('liveScore');
+const totalQSpan = document.getElementById('totalQ');
+const globalProgressDiv = document.getElementById('globalProgress');
+const timerDisplaySpan = document.getElementById('timerDisplay');
+const restartExamBtn = document.getElementById('restartExamBtn');
+
+totalQSpan.innerText = QUIZ_DATA.length;
+
+function updateScoreAndProgress() {
+    let correctCount = 0;
+    for(let i=0; i<QUIZ_DATA.length; i++) {
+        if(userAnswers[i] !== null && userAnswers[i] === QUIZ_DATA[i].correct) correctCount++;
+    }
+    score = correctCount;
+    liveScoreSpan.innerText = score;
+    let answered = userAnswers.filter(a => a !== null).length;
+    let percent = (answered / QUIZ_DATA.length) * 100;
+    globalProgressDiv.style.width = `${percent}%`;
+}
+
+function renderCurrentQuestion() {
+    const q = QUIZ_DATA[currentIndex];
+    questionText.innerText = q.q;
+    qThematicSpan.innerText = q.thematic;
+    qCounterSpan.innerText = `Question ${currentIndex+1} / ${QUIZ_DATA.length}`;
+    optionsContainer.innerHTML = '';
+    explanationContainer.style.display = 'none';
+    q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = opt;
+        if(userAnswers[currentIndex] === opt) {
+            if(opt === q.correct) btn.classList.add('correct-highlight');
+            else btn.classList.add('incorrect-highlight');
+        }
+        btn.onclick = () => selectAnswer(opt);
+        optionsContainer.appendChild(btn);
+    });
+    if(userAnswers[currentIndex] !== null) showExplanationForCurrent();
+    prevBtn.disabled = (currentIndex === 0);
+    nextBtn.style.display = (currentIndex === QUIZ_DATA.length-1) ? 'none' : 'inline-flex';
+    finishBtn.style.display = (currentIndex === QUIZ_DATA.length-1) ? 'inline-flex' : 'none';
+}
+
+function selectAnswer(selected) {
+    if(userAnswers[currentIndex] !== null) return;
+    userAnswers[currentIndex] = selected;
+    updateScoreAndProgress();
+    renderCurrentQuestion();
+}
+
+function showExplanationForCurrent() {
+    const q = QUIZ_DATA[currentIndex];
+    const selected = userAnswers[currentIndex];
+    if(!selected) return;
+    const isCorrect = (selected === q.correct);
+    explanationContainer.style.display = 'block';
+    explanationContainer.innerHTML = `<div class="explanation-box">
+        <strong>${isCorrect ? '✅ Correct' : '❌ Incorrect'}</strong><br>
+        ${q.expl}
+        ${q.tip ? `<div class="tip-rex"><i class="fas fa-lightbulb"></i> ${q.tip}</div>` : ''}
+    </div>`;
+}
+
+function nextQuestion() { if(currentIndex < QUIZ_DATA.length-1) { currentIndex++; renderCurrentQuestion(); } }
+function prevQuestion() { if(currentIndex > 0) { currentIndex--; renderCurrentQuestion(); } }
+function autoSubmitQuiz() { if(timerInterval) clearInterval(timerInterval); finishQuiz(); }
+function finishQuiz() {
+    if(timerInterval) clearInterval(timerInterval);
+    showResults();
+}
+function showResults() {
+    let finalCorrect = 0;
+    for(let i=0;i<QUIZ_DATA.length;i++) if(userAnswers[i] === QUIZ_DATA[i].correct) finalCorrect++;
+    let percent = (finalCorrect / QUIZ_DATA.length)*100;
+    document.getElementById('finalPercent').innerHTML = `${percent.toFixed(1)}%`;
+    document.getElementById('finalScoreText').innerHTML = `${finalCorrect} / ${QUIZ_DATA.length}`;
+    const pass = percent >= 80;
+    const badge = document.getElementById('passBadge');
+    badge.innerHTML = pass ? '✅ CERTIFIÉ (≥80%)' : '❌ NON CERTIFIÉ (réessayez)';
+    badge.className = `badge fs-6 p-2 mt-2 ${pass ? 'bg-success' : 'bg-danger'}`;
+    document.getElementById('recapMessage').innerHTML = pass ? 'Félicitations ! Vous maîtrisez les concepts PMP et Agile Scrum.' : 'Revoyez les domaines où vous avez eu des erreurs, notamment les rôles et les événements Scrum.';
+    document.getElementById('domainStats').innerHTML = `<div>PMP : score estimé ~${Math.round(percent)}%</div><div>Scrum/PO : idem</div>`;
+    document.getElementById('recommendList').innerHTML = '<ul><li>Relire le guide Scrum 2020</li><li>Pratiquer les questions PMP sur la gestion des risques</li><li>Réviser le rôle du Product Owner</li></ul>';
+    let elapsedSec = 100*60 - timeLeft;
+    let mins = Math.floor(elapsedSec/60);
+    let secs = elapsedSec%60;
+    document.getElementById('elapsedTime').innerHTML = `${mins} min ${secs} sec`;
+    const modal = new bootstrap.Modal(document.getElementById('resultModal'));
+    modal.show();
+}
+function startTimer() {
+    timerInterval = setInterval(() => {
+        if(timeLeft <= 0) {
+            clearInterval(timerInterval);
+            autoSubmitQuiz();
+        } else {
+            timeLeft--;
+            let hours = Math.floor(timeLeft/3600);
+            let mins = Math.floor((timeLeft%3600)/60);
+            let secs = timeLeft%60;
+            if(hours>0) timerDisplaySpan.innerText = `${hours.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+            else timerDisplaySpan.innerText = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+        }
+    }, 1000);
+}
+function initQuiz() {
+    setupPanel.style.display = 'none';
+    quizArea.style.display = 'block';
+    currentIndex = 0;
+    userAnswers.fill(null);
+    timeLeft = 100*60;
+    score = 0;
+    updateScoreAndProgress();
+    renderCurrentQuestion();
+    startTimer();
+}
+startBtn.onclick = initQuiz;
+nextBtn.onclick = nextQuestion;
+prevBtn.onclick = prevQuestion;
+finishBtn.onclick = finishQuiz;
+restartExamBtn.onclick = () => location.reload();
+</script>
+</body>
+</html>
